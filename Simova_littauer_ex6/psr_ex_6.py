@@ -7,9 +7,9 @@ By Richard Littauer and Iliana Simova
 To run:
     k is a variable. 
 
-    python psr_ex_6.py prob iris.txt k
-    python psr_ex_6.py cont iris.txt k
-    python psr_ex_6.py disc congress-test.txt congress-train.txt k
+python psr_ex_6.py prob iris.txt k
+python psr_ex_6.py cont iris.txt k
+python psr_ex_6.py disc congress-train.txt congress-test.txt k
 
 '''
 
