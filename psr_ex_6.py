@@ -7,7 +7,7 @@ By Richard Littauer and Iliana Simova
 To run:
     k is a variable. 
 
-    python psr_ex_6.py prob iris.txt
+    python psr_ex_6.py prob iris.txt k
     python psr_ex_6.py cont iris.txt k
     python psr_ex_6.py disc congress-test.txt congress-train.txt k
 
@@ -24,14 +24,14 @@ F_LEN = 1
 CL_POSS = 2
 N = 50
 data = [[] for i in range(len(CLASS))]
-k = 15
 
 def dist(x,y):
     res = math.fabs(x-y)
     if res == 0: res = 0.0001
     return res
 
-def get_p_mass(file_name):
+def get_p_mass(file_name, k):
+    k = int(k)
     #read in the data
     f = open(file_name, 'r')
     f_data = [l.split() for l in f.readlines()]
@@ -148,8 +148,8 @@ def discrete_features(train_name,test_name,k):
 
 #The commands used. 
 if __name__ == "__main__":
-    if (sys.argv[1]) = "prob"
-        get_p_mass(sys.argv[2])
+    if (sys.argv[1]) == "prob":
+        get_p_mass(sys.argv[2], sys.argv[3])
     if (sys.argv[1] == "train"):
         train(sys.argv[2])
     if (sys.argv[1] == "cont"):
