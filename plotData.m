@@ -11,11 +11,11 @@ pos = find(y==1);
 neg = find(y==0);
 
 % Plot examples
-plot(X(pos, 1), X(pos, 2), 'rx', 'MarkerSize', 5);
+plot(X(pos, 1), X(pos, 2), 'cr', 'MarkerSize', 5);
 hold on;
-plot(X(neg, 1), X(neg, 2), 'bx', 'MarkerSize', 5);
+plot(X(neg, 1), X(neg, 2), 'cb', 'MarkerSize', 5);
 hold on;
 
 legend('virginica:', 'versicolor:');
-
+axis([3, 8, -5, 110])
 hold off
