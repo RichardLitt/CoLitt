@@ -2,6 +2,14 @@
 Code code code code
 By Matrim Cauthon and Ilyena Therin Telamon
 
+How to run:
+substitute the desired number for k
+
+python psr_ex_6.py cont iris.txt k
+python psr_ex_6.py disc congress-train.txt congress-test.txt k
+
+
+
 '''
 
 
@@ -73,7 +81,7 @@ def discrete_distance(line, line2):
             distance += 1
     return (line[0], line2[0], distance)
 
-def discrete_features(train_name,test_name,k):
+def discrete_features(train_name,t<D-rhest_name,k):
     f = open(test_name,'r+').readlines()
     g = open(train_name, 'r+').readlines()
     versicolor = []
