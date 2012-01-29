@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{eacl2012}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{url}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\setlength\titlebox{6.5cm}    % Expanding the titlebox
+
+\title{Visualising Typological Relations: Using Heat Maps with WALS}
+%Title should perhaps be changed. 
+
+\author{Richard Littauer \\
+University of Saarland\\
+Computational Linguistics Department\\
+66041 Saarbr\"ucken, Germany\\
+  {\tt richard.littauer@gmail.com} \\\And
+Alexis Palmer\\
+University of Saarland\\
+Computational Linguistics Department\\
+66041 Saarbr\"ucken, Germany\\
+  {\tt email @ gmail.com} \\\And
+Rory Turnbull \\
+Ohio State University\\
+Linguistics Department\\
+Columbus, Ohio\\
+  {\tt turnbull@ling.osu.edu} \\}
+
+%Hmm. Pretty bad clashes there. not sure why. Ideas? Style guide in subfolder.
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This paper presents a novel way of visualising linguistic typological data. Computational methods have only recently been applied in the formation and use of large typological databases. Many studies have since focused on discovering relations between languages using typology, often using sophisticated statistical techniques. However, few papers have provided new ways of visually presenting the resulting data. Here, we show that one can use the data from the World Atlas of Language Structures\cite{wals-2011} to develop both heat maps and admixture graphs that visually show the interconnected relationships between languages and language families. We hope that the images will bring a new perspective to the data, resulting in interesting findings and illuminating areas of research.
+\end{abstract}
+
+%% This outline is just a suggestion. Feel free to mix it up as much as you want if you feel it would or should be better another way. 
+
+\section{Introduction}
+\subsection{Heat maps}
+\begin{itemize}
+\item brief history of typology
+\item WALS
+\item visualisation
+\item what visualisation can do for us
+\item Heat Maps and Admixture-  where they come from, what they are doing here
+\item plan for the paper
+\end{itemize}
+
+\section{Material and Methods}
+\subsection{Linguistic material}
+\begin{itemize}
+\item Information about WALS data
+\begin{itemize} \item Description of typological data
+\item Longitude and latitude, and how it is measured
+\item language families
+\item Sparseness \end{itemize}
+\item Information about Multitree\cite{multitree}
+%Multitree - for relations, can code out the .xml and use those. http://multitree.linguistlist.org/about
+\item Information about Ethnologue\cite{ethnologue} scrape %provided by steven moran -need to get this
+\end{itemize}
+
+\subsection{Methods}
+\begin{itemize}
+\item Cleaning WALS data
+\item Collapsing WALS data
+\item Scraping Ethnologue, Multitree, formati
+\item Measuring Phylogenetic distance
+\item Measuring Geographical distance
+%Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
+%   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
+\item Combined map
+%Should be possible - give distance equal weightings, find the aggregate. 
+\item Compiling python scripts, converting into R
+\item Sorting R output
+\end{itemize}
+
+\section{Results} %Or visualisations?
+\subsection{Heat maps}
+\begin{itemize}
+\item Phylogenetic distance heatmaps
+%only relevant ones, or ones that seem particularly useful. We should be making a few - world, region, etc. Going to need to make a supplement, perhaps. 
+\item Geographical distance heatmaps
+\item Combined maps
+\end{itemize}
+\subsection{Heat maps}
+\begin{itemize}
+\item Admixture mappings
+%families
+%regions
+%combined
+\end{itemize}
+
+\section{Discussion}
+\begin{itemize}
+\item What these tell us (map by map)
+\item What these tell us, overall - implications
+\item Warnings: sparse data, data not there, etc. 
+\item Future work
+\end{itemize}
+
+\bibliographystyle{acl}
+\bibliography{lingviz}
+%WALS
+%Multitree
+%Ethnologue
+
+\end{document}
