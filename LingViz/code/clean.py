@@ -287,7 +287,7 @@ Geographical distance:
     geographic() on cleaned data.
 '''
 
-def geographic(input_file, lower_threshhold):
+def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
 
     # This will be redefined for each language that is suitable
     output_file = 'output_test.csv'
@@ -314,16 +314,56 @@ def geographic(input_file, lower_threshhold):
 
         # Check and find the line number in distances.
         for x in range(1, len(language_row)):
-            if wals_code in language_row:
 
-                # For each value
-                stored_values = []
-                for value in geoList[x]:
-                    # shim
-                    if value != 'NA':
+            # For each value
+            stored_values = []
+            for value in range(1, len(geoList[x])):
+                # shim
+                if geoList[x][value] != 'NA':
+                    if geoList[x][value] != '0.0':
 
-                        # Going to need a way to sort numbers while keeping
-                        # indices for those values. 
+                        # Append horiztonal distance measures
+                        stored_values.append([value, float(geoList[x][value])])
+
+                if geoList[value][x] != 'NA':
+                    if geoList[value][x] != '0.0':
+
+                    # Make sure the crux value isn't repeated
+                        if geoList[x][value] != geoList[value][x]:
+
+                            # Append vertical distance measures
+                            stored_values.append([value, float(geoList[value][x])])
+
+            # Sort the values and their indices
+            sorted_values = sorted(stored_values, key=lambda x: x[1])
+
+            if top_bound == 'radius':
+                maximum_radius = top_bound_value
+                language_list = []
+
+
+
+                    # Find languages that are in the cleaned file, too.
+                for y in sorted_values:
+                    
+                    # If the top bound hasn't been met yet, cont.
+                    current_max_radian = 0
+                    if current_max_radian <= maximum_radius:
+                        if geoList[y[0]][0] in language_row:
+                            if y[1] != float(0.0):
+                                language_list.append(y)
+                                current_max_radian += y[1]
+                                print current_max_radian
+                                print language_list
+
+
+
+            if top_bound == 'languages':
+                maximum_areal_languages = top_bound_value
+
+
+
+            print len(sorted_values)
 
                 #print x, len(lineList)
                 #print language_row[x], geoList[x][0]
@@ -389,7 +429,7 @@ if __name__ == "__main__":
         phylogenetic()
     if sys.argv[1] == 'geo':
         print "Now sorting languages geograpically."
-        geographic(sys.argv[2], sys.argv[3])
+        geographic(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
     if sys.argv[1] == 'pg':
         print "Now sorting with a mixture of phylogeneitc and geographically."
         phylogeo()
