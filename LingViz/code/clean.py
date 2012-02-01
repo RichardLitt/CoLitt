@@ -1,56 +1,58 @@
 '''
-The purpose of this code is to clean WALS.
-
-Rough notes from Rory and Richard Skype Chat:
+The purpose of this code is to clean and sort WALS.
     ====================================
 
-ok, so, you wanted the languages to be ordered by distances from each other. i presume the intention of that was so that all the close together language comparisons are on one end of the graph, and all the far away language comparisons are on the other end?
-and that the intention is not to re-create a pseudomap of worldgeography
-The intention was to make related languages appear in the graph
-so that we can use it to look for linguistic areas
-languages are generally related either geographically or phylogenetically
+Ordering:
+    For vector relations, we have an issue where to center the matrix.
+    If centred on a point, both ends may be close or far apart - one
+    can only stare at the center of the graph for information.
 
-it would be REALLY INTERESTING if we did a contact model, as well, say, of English
-now, this would be possible if we used, instead of features, a smaller subset, perhaps a single feature map
+    We could sort them lattitudinally or longitudinally - consider the case of
+    a Dravidian language at the south of India. This would work well, here. Or
+    Patagonian. Japanese would work - but we don't have the dialect scales, so
+    this may not show us anything, especially not with WALS. This helps us in
+    forcing our hand to make smaller maps - say, 30 languages - instead of
+    massive ones. 
 
-so i've realized the sorting method i outlined doesn't really work, because we're trying to sort two-dimensional data, not one-dimensional.
-we could also combine features, create a feature similarity metric
-so the issue i'm seeing is that their could be (will be) two pairs of languages - say, french and italian, and japanese and ainu - that have relatively small distances between them
-these two comparisons would be right beside each other on the heat map
-or at least, close, because they're both small distances
-I was thinking we center the map on one language, and then either side will be the fallout
-the issue is the ends - obviously, it means things aren't done possibly
-like, connections won't be made between equidistant languages that may be related
-and I don't have a solution to that.
-what we could do is sort it lattitudally or longitudally
-or, connections WILL be made between languages that are both x km from the center language, even if they're both in different directions
 
-if we center, we can say look at the centric maps
-also, we don't want to have a graph with millions of languages
-limiting it to a subset - say 30 language
-should really elleviate the issue
-we could also just get all the data, and then use some matrix reordering or seriation algorithm to cluster everything together (but that's kinda backwards)
-haha, yes, currently we have a 2678x2678 matrix, which is a little large
-also, because comparisons are symmetrical, the graph will be too - or one half will be blank
-(assuming both x and y orders are the same)
+    We could also plot on a world map, but that would not be a heat map. An
+    option for this would be to color gradiantly based on certain featurs - for
+    instance, color could indicate phoneme size. 
 
-we still need to clean the WALS data: what is it - 16% full at the moment?
-76492 datapoints for 2678 languages.
-(yeah, my sorting method doesn't work, as it's impossible to get it back into a sorted matrix)
+    Another option would be a matrix map of some sort - Again, not a heat map,
+    and beyond the scale of this current study.
 
-we should cut out features
-with less than a certain amount of languages per ____
-phylogenetically, per family
-let's say maybe 10 family members
-is the minimum needed or 30
-could be a ratio of the amount of languages divided against the amount of languages in the family
-if over > 15
+Relations:
+    Languages are related either phylogenetically, or geographically. There is
+    also a possible Contact option, but we do not have the proper typological
+    details for this, nor historic details.
 
-Geographical distance:
-    While % of languages in an area would be useful, it is unrealised for WALS.
-    Instead, going for a set number of languages with full data in a given
-    area. This can be manually reset as desired. One should only run
-    geographic() on cleaned data. 
+    Relations are defined by features. A possibility is combining features, and
+    creating a feature similarity metric - for instance, aligning various types
+    of syntactic universals together.
+
+    Here, it is possible to sort phylogenetically by WALS hierarchies, or by
+    ethnologue hierarchies. There is no real difference between them. Another
+    option would be to use MultiTree for identified trees. WALS data can be
+    sorted by Family or Genus, not yet by subfamily. Ethnologue data can
+    currently only be calibrated by the overarching parents, and not by
+    sub-roots, although this would be useful.
+
+Distance:
+    For each language, the distance has been calculated. Currently we have a
+    2678x2678 matrix, which is a little large.
+
+    Geographical distances can be calculated by radius distance from the
+    centroid, or the amount of languages specified that pass the cleaning test
+    and are closes to the centroid. 
+
+Cleaning:
+    The WALS data can be cleaned with the data_clean() function. It should be
+    noted that WALS is sparse, with only 76492 datapoints for 2678 languages,
+    which, at 144 features, is only 19% full. This may not even be the right
+    way of seeing it, however. 
+
+
 
 '''
 
@@ -267,21 +269,21 @@ def phylogenetic():
 
 
 
-
+'''
 # Was going to be used in the ethnologue familie data, hasn't been worked yet.
 def family_tree(x, y, depth=10):
-    # if 
     j = open(family_file, 'r+')
     j.write(x[y])
     for z in range(1, len(x)-1):
         family_tree(x, y, depth=10)
     j.close
+'''
+
 
 '''
 This function will sort according to geographic distance
 
 Geographical distance:
-    While % of languages in an area would be useful, it is unrealised for WALS.
     Instead, going for a set number of languages with full data in a given
     area. This can be manually reset as desired. One should only run
     geographic() on cleaned data.
@@ -289,17 +291,14 @@ Geographical distance:
 
 def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
 
-    # This will be redefined for each language that is suitable
-    output_file = 'output_test.csv'
-
     # Open files
     f = open(input_file, 'r+')
     g = open(distance_file, 'r+')
-    h = open(output_file, 'a')
 
     # For printing in the terminal
     lines_sorted = 0
 
+    # Makes a list of all of the languages in the distance file, for sorting.
     language_row = []
     geoList = split_lines(read_file(distance_file), '\t')
     for x in range(len(geoList[0])):
@@ -308,65 +307,137 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
 
     # For each language in input file
     lineList = f.readlines()
+
+    # Makes a list of each language in the cleaned input data.
+    language_f_low = []
     for line in lineList:
         line = line.split(',')
+        language_f_low.append(line[0])
+
+    # For each language
+    for line in lineList[1:]:
+        line = line.split(',')
+
+        # Find the wals_code
         wals_code = line[0]
 
-        # Check and find the line number in distances.
-        for x in range(1, len(language_row)):
+        # Find where it is in the distance file
+        x = language_row.index(wals_code)
 
-            # For each value
-            stored_values = []
-            for value in range(1, len(geoList[x])):
-                # shim
-                if geoList[x][value] != 'NA':
-                    if geoList[x][value] != '0.0':
+        # Make an empty list to be populated by language distances
+        stored_values = []
 
-                        # Append horiztonal distance measures
-                        stored_values.append([value, float(geoList[x][value])])
+        # For every distance measurement (all languages)
+        for value in range(1, len(geoList[x])):
+            # shim
+            if geoList[x][value] != 'NA':
+                if geoList[x][value] != '0.0':
 
-                if geoList[value][x] != 'NA':
-                    if geoList[value][x] != '0.0':
+                    # Append horiztonal distance measures
+                    stored_values.append([value, float(geoList[x][value])])
 
-                    # Make sure the crux value isn't repeated
-                        if geoList[x][value] != geoList[value][x]:
+            # shim
+            if geoList[value][x] != 'NA':
+                if geoList[value][x] != '0.0':
 
-                            # Append vertical distance measures
-                            stored_values.append([value, float(geoList[value][x])])
+                # Make sure the crux value isn't repeated
+                    if geoList[x][value] != geoList[value][x]:
 
-            # Sort the values and their indices
-            sorted_values = sorted(stored_values, key=lambda x: x[1])
+                        # Append vertical distance measures
+                        stored_values.append([value, float(geoList[value][x])])
 
-            if top_bound == 'radius':
-                maximum_radius = top_bound_value
-                language_list = []
-
+        # Sort the values and their indices
+        sorted_values = sorted(stored_values, key=lambda x: x[1])
 
 
-                    # Find languages that are in the cleaned file, too.
-                for y in sorted_values:
-                    
-                    # If the top bound hasn't been met yet, cont.
-                    current_max_radian = 0
-                    if current_max_radian <= maximum_radius:
-                        if geoList[y[0]][0] in language_row:
-                            if y[1] != float(0.0):
-                                language_list.append(y)
-                                current_max_radian += y[1]
-                                print current_max_radian
-                                print language_list
+        # The amount of languages searched through
+        total_searched = 0
+
+        # If we're measuring amounts of languages by radius
+        if top_bound == 'radius':
+
+            # The maximum amount allowable
+            maximum_radius = top_bound_value
+
+            # To be populated by the closest, non-sparse languages
+            languages_list = []
+
+            # Going through the sorted distance lists
+            for y in sorted_values:
+
+                # If the top bound hasn't been met yet, cont. Shim.
+                if y[1] != float(0.0):
+                    if int(y[1]) <= int(maximum_radius):
+
+                        # If 25 are met, cut it off. The heat maps we're using
+                        # won't accept much more.
+                        if len(languages_list) <= int(24):
+
+                            # If in the cleaned file
+                            target_wals_code = language_row[y[0]]
+                            if target_wals_code in language_f_low:
+
+                                # Add to lang_list
+                                languages_list.append(y)
+
+                            # Add to the total amount known, to see sparseness
+                            total_searched += 1
+
+            # If there aren't enough languages that fit, delete entry
+            if len(languages_list) <= int(lower_threshhold):
+                languages_list = []
+
+        # If we're measuring merely by amount near
+        if top_bound == 'languages':
+
+            # The amount in the area we'll take
+            maximum_areal_languages = int(top_bound_value)
+
+            # List to be populated by the chosen
+            languages_list = []
+
+            # Starting with the closest languages
+            for y in sorted_values:
+
+                # Shim
+                if y[1] != float(0.0):
+
+                    # If in cleaned data
+                    target_wals_code = language_row[y[0]]
+                    if target_wals_code in language_f_low:
+
+                        # If we haven't got enough yet
+                        if len(languages_list) <= int(maximum_areal_languages-1):
+
+                            # Add it in.
+                            languages_list.append(y)
+
+                    # Add to the total amount known, to see sparseness
+                    total_searched += 1
+
+            # If there aren't enough.
+            if len(languages_list) <= int(lower_threshhold):
+                languages_list = []
+
+        # For the languages chosen
+        for language in languages_list:
+
+            # Find the WALS code
+            wals_code = language_row[language[0]]
+
+            # Find the index where its information lies
+            wals_index = language_f_low.index(wals_code)
+
+            # Make the output name. 
+            output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
+            sys.argv[5] + '-' + str(total_searched)
+
+            h = open(output_file, 'a')
+            h.write(line[0] + ',' + str(language[1]) + ',' + lineList[wals_index])
+
+    h.close()
 
 
-
-            if top_bound == 'languages':
-                maximum_areal_languages = top_bound_value
-
-
-
-            print len(sorted_values)
-
-                #print x, len(lineList)
-                #print language_row[x], geoList[x][0]
 
 
 
@@ -374,9 +445,9 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
 # This function cleans the data based on the amount of values it has filled.
 # Note - this is not feature kind at the moment, but applies to all values.
 
-#input_file = datapoints_file.csv # For now, this is a good idea. Eventually, more.
-#lower_threshhold = .5 # Lowest amount of data permitted, as a percentage.
-#output_file = "clean_data.csv" # Must be specified in argv.
+# input_file = datapoints_file.csv # For now, this is a good idea. Eventually, more.
+# lower_threshhold = .5 # Lowest amount of data permitted, as a percentage.
+# output_file = "clean_data.csv" # Must be specified in argv.
 
 def data_clean(lower_threshhold, input_file):
 
@@ -422,35 +493,23 @@ def data_clean(lower_threshhold, input_file):
 
 
 if __name__ == "__main__":
+
+    # If we're cleaning the data
     if sys.argv[1] == 'clean':
         data_clean(sys.argv[2], sys.argv[3])
+
+    # If we're just going with the hierarchies
     if sys.argv[1] == 'phy':
         print "Now sorting languages phylogenetically."
         phylogenetic()
+
+    # If we're sorting by distance (must be cleaned first)
     if sys.argv[1] == 'geo':
         print "Now sorting languages geograpically."
         geographic(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+
+    # Not yet coded, may not be. 
     if sys.argv[1] == 'pg':
-        print "Now sorting with a mixture of phylogeneitc and geographically."
+        print "Now sorting with a mixture of phylogenetic and geographically."
         phylogeo()
-    if sys.argv[1] == 'contact':
-        print "Now sorting by hard-coded contact languages."
         contact_lang()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
