@@ -50,14 +50,49 @@ This paper presents a novel way of visualising linguistic typological data. Comp
 \item plan for the paper
 \end{itemize}
 
+
+%
+%
+%
+%Relations:
+%    Languages are related either phylogenetically, or geographically. There is
+%    also a possible Contact option, but we do not have the proper typological
+%    details for this, nor historic details.
+%
+%    Relations are defined by features. A possibility is combining features, and
+%    creating a feature similarity metric - for instance, aligning various types
+%    of syntactic universals together.
+%
+%    Here, it is possible to sort phylogenetically by WALS hierarchies, or by
+%    ethnologue hierarchies. There is no real difference between them. Another
+%    option would be to use MultiTree for identified trees. WALS data can be
+%    sorted by Family or Genus, not yet by subfamily. Ethnologue data can
+%    currently only be calibrated by the overarching parents, and not by
+%    sub-roots, although this would be useful.
+%
+%
+
+
 \section{Material and Methods}
 \subsection{Linguistic material}
 \begin{itemize}
 \item Information about WALS data
+%Cleaning:
+%    The WALS data can be cleaned with the data_clean() function. It should be
+%    noted that WALS is sparse, with only 76492 datapoints for 2678 languages,
+%    which, at 144 features, is only 19% full. This may not even be the right
+%    way of seeing it, however. 
 \begin{itemize} \item Description of typological data
 \item Longitude and latitude, and how it is measured
+%Distance:
+%    For each language, the distance has been calculated. Currently we have a
+%    2678x2678 matrix, which is a little large.
+%
+%    Geographical distances can be calculated by radius distance from the
+%    centroid, or the amount of languages specified that pass the cleaning test
+%    and are closes to the centroid. 
 \item language families
-\item Sparseness \end{itemize}
+\item WALS-language Sparseness \end{itemize}
 \item Information about Multitree\cite{multitree}
 %Multitree - for relations, can code out the .xml and use those. http://multitree.linguistlist.org/about
 \item Information about Ethnologue\cite{ethnologue} scrape %provided by steven moran -need to get this
@@ -73,6 +108,19 @@ This paper presents a novel way of visualising linguistic typological data. Comp
 %Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
 %   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
 \item Combined map
+
+%Ordering:
+%    For vector relations, we have an issue where to center the matrix.
+%    If centred on a point, both ends may be close or far apart - one
+%    can only stare at the center of the graph for information.
+%
+%    We could sort them lattitudinally or longitudinally - consider the case of
+%    a Dravidian language at the south of India. This would work well, here. Or
+%    Patagonian. Japanese would work - but we don't have the dialect scales, so
+%    this may not show us anything, especially not with WALS. This helps us in
+%    forcing our hand to make smaller maps - say, 30 languages - instead of
+%    massive ones. 
+
 %Should be possible - give distance equal weightings, find the aggregate. 
 \item Compiling python scripts, converting into R
 \item Sorting R output
@@ -99,7 +147,13 @@ This paper presents a novel way of visualising linguistic typological data. Comp
 \item What these tell us (map by map)
 \item What these tell us, overall - implications
 \item Warnings: sparse data, data not there, etc. 
-\item Future work
+\item Future work 
+%    We could also plot on a world map, but that would not be a heat map. An
+%    option for this would be to color gradiantly based on certain featurs - for
+%    instance, color could indicate phoneme size. 
+%
+%    Another option would be a matrix map of some sort - Again, not a heat map,
+%    and beyond the scale of this current study.
 \end{itemize}
 
 \bibliographystyle{acl}
