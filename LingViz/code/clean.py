@@ -46,17 +46,11 @@ is the minimum needed or 30
 could be a ratio of the amount of languages divided against the amount of languages in the family
 if over > 15
 
-for gepographical distance
-it should be languages with values in the area over the 60 closest languages
-if over 15
-that means that 25% of the languages in a given area have to have values in order for us to consider geographical contact
-not that I'm setting 60 closest languages to deal with geographical differences - new guinea does not equal polynesia
-make sense?
-we can only test features that exist
-and should only use features that have a certain amount of languages represented.
-I think, for each matrix, yes, we can only count languages that have those
-features
-but not the overall proportion
+Geographical distance:
+    While % of languages in an area would be useful, it is unrealised for WALS.
+    Instead, going for a set number of languages with full data in a given
+    area. This can be manually reset as desired. One should only run
+    geographic() on cleaned data. 
 
 '''
 
@@ -65,8 +59,9 @@ import sys
 datapoints_file = "datapoints.csv" # WALS data
 languages_file = "languages.csv" # WALS language details, inc. ISO codes
 ethnologue = "ethnologue.csv" # Ethnologue scraped data, 2005
+distance_file = "distances.csv" # Distances file
+
 root_e_file = "root_e_file.csv" # The phylo file for ethnologue data for root entries
-#output_file = "cleaned_datapoints.csv" # The final file for...
 w_genus_data = "w_genus_datapoints.csv" # Data sorted by WALS hier. by genus
 w_genus_data = "w_family_datapointss.csv" # Data sorted by WALS hier. by family
 
@@ -123,10 +118,10 @@ def phylogenetic():
         print_count = 0
 
         # For line in the WALS data
-        for line in range(1,len(dataList)-1):
+        for line in range(1,len(dataList)):
 
             # Cross check with the WALS language file
-            for lines in range(1, len(languagesList)-1):
+            for lines in range(1, len(languagesList)):
                 # shimming
                 lang_code = languagesList[lines][0].replace('\"', '')
                 if dataList[line][0] == lang_code:
@@ -137,7 +132,7 @@ def phylogenetic():
                     root = []
 
                     # Cross check with the ethnologue file
-                    for lines in range(1, len(ethnoList)-1):
+                    for lines in range(1, len(ethnoList)):
                         if iso_code == ethnoList[lines][0]:
 
                             # Choose out the roots and parents from Ethnologue
@@ -145,7 +140,7 @@ def phylogenetic():
                             parents = ethnoList[lines][2]
 
                             # Find all roots in E.
-                            for lines in range(1, len(ethnoList)-1):
+                            for lines in range(1, len(ethnoList)):
                                 if root == ethnoList[lines][1]:
 
                                     # For each root, find the ISO code
@@ -157,7 +152,7 @@ def phylogenetic():
 
                                     # Take the new ISO codes back to the
                                     # Wals languaage list
-                                    for a in range(1, len(languagesList)-1):
+                                    for a in range(1, len(languagesList)):
                                         # Shim for multiple ISO codes
                                         mult_codes = languagesList[a][7].replace('\"', '').replace("\n", '')
                                         mult_codes = mult_codes.split(' ')
@@ -205,13 +200,13 @@ def phylogenetic():
         print_count = 0
 
         # For every WALS data line
-        for a in range(1, len(dataList)-1):
+        for a in range(1, len(dataList)):
             # Find a code, shim it
             wals_code = dataList[a][0]
             wals_code = '\"' + wals_code + '\"'
 
             # Find the language line
-            for c in range(1, len(languagesList)-1):
+            for c in range(1, len(languagesList)):
                 if wals_code == languagesList[c][0]:
 
                     # Define family and Genus per entry
@@ -222,11 +217,11 @@ def phylogenetic():
                     if sys.argv[3] == "family":
 
                         # For each entry in that family
-                        for d in range(1, len(languagesList)-1):
+                        for d in range(1, len(languagesList)):
                             if languagesList[d][5] == family:
 
                                 # Go back to the WALS data
-                                for e in range(1, len(dataList)-1):
+                                for e in range(1, len(dataList)):
 
                                         # Shim, find that entry
                                         fam_word = languagesList[d][0].replace('\"', '')
@@ -247,11 +242,11 @@ def phylogenetic():
                     if sys.argv[3] == "genus":
 
                         # For each entry in that genus
-                        for d in range(1, len(languagesList)-1):
+                        for d in range(1, len(languagesList)):
                             if languagesList[d][4] == genus:
 
                                 # Go back to the WALS data
-                                for e in range(1, len(dataList)-1):
+                                for e in range(1, len(dataList)):
 
                                         # Shim, find that entry
                                         fam_word = languagesList[d][0].replace('\"', '')
@@ -282,6 +277,57 @@ def family_tree(x, y, depth=10):
         family_tree(x, y, depth=10)
     j.close
 
+'''
+This function will sort according to geographic distance
+
+Geographical distance:
+    While % of languages in an area would be useful, it is unrealised for WALS.
+    Instead, going for a set number of languages with full data in a given
+    area. This can be manually reset as desired. One should only run
+    geographic() on cleaned data.
+'''
+
+def geographic(input_file, lower_threshhold):
+
+    # This will be redefined for each language that is suitable
+    output_file = 'output_test.csv'
+
+    # Open files
+    f = open(input_file, 'r+')
+    g = open(distance_file, 'r+')
+    h = open(output_file, 'a')
+
+    # For printing in the terminal
+    lines_sorted = 0
+
+    language_row = []
+    geoList = split_lines(read_file(distance_file), '\t')
+    for x in range(len(geoList[0])):
+        code = geoList[0][x].replace('\n', '')
+        language_row.append(code)
+
+    # For each language in input file
+    lineList = f.readlines()
+    for line in lineList:
+        line = line.split(',')
+        wals_code = line[0]
+
+        # Check and find the line number in distances.
+        for x in range(1, len(language_row)):
+            if wals_code in language_row:
+
+                # For each value
+                stored_values = []
+                for value in geoList[x]:
+                    # shim
+                    if value != 'NA':
+
+                        # Going to need a way to sort numbers while keeping
+                        # indices for those values. 
+
+                #print x, len(lineList)
+                #print language_row[x], geoList[x][0]
+
 
 
 
@@ -294,6 +340,7 @@ def family_tree(x, y, depth=10):
 
 def data_clean(lower_threshhold, input_file):
 
+    # The name of the output file changes for variables involved
     output_file = 'clean-' + sys.argv[2].replace('.','') + '-' + sys.argv[3].replace('.csv', '')
 
     # Open files
@@ -342,7 +389,7 @@ if __name__ == "__main__":
         phylogenetic()
     if sys.argv[1] == 'geo':
         print "Now sorting languages geograpically."
-        geographic()
+        geographic(sys.argv[2], sys.argv[3])
     if sys.argv[1] == 'pg':
         print "Now sorting with a mixture of phylogeneitc and geographically."
         phylogeo()
