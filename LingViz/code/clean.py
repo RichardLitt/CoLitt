@@ -281,7 +281,7 @@ def phylogenetic(input_file):
                                         # Shim, find that entry
                                         fam_code = languagesList[d][0].replace('\"', '')
                                         if fam_code == dataList[e][0]:
-                                            if fam_word not in printed_codes:
+                                            if fam_code not in printed_codes:
 
                                                 # Append to already printed codes
                                                 printed_codes.append(fam_code)
@@ -558,7 +558,7 @@ def data_clean(lower_threshhold, input_file):
 
             # Print the amount of lines printed
             lines_printed += 1
-            print lines_printed
+    print "Lines printed: " + str(lines_printed) + "."
 
     # Close file
     l.close()
@@ -570,7 +570,7 @@ if __name__ == "__main__":
     # If we're cleaning the data
     # Examples:
 
-    # python clean.py .3 datapoints.csv
+    # python clean.py clean .3 datapoints.csv
 
     if sys.argv[1] == 'clean':
         data_clean(sys.argv[2], sys.argv[3])
@@ -578,8 +578,11 @@ if __name__ == "__main__":
     # If we're just going with the hierarchies
     # Examples:
 
-    # python clean.py phy clean-015-datapoints e parents
-    # python clean.py phy clean-015-datapoints w family
+    # python clean.py phy clean-25-datapoints e root
+    # python clean.py phy clean-25-datapoints e parents
+    # python clean.py phy clean-25-datapoints w family
+    # python clean.py phy clean-25-datapoints w subfamily
+    # python clean.py phy clean-25-datapoints w genus
 
 
     if sys.argv[1] == 'phy':
@@ -589,11 +592,11 @@ if __name__ == "__main__":
     # If we're sorting by distance (must be cleaned first)
     # Examples:
 
-    # python clean.py geo clean-015-datapoints 15 radius 500
-    # python clean.py geo clean-015-datapoints 15 languages 25
+    # python clean.py geo clean-25-datapoints 15 radius 500
+    # python clean.py geo clean-25-datapoints 15 languages 25
 
     if sys.argv[1] == 'geo':
-        print "Now sorting languages geograpically."
+        print "Now sorting languages geographically."
         geographic(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 
     # Not yet coded, and may not be. 
@@ -601,3 +604,19 @@ if __name__ == "__main__":
     #    print "Now sorting with a mixture of phylogenetic and geographically."
     #    phylogeo()
     #    contact_lang()
+
+'''
+Commands to use:
+
+    python clean.py clean .5 datapoints.csv
+
+    python clean.py phy clean-25-datapoints e root
+    python clean.py phy clean-25-datapoints e parents
+    python clean.py phy clean-25-datapoints w family
+    python clean.py phy clean-25-datapoints w subfamily
+    python clean.py phy clean-25-datapoints w genus
+
+    python clean.py geo clean-25-datapoints 15 radius 500
+    python clean.py geo clean-5-datapoints 15 languages 25
+
+'''
