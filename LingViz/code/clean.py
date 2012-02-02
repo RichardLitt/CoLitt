@@ -99,7 +99,6 @@ def centred(unsorted_list):
     for y in range(2, len(unsorted_list), 2):
         centred_list.insert(0, unsorted_list[y])
     centred_list = ''.join(centred_list)
-    print centred_list
     return centred_list
 
 # Defines how you want to sort these things
@@ -519,6 +518,7 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
     # For each language
     for line in lineList[1:]:
         line = line.split(',')
+        line_index = line
 
         # Find the wals_code
         wals_code = line[0]
@@ -622,7 +622,11 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
                 languages_list = []
 
         # Used in centreing the list
-        print_list = []
+        line_index.insert(0, line[0])
+        line_index.insert(1, '0.0')
+        line_index.insert(2, str(total_searched))
+        line_index = ','.join(line_index)
+        print_list = [line_index]
 
         # For the languages chosen
         for language in languages_list:
