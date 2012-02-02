@@ -1,29 +1,56 @@
 clean.data = read.table("data/geo-clean-30-datapoints-r-500",sep=",",header=F)
 
-clean.data.phono = clean.data[5:18]
-heatmap((data.matrix(clean.data.phono)),Rowv=NA,Colv=NA)
+features = read.table("features.csv",header=T,sep=",",stringsAsFactors=F)
 
-lang1 = clean.data[clean.data$V1=="yim",5:18]
-heatmap((data.matrix(lang1)),Rowv=NA,Colv=NA)
+# Given a particular column in a dataset, find what
+# feature it corresponds to. Can also shift, if
+# the dataset still has the language and distance
+# columns attached.
+get.feature = function(column,shift=F) {
+	if(shift) {
+		return(features[column-5,2])
+	}
+	return(features[column,2])
+}
 
-lang2 = clean.data[clean.data$V1=="kob",5:18]
-heatmap((data.matrix(lang2)),Rowv=NA,Colv=NA)
+remove.empty = function(data.subset) {
+	# Remove empty columns
+	data.subset = data.subset[,which(colMeans(is.na(data.subset)) < 1)]
+	# Remove empty rows
+	data.subset = data.subset[which(rowMeans(is.na(data.subset)) < 1),]
+	return(data.subset)
+}
 
-lang3 = clean.data[clean.data$V1=="kew",5:18]
-heatmap((data.matrix(lang3)),Rowv=NA,Colv=NA)
-
-lang4 = clean.data[clean.data$V1=="awt",5:18]
-heatmap((data.matrix(lang4)),Rowv=NA,Colv=NA)
-
-lang5 = clean.data[clean.data$V1=="arp",5:18]
-heatmap((data.matrix(lang5)),Rowv=NA,Colv=NA)
-
-lang6 = clean.data[clean.data$V1=="ala",5:18]
-heatmap((data.matrix(lang6)),Rowv=NA,Colv=NA)
+make.heatmap = function(data,language,features) {
+	shifted.features = features+4
+	data.subset = clean.data[clean.data$V1==language,shifted.features]
+	rownames(data.subset) = clean.data$V4[clean.data$V1==language]
+	colnames(data.subset) = get.feature(shifted.features)
+	data.subset = remove.empty(data.subset)
+	heatmap(data.matrix(data.subset),Rowv=NA,Colv=NA,main=language)
+}
 
 
-# TO DO:
-# Make the feature names and the language names populate
-# the col and row names
-#
-# Write functions to remove any rows/columns that are all NA.
+pdf("data/ala.pdf")
+make.heatmap(clean.data,"ala",1:14)
+dev.off()
+
+pdf("data/arp.pdf")
+make.heatmap(clean.data,"arp",1:14)
+dev.off()
+
+pdf("data/awt.pdf")
+make.heatmap(clean.data,"awt",1:14)
+dev.off()
+
+pdf("data/kew.pdf")
+make.heatmap(clean.data,"kew",1:14)
+dev.off()
+
+pdf("data/kob.pdf")
+make.heatmap(clean.data,"kob",1:14)
+dev.off()
+
+pdf("data/yim.pdf")
+make.heatmap(clean.data,"yim",1:14)
+dev.off()
