@@ -365,7 +365,8 @@ def phylogenetic(input_file, lower_threshhold):
                                                 printed_codes.append(fam_code)
 
                                                 # Write to print list
-                                                print_list.append(family + ','.join(dataList[e]))
+                                                print_list.append(dataList[a][0] + ','\
+                                                        + ','.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
@@ -412,7 +413,7 @@ def phylogenetic(input_file, lower_threshhold):
                                                 printed_codes.append(gen_code)
 
                                                 # Write to print list
-                                                print_list.append(genus + ','.join(dataList[e]))
+                                                print_list.append(dataList[a][0] + ',' + ','.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
@@ -437,6 +438,7 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
+                        i.insert(0, subfamily)
                         i = ','.join(i)
                         
                         # Used in centreing the list
@@ -460,13 +462,12 @@ def phylogenetic(input_file, lower_threshhold):
                                                     printed_codes.append(subfam_code)
 
                                                     # Write to print list
-                                                    print_list.append(subfam_code + ','.join(dataList[e]))
+                                                    print_list.append(dataList[a][0]\
+                                                            + ',' + ','.join(dataList[e]))
 
                                                     # Update print count
                                                     print_count += 1
                                                     print print_count
-
-                                                    print subfamily
 
                             # Open file
                             h = open(w_subfamily_data, 'a')
