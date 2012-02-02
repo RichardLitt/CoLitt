@@ -4,26 +4,61 @@ Written by Richard Littauer.
 
 Released into the public domain like stocked trout into the sea.
 
+The commands needed to run this file can be seen at the bottom of the file next
+to the name_main function. 
+
 
 Things to be improved upon:
+
     - The ethnologue parents function, while it sorts for immediate parent
       nodes, can't do more than that, and can't find the upper nodes. This
       means that when the languages mentioned aren't in the WALS data, there's
       not much left. Out of the top 9 parents that have more than 25 languages,
       only 28 languages are left after going back to WALS when the data has
       been cleaned to 15%. That's almost nothing.
+
+      On the other hand, there's not much to be done about this. They .xml
+      isn't in the ethnologue file we have, and involving this would involve
+      adding in another document and crosschecking again. This can be done, but
+      not neccessarily at the moment without that .xml file for the trees. If
+      this is done, we can also integrate MultiTree. This is a good area for
+      future work.
+
+      Neither can you hard code in trees, which might be a nice idea.
+
     - There is no function currently to jointly graph phylogenetic and
       geographical information in some sort of dependent variable way. There
       should be one, as these are definitely linked together.
+
+      However, doing one without seeing how the graphics work completely would
+      be premature. It might be possible to feed the geo-sorted file into the
+      phylogenetic code, but that would also be premature at this stage.
+
     - Dictionaries would have been a better way to do this, if you want to
-      speed it up. As for now, it works, so I don't much see the need. 
+      speed it up. As for now, it works, so I don't much see the need.
+
+      The code is also inefficient, as there is a lot of repeated code. It
+      would be better to take some of this out of the arg if statements and
+      into separate functions, but I haven't had the time to rework this entire
+      code - and if it works, it works.
+
     - This currently spits out distance lists sorted from least to first, not
       using the centric pairing on either side we're going to need for the heat
-      graphs. 
-    - This also ought to be searchable against the MultiTree .xml, and it isn't
-      at the moment. Neither can you hard code in trees, which might be a nice
-      idea. 
+      graphs.
 
+      This is the plan, as R will be enough to suitably deal with the code
+      itself. It's most likely an easy function to do, but I haven't done it
+      here, as I assume it can be easier done after writing to the file and
+      feeding it into R, instead of here. This assumption may be wrong.
+
+    - It would be nice to be able to select langauges and run a graph based on
+      them, instead of doing all languages and then sorting through. It would
+      also be nice to be able to selectively choose which languages you want to
+      graph against which other ones, in order to test things such as contact.
+      However, it is difficult to say whether we, or WALS, has enough
+      diachronic data to show contact that couldn't simply be done with
+      geographic distance, as large contact eras are, I assume, relatively
+      recent (after the Age of Exploration.)
 
 '''
 
@@ -518,13 +553,23 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
     h.close()
 
 
+# This will be fully added an integrated when we've run a few more of the other
+# ones and know more fully how the graphics look, and what we can do with them.
 
-# This function cleans the data based on the amount of values it has filled.
-# Note - this is not feature kind at the moment, but applies to all values.
+def phylogeo(input_file, lower_threshhold):
+     f = open(input_file, 'r+')
+     g = open(distance_file, 'r+')
 
-# input_file = datapoints_file.csv # For now, this is a good idea. Eventually, more.
-# lower_threshhold = .5 # Lowest amount of data permitted, as a percentage.
-# output_file = "clean_data.csv" # Must be specified in argv.
+
+
+'''
+This function cleans the data based on the amount of values it has filled.
+Note - this is not feature kind at the moment, but applies to all values.
+
+input_file = datapoints_file.csv # For now, this is a good idea. Eventually, more.
+lower_threshhold = .5 # Lowest amount of data permitted, as a percentage.
+output_file = "clean_data.csv" # Must be specified in argv.
+'''
 
 def data_clean(lower_threshhold, input_file):
 
@@ -600,10 +645,9 @@ if __name__ == "__main__":
         geographic(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 
     # Not yet coded, and may not be. 
-    #if sys.argv[1] == 'pg':
-    #    print "Now sorting with a mixture of phylogenetic and geographically."
-    #    phylogeo()
-    #    contact_lang()
+    if sys.argv[1] == 'pg':
+        print "Now sorting with a mixture of phylogenetic and geographically."
+        phylogeo(sys.argv[2], sys.argv[3])
 
 '''
 Commands to use:
