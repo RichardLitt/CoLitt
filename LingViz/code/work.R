@@ -17,8 +17,8 @@ size = nrow(languages)
 
 # Prepare our matrix of distances.
 distances=matrix(NA,nrow=size,ncol=size)
-rownames(distances) = rownames(locations)
-colnames(distances) = rownames(distances)
+rownames(distances) = languages$wals.code
+colnames(distances) = languages$wals.code
 
 # This for loop takes about 2.5 minutes on my machine.
 # Theoretically, it should be faster using an *apply
