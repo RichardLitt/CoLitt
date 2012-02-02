@@ -165,7 +165,8 @@ def phylogenetic(input_file, lower_threshhold):
                             parents = ethnoList[lines][2]
 
                             # This makes a non-split line example
-                            i = dataList[a]
+                            i = dataList[line]
+                            i.insert(0, root)
                             i = ','.join(i)
 
                             # If we're looking for the large root tree
@@ -342,6 +343,7 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
+                        i.insert(0, family)
                         i = ','.join(i)
 
                         # Used in centreing the list
@@ -363,7 +365,7 @@ def phylogenetic(input_file, lower_threshhold):
                                                 printed_codes.append(fam_code)
 
                                                 # Write to print list
-                                                print_list.append(', '.join(dataList[e]))
+                                                print_list.append(family + ','.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
@@ -388,6 +390,7 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
+                        i.insert(0, genus)
                         i = ','.join(i)
 
                         # Used in centreing the list
@@ -409,7 +412,7 @@ def phylogenetic(input_file, lower_threshhold):
                                                 printed_codes.append(gen_code)
 
                                                 # Write to print list
-                                                print_list.append(', '.join(dataList[e]))
+                                                print_list.append(genus + ','.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
@@ -435,45 +438,49 @@ def phylogenetic(input_file, lower_threshhold):
                         # Makes a joined centre line
                         i = dataList[a]
                         i = ','.join(i)
-
+                        
                         # Used in centreing the list
                         print_list = [i]
 
-                        # For each entry in that subfamily
-                        for d in range(1, len(languagesList)):
-                            if languagesList[d][6] == subfamily:
+                        if len(subfamily) != 0:
 
-                                # Go back to the WALS data
-                                for e in range(1, len(dataList)):
+                            # For each entry in that subfamily
+                            for d in range(1, len(languagesList)):
+                                if languagesList[d][6] == subfamily:
 
-                                        # Shim, find that entry
-                                        subfam_code = languagesList[d][0].replace('\"', '')
-                                        if subfam_code == dataList[e][0]:
-                                            if subfam_code not in printed_codes:
+                                    # Go back to the WALS data
+                                    for e in range(1, len(dataList)):
 
-                                                # Append to already printed codes
-                                                printed_codes.append(gen_code)
+                                            # Shim, find that entry
+                                            subfam_code = languagesList[d][0].replace('\"', '')
+                                            if subfam_code == dataList[e][0]:
+                                                if subfam_code not in printed_codes:
 
-                                                # Write to print list
-                                                print_list.append(', '.join(dataList[e]))
+                                                    # Append to already printed codes
+                                                    printed_codes.append(subfam_code)
 
-                                                # Update print count
-                                                print_count += 1
-                                                print print_count
+                                                    # Write to print list
+                                                    print_list.append(subfam_code + ','.join(dataList[e]))
 
-                        # Open file
-                        h = open(w_genus_data, 'a')
+                                                    # Update print count
+                                                    print_count += 1
+                                                    print print_count
 
-                        # If not empty
-                        if len(print_list) != 0:
+                                                    print subfamily
 
-                                # And it there are enough languages
-                                if len(print_list) >= int(lower_threshhold):
+                            # Open file
+                            h = open(w_subfamily_data, 'a')
 
-                                    #print
-                                    h.write(centred(print_list))
+                            # If not empty
+                            if len(print_list) != 0:
 
-                        h.close()
+                                    # And it there are enough languages
+                                    if len(print_list) >= int(lower_threshhold):
+
+                                        #print
+                                        h.write(centred(print_list))
+
+                            h.close()
 
 
 '''
@@ -758,10 +765,10 @@ Commands to use:
 python clean.py clean .5 datapoints.csv
 
 python clean.py phy clean-5-datapoints e root 15
-python clean.py phy clean-5-datapoints e parents 15
-python clean.py phy clean-5-datapoints w family 15
-python clean.py phy clean-5-datapoints w subfamily 15
-python clean.py phy clean-5-datapoints w genus 15
+python clean.py phy clean-5-datapoints e parents 15 #Suspect not working. 
+python clean.py phy clean-30-datapoints w family 15
+python clean.py phy clean-30-datapoints w subfamily 15
+python clean.py phy clean-30-datapoints w genus 15
 
 python clean.py geo clean-5-datapoints 15 radius 500
 python clean.py geo clean-5-datapoints 15 languages 25
