@@ -136,12 +136,6 @@ def phylogenetic(input_file, lower_threshhold):
         # For the terminal count, to show completion
         print_count = 0
 
-        # For use later in excluding small parent trees
-        # Trained on a sort function for all parent nodes with 25+ leaves
-        # This works for 15% filled - it may not for more. Keep that in mind. 
-        parent_list = ['evan', 'ekir', 'mixt', 'aztc', 'zapc', \
-                'arab', 'hkch', 'saun', 'lmal']
-
         # For line in the WALS data
         for line in range(1,len(dataList)):
 
@@ -236,9 +230,6 @@ def phylogenetic(input_file, lower_threshhold):
                                 # repeated
                                 parent_lines = 0
 
-                                # Used in centreing the list
-                                print_list = [i]
-
                                 # For each language in Ethnologue
                                 for lines in range(1, len(ethnoList)):
 
@@ -248,68 +239,58 @@ def phylogenetic(input_file, lower_threshhold):
                                         #Update the counter
                                         parent_lines += 1
 
-                                        # This code was used to train the
-                                        # parent_list seen above. Uncomment to
-                                        # reuse.
+                                        # Used in centreing the list
+                                        print_list = [i]
 
-                                        # if parent_lines >= 25:
-                                        #    if parents not in parent_list:
-                                        #        parent_list.append(parents)
+                                        # For each root, find the ISO code
+                                        new_e_iso_code = ethnoList[lines][0]
 
+                                        # Take the new ISO codes back to the
+                                        # Wals languaage list
+                                        for a in range(1, len(languagesList)):
+                                            # Shim for multiple ISO codes
+                                            mult_codes = languagesList[a][7].replace('\"', '').replace("\n", '')
+                                            mult_codes = mult_codes.split(' ')
+                                            # shimming, selecting WALS code
+                                            final_code = languagesList[a][0].replace("\"", '')
 
-                                        # If it is in one of the nine large
-                                        # leaf families
-                                        if parents in parent_list:
+                                            # Compare, find the right one
+                                            if new_e_iso_code in mult_codes:
 
-                                            # For each root, find the ISO code
-                                            new_e_iso_code = ethnoList[lines][0]
+                                                # For all of the WALS data
+                                                for b in range(1, len(dataList)):
 
-                                            # Take the new ISO codes back to the
-                                            # Wals languaage list
-                                            for a in range(1, len(languagesList)):
-                                                # Shim for multiple ISO codes
-                                                mult_codes = languagesList[a][7].replace('\"', '').replace("\n", '')
-                                                mult_codes = mult_codes.split(' ')
-                                                # shimming, selecting WALS code
-                                                final_code = languagesList[a][0].replace("\"", '')
+                                                    # Find the right line
+                                                    if dataList[b][0] == final_code:
 
-                                                # Compare, find the right one
-                                                if new_e_iso_code in mult_codes:
+                                                        # If not already printed
+                                                        if final_code not in \
+                                                                final_code_list:
 
-                                                    # For all of the WALS data
-                                                    for b in range(1, len(dataList)):
+                                                            # Write to file
+                                                            print_list.append(parents\
+                                                                    + ',' +\
+                                                                    ','.join(dataList[b]))
 
-                                                        # Find the right line
-                                                        if dataList[b][0] == final_code:
+                                                            # Update previous printing
+                                                            final_code_list.append(final_code)
 
-                                                            # If not already printed
-                                                            if final_code not in \
-                                                                    final_code_list:
+                                                            # For terminal.
+                                                            print_count += 1
+                                                            print print_count
 
-                                                                # Write to file
-                                                                print_list.append(parents\
-                                                                        + ',' +\
-                                                                        ','.join(dataList[b]))
+                                        # Open the file
+                                        h = 'e-' + sys.argv[4] + '-' + sys.argv[2] +\
+                                        '-' + sys.argv[5]
 
-                                                                # Update previous printing
-                                                                final_code_list.append(final_code)
+                                        h = open(h, 'a')
 
-                                                                # For terminal.
-                                                                print_count += 1
-                                                                print print_count
+                                        if len(print_list) != 0:
+                                            #if len(print_list) >= int(lower_threshhold):
+                                            h.write(centred(print_list))
 
-                                # Open the file
-                                h = 'e-' + sys.argv[4] + '-' + sys.argv[2] +\
-                                '-' + sys.argv[5]
-
-                                h = open(h, 'a')
-
-                                if len(print_list) != 0:
-                                    if len(print_list) >= int(lower_threshhold):
-                                        h.write(centred(print_list))
-
-                                        # Close the file.
-                                        h.close()
+                                            # Close the file.
+                                            h.close()
 
 
  
@@ -440,7 +421,7 @@ def phylogenetic(input_file, lower_threshhold):
                         i = dataList[a]
                         i.insert(0, subfamily)
                         i = ','.join(i)
-                        
+
                         # Used in centreing the list
                         print_list = [i]
 
@@ -761,16 +742,21 @@ if __name__ == "__main__":
         phylogeo(sys.argv[2], sys.argv[3])
 
 '''
-Commands to use:
+Commands to use ---
 
+Cleaning
 python clean.py clean .5 datapoints.csv
 
+Ethnologue
 python clean.py phy clean-5-datapoints e root 15
-python clean.py phy clean-5-datapoints e parents 15 #Suspect not working. 
+python clean.py phy clean-30-datapoints e parents 15 #Suspect not working.
+
+WALS
 python clean.py phy clean-30-datapoints w family 15
 python clean.py phy clean-30-datapoints w subfamily 15
 python clean.py phy clean-30-datapoints w genus 15
 
+Geography
 python clean.py geo clean-5-datapoints 15 radius 500
 python clean.py geo clean-5-datapoints 15 languages 25
 
