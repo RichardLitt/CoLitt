@@ -87,10 +87,24 @@ def split_lines(x, y):
         lineList.append(line)
     return lineList
 
+# This is to make a centred language list. 
+def centred(unsorted_list):
+    
+    # Make a new list, populate with centred thing
+    centred_list = [unsorted_list[0]]
+
+    #
+    for x in range(1, len(unsorted_list), 2):
+        centred_list.append(unsorted_list[x])
+    for y in range(2, len(unsorted_list), 2):
+        centred_list.insert(0, unsorted_list[y])
+    centred_list = ''.join(centred_list)
+    print centred_list
+    return centred_list
 
 # Defines how you want to sort these things
 
-def phylogenetic(input_file):
+def phylogenetic(input_file, lower_threshhold):
 
     # load languages, datapoints
     languagesList = split_lines(read_file(languages_file), '\t')
@@ -151,8 +165,16 @@ def phylogenetic(input_file):
                             root = ethnoList[lines][1]
                             parents = ethnoList[lines][2]
 
+                            # This makes a non-split line example
+                            i = line
+                            i = ','.join(line)
+                            print i
+
                             # If we're looking for the large root tree
                             if sys.argv[4] == 'root':
+
+                                # This list will be used for centreing.
+                                print_list = [i]
 
                                 # Find all roots in E.
                                 for lines in range(1, len(ethnoList)):
@@ -183,16 +205,10 @@ def phylogenetic(input_file):
                                                         if final_code not in \
                                                                 final_code_list:
 
-                                                            # Open the file
-                                                            h = 'e-' + \
-                                                            sys.argv[4] + '-'+\
-                                                            sys.argv[2]
-
-                                                            h = open(h, 'a')
-
                                                             # Write to file
-                                                            h.write(root + ', ')
-                                                            h.write(', '.join(dataList[b]))
+                                                            print_list.append(root\
+                                                                    + ',' +\
+                                                                    ','.join(dataList[b]))
 
                                                             # Update previous printing
                                                             final_code_list.append(final_code)
@@ -201,12 +217,28 @@ def phylogenetic(input_file):
                                                             print_count += 1
                                                             print print_count
 
+                                # Open the file
+                                h = 'e-' + sys.argv[4] + '-' + sys.argv[2] +\
+                                '-' + sys.argv[5]
+
+                                h = open(h, 'a')
+
+                                if len(print_list) != 0:
+                                    if len(print_list) >= int(lower_threshhold):
+                                        h.write(centred(print_list))
+
+                                        # Close the file.
+                                        h.close()
+
                             # If we're looking for the smaller subfamily trees
                             if sys.argv[4] == 'parents':
 
                                 # Find amount of immediate parent nodes
                                 # repeated
                                 parent_lines = 0
+
+                                # Used in centreing the list
+                                print_list = [i]
 
                                 # For each language in Ethnologue
                                 for lines in range(1, len(ethnoList)):
@@ -255,17 +287,10 @@ def phylogenetic(input_file):
                                                             if final_code not in \
                                                                     final_code_list:
 
-                                                                # Rename the file
-                                                                h = 'e-' + \
-                                                                sys.argv[4] + '-'+\
-                                                                sys.argv[2]
-
-                                                                # Open file
-                                                                h = open(h, 'a')
-
                                                                 # Write to file
-                                                                h.write(parents + ', ')
-                                                                h.write(', '.join(dataList[b]))
+                                                                print_list.append(parents\
+                                                                        + ',' +\
+                                                                        ','.join(dataList[b]))
 
                                                                 # Update previous printing
                                                                 final_code_list.append(final_code)
@@ -274,10 +299,21 @@ def phylogenetic(input_file):
                                                                 print_count += 1
                                                                 print print_count
 
+                                # Open the file
+                                h = 'e-' + sys.argv[4] + '-' + sys.argv[2] +\
+                                '-' + sys.argv[5]
 
-        # Close the file.
-        h.close()
+                                h = open(h, 'a')
 
+                                if len(print_list) != 0:
+                                    if len(print_list) >= int(lower_threshhold):
+                                        h.write(centred(print_list))
+
+                                        # Close the file.
+                                        h.close()
+
+
+ 
 
     # If we're dragging from WALS
     if sys.argv[3] == 'w':
@@ -306,6 +342,14 @@ def phylogenetic(input_file):
                     # If we're outputting a family grouping
                     if sys.argv[4] == "family":
 
+                        # Makes a joined centre line
+                        i = a
+                        i = ','.join(a)
+                        print i
+
+                        # Used in centreing the list
+                        print_list = [i]
+
                         # For each entry in that family
                         for d in range(1, len(languagesList)):
                             if languagesList[d][5] == family:
@@ -321,20 +365,37 @@ def phylogenetic(input_file):
                                                 # Append to already printed codes
                                                 printed_codes.append(fam_code)
 
-                                                # Open file
-                                                j = open(w_family_data, 'a')
-
-                                                # Write to file
-                                                j.write(', '.join(dataList[e]))
+                                                # Write to print list
+                                                print_list.append(', '.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
                                                 print print_count
 
-                                                j.close()
+                        # Open file
+                        h = open(w_family_data, 'a')
+
+                        # If not empty
+                        if len(print_list) != 0:
+
+                                # And it there are enough languages
+                                if len(print_list) >= int(lower_threshhold):
+
+                                    #print
+                                    h.write(centred(print_list))
+
+                        h.close()
 
                     # If we're outputting for genus
                     if sys.argv[4] == "genus":
+
+                        # Makes a joined centre line
+                        i = a
+                        i = ','.join(a)
+                        print i
+
+                        # Used in centreing the list
+                        print_list = [i]
 
                         # For each entry in that genus
                         for d in range(1, len(languagesList)):
@@ -351,20 +412,37 @@ def phylogenetic(input_file):
                                                 # Append to already printed codes
                                                 printed_codes.append(gen_code)
 
-                                                # Open file
-                                                j = open(w_genus_data, 'a')
-
-                                                # Write to file
-                                                j.write(', '.join(dataList[e]))
+                                                # Write to print list
+                                                print_list.append(', '.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
                                                 print print_count
 
-                                                j.close()
+                        # Open file
+                        h = open(w_genus_data, 'a')
+
+                        # If not empty
+                        if len(print_list) != 0:
+
+                                # And it there are enough languages
+                                if len(print_list) >= int(lower_threshhold):
+
+                                    #print
+                                    h.write(centred(print_list))
+
+                        h.close()
 
                     # If we're outputting for subfamily
                     if sys.argv[4] == "subfamily":
+
+                        # Makes a joined centre line
+                        i = a
+                        i = ','.join(a)
+                        print i
+
+                        # Used in centreing the list
+                        print_list = [i]
 
                         # For each entry in that subfamily
                         for d in range(1, len(languagesList)):
@@ -379,19 +457,28 @@ def phylogenetic(input_file):
                                             if subfam_code not in printed_codes:
 
                                                 # Append to already printed codes
-                                                printed_codes.append(subfam_code)
+                                                printed_codes.append(gen_code)
 
-                                                # Open file
-                                                j = open(w_subfamily_data, 'a')
-
-                                                # Write to file
-                                                j.write(', '.join(dataList[e]))
+                                                # Write to print list
+                                                print_list.append(', '.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
                                                 print print_count
 
-                                                j.close()
+                        # Open file
+                        h = open(w_genus_data, 'a')
+
+                        # If not empty
+                        if len(print_list) != 0:
+
+                                # And it there are enough languages
+                                if len(print_list) >= int(lower_threshhold):
+
+                                    #print
+                                    h.write(centred(print_list))
+
+                        h.close()
 
 
 '''
@@ -534,6 +621,9 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
             if len(languages_list) <= int(lower_threshhold):
                 languages_list = []
 
+        # Used in centreing the list
+        print_list = []
+
         # For the languages chosen
         for language in languages_list:
 
@@ -543,14 +633,27 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
             # Find the index where its information lies
             wals_index = language_f_low.index(wals_code)
 
-            # Make the output name. 
-            output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
-            sys.argv[5] + '-' + str(total_searched)
+            print_list.append(line[0] + ',' + str(language[1]) + ','  +\
+                    str(total_searched) + ',' + lineList[wals_index])
 
-            h = open(output_file, 'a')
-            h.write(line[0] + ',' + str(language[1]) + ',' + lineList[wals_index])
 
-    h.close()
+        # Make the output name. 
+        output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
+        sys.argv[5]
+
+        h = open(output_file, 'a')
+
+        # If not empty
+        if len(print_list) != 0:
+
+                # And it there are enough languages
+                if len(print_list) >= int(lower_threshhold):
+
+                    #print
+                    h.write(centred(print_list))
+
+
+        h.close()
 
 
 # This will be fully added an integrated when we've run a few more of the other
@@ -632,7 +735,7 @@ if __name__ == "__main__":
 
     if sys.argv[1] == 'phy':
         print "Now sorting languages phylogenetically."
-        phylogenetic(sys.argv[2])
+        phylogenetic(sys.argv[2], sys.argv[5])
 
     # If we're sorting by distance (must be cleaned first)
     # Examples:
@@ -654,11 +757,11 @@ Commands to use:
 
     python clean.py clean .5 datapoints.csv
 
-    python clean.py phy clean-25-datapoints e root
-    python clean.py phy clean-25-datapoints e parents
-    python clean.py phy clean-25-datapoints w family
-    python clean.py phy clean-25-datapoints w subfamily
-    python clean.py phy clean-25-datapoints w genus
+    python clean.py phy clean-25-datapoints e root 15
+    python clean.py phy clean-25-datapoints e parents 15
+    python clean.py phy clean-25-datapoints w family 15
+    python clean.py phy clean-25-datapoints w subfamily 15
+    python clean.py phy clean-25-datapoints w genus 15
 
     python clean.py geo clean-25-datapoints 15 radius 500
     python clean.py geo clean-5-datapoints 15 languages 25
