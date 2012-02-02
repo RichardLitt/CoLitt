@@ -1,6 +1,9 @@
+library(reshape)
+
 clean.data = read.table("data/geo-clean-30-datapoints-r-500",sep=",",header=F)
 
-features = read.table("features.csv",header=T,sep=",",stringsAsFactors=F)
+feature.list = read.table("features.csv",header=T,sep=",",stringsAsFactors=F)
+language.list = read.table("languages.csv",header=T,sep="\t",quote="\"",stringsAsFactors=F)
 
 # Given a particular column in a dataset, find what
 # feature it corresponds to. Can also shift, if
@@ -8,10 +11,21 @@ features = read.table("features.csv",header=T,sep=",",stringsAsFactors=F)
 # columns attached.
 get.feature = function(column,shift=F) {
 	if(shift) {
-		return(features[column-5,2])
+		return(feature.list[column-5,2])
 	}
-	return(features[column,2])
+	return(feature.list[column,2])
 }
+
+# Given a particular language code, find the full
+# language name
+get.language = function(language) {
+	names = rep(NA,length(language))
+	for(i in 1:length(language)) {
+		names[i] = language.list[which(language.list[,1]==language[i]),2]
+	}
+	return(names)
+}
+
 
 remove.empty = function(data.subset) {
 	# Remove empty columns
@@ -23,11 +37,15 @@ remove.empty = function(data.subset) {
 
 make.heatmap = function(data,language,features) {
 	shifted.features = features+4
-	data.subset = clean.data[clean.data$V1==language,shifted.features]
-	rownames(data.subset) = clean.data$V4[clean.data$V1==language]
-	colnames(data.subset) = get.feature(shifted.features)
-	data.subset = remove.empty(data.subset)
-	heatmap(data.matrix(data.subset),Rowv=NA,Colv=NA,main=language)
+	data.subset = t(clean.data[clean.data$V1==language,shifted.features])
+	colnames(data.subset) = get.language(clean.data$V4[clean.data$V1==language])
+	rownames(data.subset) = get.feature(shifted.features)
+	data.subset = remove.empty((data.subset))
+# Rescale the data
+#	data.subset.m = melt(data.subset)
+#	data.subset.m = ddply(data.subset.m, .(variable), transform, #rescale = rescale(value))
+	par(oma=c(15,2,2,2))
+	heatmap(t(data.matrix(data.subset)),Rowv=NA,Colv=NA,main=get.language(language))
 }
 
 
