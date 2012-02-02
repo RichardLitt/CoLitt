@@ -165,9 +165,8 @@ def phylogenetic(input_file, lower_threshhold):
                             parents = ethnoList[lines][2]
 
                             # This makes a non-split line example
-                            i = line
-                            i = ','.join(line)
-                            print i
+                            i = dataList[a]
+                            i = ','.join(i)
 
                             # If we're looking for the large root tree
                             if sys.argv[4] == 'root':
@@ -342,9 +341,8 @@ def phylogenetic(input_file, lower_threshhold):
                     if sys.argv[4] == "family":
 
                         # Makes a joined centre line
-                        i = a
-                        i = ','.join(a)
-                        print i
+                        i = dataList[a]
+                        i = ','.join(i)
 
                         # Used in centreing the list
                         print_list = [i]
@@ -389,9 +387,8 @@ def phylogenetic(input_file, lower_threshhold):
                     if sys.argv[4] == "genus":
 
                         # Makes a joined centre line
-                        i = a
-                        i = ','.join(a)
-                        print i
+                        i = dataList[a]
+                        i = ','.join(i)
 
                         # Used in centreing the list
                         print_list = [i]
@@ -436,9 +433,8 @@ def phylogenetic(input_file, lower_threshhold):
                     if sys.argv[4] == "subfamily":
 
                         # Makes a joined centre line
-                        i = a
-                        i = ','.join(a)
-                        print i
+                        i = dataList[a]
+                        i = ','.join(i)
 
                         # Used in centreing the list
                         print_list = [i]
@@ -759,15 +755,15 @@ if __name__ == "__main__":
 '''
 Commands to use:
 
-    python clean.py clean .5 datapoints.csv
+python clean.py clean .5 datapoints.csv
 
-    python clean.py phy clean-25-datapoints e root 15
-    python clean.py phy clean-25-datapoints e parents 15
-    python clean.py phy clean-25-datapoints w family 15
-    python clean.py phy clean-25-datapoints w subfamily 15
-    python clean.py phy clean-25-datapoints w genus 15
+python clean.py phy clean-5-datapoints e root 15
+python clean.py phy clean-5-datapoints e parents 15
+python clean.py phy clean-5-datapoints w family 15
+python clean.py phy clean-5-datapoints w subfamily 15
+python clean.py phy clean-5-datapoints w genus 15
 
-    python clean.py geo clean-25-datapoints 15 radius 500
-    python clean.py geo clean-5-datapoints 15 languages 25
+python clean.py geo clean-5-datapoints 15 radius 500
+python clean.py geo clean-5-datapoints 15 languages 25
 
 '''
