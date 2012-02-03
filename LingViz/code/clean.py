@@ -135,6 +135,44 @@ def sparse(input_file):
     print values_filled, values_total
     return float(values_filled) / (values_total) * 100
 
+def long_lat_graph(wals_code, radius, lower_threshhold, maximum_areal_languages):
+
+    # Open the files
+    langList = split_lines(read_file(languages_file), '\t')
+    distList = split_lines(read_file(distance_file), '\t')
+
+    language_dict = {}
+
+    # Use the wals code to select the language
+    for line in langList:
+        lang_code = line[0].replace('\"', '')
+        language_dict.setdefault(lang_code, line)
+
+    if language_dict.has_key(wals_code) is True:
+
+        neighbors = []
+
+        index = distList[0].index(wals_code)
+        dist_dict = {}
+        for x in range(1,len(distList[index])):
+            if distList[index][x] != 'NA':
+                dist_dict.setdefault(distList[0][x], distList[index][x].replace('\n',''))
+            if distList[x][index] != 'NA':
+                if distList[x][index] != '0.0':
+                    dist_dict.setdefault(distList[0][x], distList[x][index].replace('\n',''))
+        for key in dist_dict: 
+            if float(dist_dict[key]) <= float(500): 
+                output_file = 'geo-' + wals_code
+                o  = open(output_file, 'a')
+                line = ','.join(language_dict[key])
+                o.write(line)
+                o.close
+                
+
+    #print dist_dict
+
+
+
 
 # Defines how you want to sort these things
 def phylogenetic(input_file, lower_threshhold):
@@ -782,6 +820,9 @@ if __name__ == "__main__":
 
     if sys.argv[1] == 'sparse':
         print sparse(sys.argv[2])
+
+    if sys.argv[1] == 'GIS':
+        long_lat_graph(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 
 '''
 Commands to use ---

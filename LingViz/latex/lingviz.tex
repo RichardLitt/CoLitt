@@ -10,6 +10,7 @@
 
 \title{Visualising Typological Relationships: Plotting WALS with Heat Maps}
 %Title should perhaps be changed. 
+% To?
 
 \author{Richard Littauer \\
 University of Saarland\\
@@ -45,6 +46,7 @@ Typology has been used to derive implications about possible languages, and abou
 , and claiming that they represented universals of grammar, and that they would hold true for all languages. In a similar vein, Chomsky (2000) \nocite{chomsky}%Check citation, make sure it is a good one
 has argued as a generativist that typological universals show that language is clearly an artefact of constraints involved with the learning process, and that some typological features are impossible due to this. Dunn {\it et al} (2011) %Find citation
 % The citation style you're using here is confusing me. Why not just \cite{chomsky} etc?
+% Because that would be (chomsky, 2011). For inline ones, we need this.
 argued that a languages typology relies upon the previous generations' language more than biological, environmental or cognitive constraints, and that there are pathways which are generally followed in language change based on the previous parent language. 
 
 Outside of the scope of theory, language typology is useful for other reasons. %Cite Xia and Lewis, MT, NLP, etc....
@@ -85,6 +87,8 @@ Drawing a heat map where only 16\% of the features are available would be of lit
 
 Languages are related phylogenetically either vertically, by lineage, or horizontally, by contact. On WALS, each language is placed in a tree hierarchy that specifies phylogenetic relations. In the data files, this is specified by linking to three groupings: genus, such as `Northern Naga', family, such as `Sino-Tibetan', and sub-family, such as `Tibeto-Burman'. Provisional tree hierarchies were also drawn from Ethnologue \cite{ethnologue} and MultiTree \cite{multitree}, but due to the low amount of overlap between non-sparse WALS entries and the possible alternative hierarchies drawn from Ethnologue or MultiTree, only the phylogenetic relations from WALS were used.
 % If we didn't use the ethnologue or multitree data, we don't need to mention it.
+% Well, we did run it - I don't know, I feel like it's important to mention that it is a neg result for new results mapping to Ethnologue. I wish I had known this before, by reading it in some other article. 
+
 %Information about Ethnologue scrape %provided by steven moran -need to get the details
 
 
@@ -123,16 +127,13 @@ Each final list was then resorted, so that the source language was centered in t
 % I'm not sure what you're asking if we can do - sorting by lat or long?
 % Aren't we already sorted by distance to other lgs?
 
+% Instead of centering the line, use the line that is furthest to a cardinal point, and then have all languages in a certain direction (Ssw to nnw) for instance - lined up next to it. This might be able to stop one of the major problems of the heat map. 
+
 %\item Compiling python scripts, converting into R
 All of the code was done either in Python, or in R. %How to include this? In a link to the git hub?
 The code was not computationally intensive, and did not take more than a couple of minutes to run.
 
 %\item Sorting R output
-
-
-
-%% Sorry Rory, really tired. Write comments, write text - see you tomorrow. 
-
 
 \section{Results} %Or visualisations?
 \subsection{Heat maps}
