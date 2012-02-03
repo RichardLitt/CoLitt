@@ -49,9 +49,9 @@ argued that a languages typology relies upon the previous generations' language 
 Outside of the scope of theory, language typology is useful for other reasons. %Cite Xia and Lewis, MT, NLP, etc....
 
 %\item WALS
-Towards this end, the World Atlas of Language Structures (WALS) was formed. WALS is "a large database of structural (phonological, grammatical, lexical) properties of languages gathered from descriptive materials (such as reference grammars) by a team of 55 authors (many of them the leading authorities on the subject)."(\url{http://www.wals.info}) At the time of submission, there were 81828 datapoints for 2678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is {\it sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
-
-Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
+Towards this end, the World Atlas of Language Structures (WALS) was formed. WALS is "a large database of structural (phonological, grammatical, lexical) properties of languages gathered from descriptive materials (such as reference grammars) by a team of 55 authors (many of them the leading authorities on the subject)."(\url{http://www.wals.info}) 
+%Cut out stuff from here, moved it to Material and Methods. May not have been advised. 
+However, for the several thousand languages in WALS, there is only about 16\% of the possible features filled - the data is {\it sparse}. Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
 
 A solution to dealing with this issue is to visualise the data in WALS, instead of relying on statistics.
 
@@ -64,74 +64,47 @@ A solution to dealing with this issue is to visualise the data in WALS, instead 
 %In this paper:
 In this paper, we will first discuss more fully our starting data, before going on to discuss the problems with analysing this data and how our methodology dealt with them. We will then present several graphs that highlight the possibilities of graphing WALS data. 
 
-
-
-
-
-
 \section{Material and Methods}
-\subsection{Linguistic material}
-\begin{itemize}
-\item Information about WALS data
+%\item Information about WALS data
+\subsection{WALS}At the time of submission, there were 81828 datapoints for 2678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is {\it sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
 
-\begin{itemize} \item Description of typological data
+Drawing a heat map where only 16\% of the features are available would be of little use. There are two options for dealing with this: to collapse the feature values in some way, or to select for languages that have a higher percentage of data filled than the average language. We opted for the second choice, and {\it cleaned}  the file until it contained only languages that had either 30\% as a lower bound, or 50\% as a higher bound, of all of their entries filled. This cleaned data was then used in the other functions.  
 
-%
-%
-%
-%Relations:
-%    Languages are related either phylogenetically, or geographically. There is
-%    also a possible Contact option, but we do not have the proper typological
-%    details for this, nor historic details.
-%
+%\item Description of typological data
+	%Insert example here. Probably. 
+	
 %    Relations are defined by features. A possibility is combining features, and
 %    creating a feature similarity metric - for instance, aligning various types
-%    of syntactic universals together.
-%
-%    Here, it is possible to sort phylogenetically by WALS hierarchies, or by
-%    ethnologue hierarchies. There is no real difference between them. Another
-%    option would be to use MultiTree for identified trees. WALS data can be
-%    sorted by Family or Genus, not yet by subfamily. Ethnologue data can
-%    currently only be calibrated by the overarching parents, and not by
-%    sub-roots, although this would be useful.
-%
-%
+%    of syntactic universals together. - THis has been done: Xia and Lewis, 2008
 
-\item Longitude and latitude, and how it is measured
+Languages are related phylogenetically either vertically, by lineage, or horizontally, by contact. On WALS, each language is placed in a tree hierarchy that specifies phylogenetic relations. In the data files, this is specified by linking to three groupings: genus, such as 'Northern Naga', family, such as 'Sino-Tibetan', and sub-family, such as 'Tibeto-Burman'. Provisional tree hierarchies were also drawn from Ethnologue(\url{http://http://www.ethnologue.com/})\cite{ethnologue} and MultiTree(\url{http://multitree.linguistlist.org/})\cite{multitree}, but due to the low amount of overlap between non-sparse WALS entries and the possible alternative hierarchies drawn from Ethnologue or MultiTree, only the phylogenetic relations from WALS were used.
+%Information about Ethnologue scrape %provided by steven moran -need to get the details
+
+
+
+The WALS phylogenetic hierarchies do not take into account language contact. For that, we used geographic coordinates, which are present on WALS, as a proxy for contact. 
+%\item Longitude and latitude, and how it is measured
 %Distance:
 %    For each language, the distance has been calculated. Currently we have a
 %    2678x2678 matrix, which is a little large.
-%
-%    Geographical distances can be calculated by radius distance from the
-%    centroid, or the amount of languages specified that pass the cleaning test
-%    and are closes to the centroid. 
-\item language families
-\item WALS-language Sparseness \end{itemize}
-\item Information about Multitree\cite{multitree}
-%Multitree - for relations, can code out the .xml and use those. http://multitree.linguistlist.org/about
-\item Information about Ethnologue\cite{ethnologue} scrape %provided by steven moran -need to get this
-\end{itemize}
 
-\subsection{Methods}
-\begin{itemize}
-\item Cleaning WALS data
-\item Collapsing WALS data
-\item Scraping Ethnologue, Multitree, formati
-\item Measuring Phylogenetic distance
-\item Measuring Geographical distance
+We measured geographic distance by choosing an arbitrary radius that would would create a decision boundary to cluster {\it n}-nearest neighbours. For our purposes, we went with 500km, as this proved to provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the {\it n}-nearest nieghbours, as the languages chosen were often too far away. 
 %Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
 % (Vincenty formula would be more accurate (as earth is not a 
 % perfect sphere), but much more computationally intense for
 % 2678*2678 comparisons.
 %   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
-Each final list was then resorted, so that the source language was centered in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Mohawk, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Mohawk, and Mohawk again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. 
-\item Combined map
+%Note - reprint the data with this formula worked in, as it makes more sense than what you're doing at the moment.
 
-%Ordering:
-%    For vector relations, we have an issue where to center the matrix.
-%    If centred on a point, both ends may be close or far apart - one
-%    can only stare at the center of the graph for information.
-%
+
+%\item Measuring Phylogenetic distance
+%\item Measuring Geographical distance
+%\item Combined map - %Should be possible - give distance equal weightings, find the aggregate. 
+
+
+Each final list was then resorted, so that the source language was centered in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Mohawk, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Mohawk, and Mohawk again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. 
+
+
 %    We could sort them lattitudinally or longitudinally - consider the case of
 %    a Dravidian language at the south of India. This would work well, here. Or
 %    Patagonian. Japanese would work - but we don't have the dialect scales, so
@@ -139,10 +112,18 @@ Each final list was then resorted, so that the source language was centered in t
 %    forcing our hand to make smaller maps - say, 30 languages - instead of
 %    massive ones. 
 
-%Should be possible - give distance equal weightings, find the aggregate. 
-\item Compiling python scripts, converting into R
-\item Sorting R output
-\end{itemize}
+% 	Rory, can we do this?
+
+%\item Compiling python scripts, converting into R
+All of the code was done either in Python, or in R. %How to include this? In a link to the git hub?
+The code was not computationally intensive, and did not take more than a couple of minutes to run.
+
+%\item Sorting R output
+
+
+
+%% Sorry Rory, really tired. Write comments, write text - see you tomorrow. 
+
 
 \section{Results} %Or visualisations?
 \subsection{Heat maps}
@@ -170,8 +151,5 @@ Each final list was then resorted, so that the source language was centered in t
 
 \bibliographystyle{acl}
 \bibliography{lingviz}
-%WALS
-%Multitree
-%Ethnologue
 
 \end{document}
