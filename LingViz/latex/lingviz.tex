@@ -14,40 +14,67 @@
 \author{Richard Littauer \\
 University of Saarland\\
 Computational Linguistics Department\\
-66041 Saarbr\"ucken, Germany\\
+Saarbr\"ucken, Germany\\
   {\tt richard.littauer@gmail.com} \\\And
-Alexis Palmer\\
-University of Saarland\\
-Computational Linguistics Department\\
-66041 Saarbr\"ucken, Germany\\
-  {\tt apalmer@coli.uni-sb.de} \\\AND
 Rory Turnbull \\
 Ohio State University\\
 Department of Linguistics\\
 Columbus, Ohio\\
-  {\tt turnbull@ling.osu.edu} \\}
+  {\tt turnbull@ling.osu.edu} \\\AND
+Alexis Palmer\\
+University of Saarland\\
+Computational Linguistics Department\\
+Saarbr\"ucken, Germany\\
+  {\tt apalmer@coli.uni-sb.de}\\} 
 
 \date{}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-This paper presents a novel way of visualising linguistic typological data. Computational methods have only recently been applied in the formation and use of large typological databases. Many studies have since focused on discovering relations between languages using typology, often using sophisticated statistical techniques. However, few papers have provided new ways of visually presenting the resulting data. Here, we show that one can use the data from the World Atlas of Language Structures\cite{wals-2011} to develop both heat maps and admixture graphs that visually show the interconnected relationships between languages and language families. We hope that the images will bring a new perspective to the data, resulting in interesting findings and illuminating areas of research.
+This paper presents a novel way of visualising linguistic typological data. Computational methods have only recently been applied in the formation and use of large typological databases. Many studies have since focused on discovering relations between languages using typology, often using sophisticated statistical techniques. However, few papers have provided new or newly applied ways of visually presenting the resulting data. Here, we show that one can use the data from the World Atlas of Language Structures\cite{wals-2011} to develop heat maps that can visually show the interconnected relationships between languages and language families. We hope that the images will bring a new perspective to the data, resulting in interesting findings and illuminating areas of research.
 \end{abstract}
 
 %% This outline is just a suggestion. Feel free to mix it up as much as you want if you feel it would or should be better another way. 
 
 \section{Introduction}
-\subsection{Heat maps}
-\begin{itemize}
-\item brief history of typology
-\item WALS
-\item visualisation
-\item what visualisation can do for us
-\item Heat Maps and Admixture-  where they come from, what they are doing here
-\item plan for the paper
-\end{itemize}
+.[Filler][Filler]
 
+%\item brief history of typology
+Typology has been used to derive implications about possible languages, and about the ordering of the human mind. Greenberg (1963) \nocite{greenberg} is famous for finding many cross-linguistic typological implications, such as %example,
+, and claiming that they represented universals of grammar, and that they would hold true for all languages. In a similar vein, Chomsky (2000) \nocite{chomsky}%Check citation, make sure it is a good one
+has argued as a generativist that typological universals show that language is clearly an artefact of constraints involved with the learning process, and that some typological features are impossible due to this. Dunn {\it et al} (2011) %Find citation
+argued that a languages typology relies upon the previous generations' language more than biological, enironmental or cognitive constraints, and that there are pathways which are generally followed in language change based on the previous parent language. 
+
+Outside of the scope of theory, language typology is useful for other reasons. %Cite Xia and Lewis, MT, NLP, etc....
+
+%\item WALS
+Towards this end, the World Atlas of Language Structures (WALS) was formed. WALS is "a large database of structural (phonological, grammatical, lexical) properties of languages gathered from descriptive materials (such as reference grammars) by a team of 55 authors (many of them the leading authorities on the subject)."(\url{http://www.wals.info}) At the time of submission, there were 81828 datapoints for 2678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is {\it sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
+
+Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
+
+A solution to dealing with this issue is to visualise the data in WALS, instead of relying on statistics.
+
+%Alexis [filler][filler]
+
+%\item visualisation
+%\item what visualisation can do for us
+%\item Heat Maps  where they come from, what they are doing here
+
+%In this paper:
+In this paper, we will first discuss more fully our starting data, before going on to discuss the problems with analysing this data and how our methodology dealt with them. We will then present several graphs that highlight the possibilities of graphing WALS data. 
+
+
+
+
+
+
+\section{Material and Methods}
+\subsection{Linguistic material}
+\begin{itemize}
+\item Information about WALS data
+
+\begin{itemize} \item Description of typological data
 
 %
 %
@@ -70,17 +97,6 @@ This paper presents a novel way of visualising linguistic typological data. Comp
 %
 %
 
-
-\section{Material and Methods}
-\subsection{Linguistic material}
-\begin{itemize}
-\item Information about WALS data
-%Cleaning:
-%    The WALS data can be cleaned with the data_clean() function. It should be
-%    noted that WALS is sparse, with only 76492 datapoints for 2678 languages,
-%    which, at 144 features, is only 19% full. This may not even be the right
-%    way of seeing it, however. 
-\begin{itemize} \item Description of typological data
 \item Longitude and latitude, and how it is measured
 %Distance:
 %    For each language, the distance has been calculated. Currently we have a
@@ -108,6 +124,7 @@ This paper presents a novel way of visualising linguistic typological data. Comp
 % perfect sphere), but much more computationally intense for
 % 2678*2678 comparisons.
 %   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
+Each final list was then resorted, so that the source language was centered in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Mohawk, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Mohawk, and Mohawk again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. 
 \item Combined map
 
 %Ordering:
@@ -135,13 +152,7 @@ This paper presents a novel way of visualising linguistic typological data. Comp
 \item Geographical distance heatmaps
 \item Combined maps
 \end{itemize}
-\subsection{Heat maps}
-\begin{itemize}
-\item Admixture mappings
-%families
-%regions
-%combined
-\end{itemize}
+
 
 \section{Discussion}
 \begin{itemize}

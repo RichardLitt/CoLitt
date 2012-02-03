@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citename{Chomsky}2000]{chomsky}
+N.~Chomsky.
+\newblock 2000.
+\newblock {\em New Horizons in the Study of Language and Mind}.
+\newblock Cambridge University Press, Cambridge, UK.
+
 \bibitem[\protect\citename{Dryer and Haspelmath}2011]{wals-2011}
 Matthew~S. Dryer and Martin Haspelmath, editors.
 \newblock 2011.
@@ -11,6 +17,14 @@ Institute for Language~Information and Technology~(LINGUIST List), editors.
 \newblock 2009.
 \newblock {\em Multitree: A digital library of language relationships}.
 \newblock Eastern Michigan University, Ypsilanti, MI, 2009 edition.
+
+\bibitem[\protect\citename{Greenberg}1963]{greenberg}
+J.H. Greenberg.
+\newblock 1963.
+\newblock `some universals of grammar with particular reference to the order of
+  meaningful elements.
+\newblock In J.H. Greenberg, editor, {\em Universals of Language}, pages
+  58--90. MIT Press, Cambridge, MA.
 
 \bibitem[\protect\citename{Lewis}2009]{ethnologue}
 M.~Paul Lewis, editor.

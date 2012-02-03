@@ -93,16 +93,50 @@ def centred(unsorted_list):
     # Make a new list, populate with centred thing
     centred_list = [unsorted_list[0]]
 
-    #
+    # For the even rows, put after source language
     for x in range(1, len(unsorted_list), 2):
         centred_list.append(unsorted_list[x])
+
+    # For the odd rows, do the opposite
     for y in range(2, len(unsorted_list), 2):
         centred_list.insert(0, unsorted_list[y])
+
+    # Join the list together in order to allow for .write() later
     centred_list = ''.join(centred_list)
     return centred_list
 
-# Defines how you want to sort these things
+# This figures out how sparse the data is. 
+def sparse(input_file):
 
+    # Open the file
+    f = open(input_file)
+    lineList = f.readlines()
+
+    # The non-empty values, and the total amount
+    values_filled = 0
+    values_total = 0
+
+    # For each language
+    for line in range(1,len(lineList)):
+        language = lineList[line][1:]
+        language = language.split(',')
+
+        # For each feature
+        for x in language:
+
+            # If not empty,add it on.
+            if x != '':
+                values_filled += 1
+
+            # Add the total amount
+            values_total += 1
+
+    # Return a fraction. 
+    print values_filled, values_total
+    return float(values_filled) / (values_total) * 100
+
+
+# Defines how you want to sort these things
 def phylogenetic(input_file, lower_threshhold):
 
     # load languages, datapoints
@@ -150,6 +184,7 @@ def phylogenetic(input_file, lower_threshhold):
                             '').replace("\n", '')
                     root = []
 
+
                     # Cross check with the ethnologue file
                     for lines in range(1, len(ethnoList)):
                         if iso_code == ethnoList[lines][0]:
@@ -157,24 +192,28 @@ def phylogenetic(input_file, lower_threshhold):
                             # Choose out the roots and parents from Ethnologue
                             root = ethnoList[lines][1]
                             parents = ethnoList[lines][2]
-
+                    
                             # This makes a non-split line example
                             i = dataList[line]
-                            i.insert(0, root)
+                            #i.insert(0, root)
                             i = ','.join(i)
+
+                            # This list will be used for centreing.
+                            print_list = [i]
+
 
                             # If we're looking for the large root tree
                             if sys.argv[4] == 'root':
 
-                                # This list will be used for centreing.
-                                print_list = [i]
-
                                 # Find all roots in E.
                                 for lines in range(1, len(ethnoList)):
+
+
                                     if root == ethnoList[lines][1]:
 
                                         # For each root, find the ISO code
                                         new_e_iso_code = ethnoList[lines][0]
+
 
                                         # Take the new ISO codes back to the
                                         # Wals languaage list
@@ -210,18 +249,18 @@ def phylogenetic(input_file, lower_threshhold):
                                                             print_count += 1
                                                             print print_count
 
-                                # Open the file
-                                h = 'e-' + sys.argv[4] + '-' + sys.argv[2] +\
-                                '-' + sys.argv[5]
+                            # Open the file
+                            h = 'e-' + sys.argv[4] + '-' + sys.argv[2] +\
+                            '-' + sys.argv[5]
 
-                                h = open(h, 'a')
+                            h = open(h, 'a')
 
-                                if len(print_list) != 0:
-                                    if len(print_list) >= int(lower_threshhold):
-                                        h.write(centred(print_list))
+                            if len(print_list) != 0:
+                                #if len(print_list) >= int(lower_threshhold):
+                                    h.write(centred(print_list))
 
-                                        # Close the file.
-                                        h.close()
+                                    # Close the file.
+                                    h.close()
 
                             # If we're looking for the smaller subfamily trees
                             if sys.argv[4] == 'parents':
@@ -740,6 +779,9 @@ if __name__ == "__main__":
     if sys.argv[1] == 'pg':
         print "Now sorting with a mixture of phylogenetic and geographically."
         phylogeo(sys.argv[2], sys.argv[3])
+
+    if sys.argv[1] == 'sparse':
+        print sparse(sys.argv[2])
 
 '''
 Commands to use ---

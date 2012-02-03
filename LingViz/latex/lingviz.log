@@ -1,22 +1,22 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2008.12.28)  2 FEB 2012 10:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  3 FEB 2012 00:51
 entering extended mode
-\write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **lingviz.tex
 (./lingviz.tex
-LaTeX2e <2005/12/01>
+LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
 abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
 h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
-greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
-tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
-omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
-sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
-(/usr/local/texlive/2008/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
-(/usr/local/texlive/2008/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
+rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
+lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
+ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -32,33 +32,33 @@ File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 ) (./eacl2012.sty
 Conference Style for EACL 2012 -- released Sept 11, 2011
 \titlebox=\skip43
-) (/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/times.sty
+) (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/local/texlive/2008/texmf-dist/tex/latex/base/latexsym.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
-(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
@@ -99,91 +99,101 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/local/texlive/2008/texmf-dist/tex/latex/multirow/multirow.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen112
 )
-(/usr/local/texlive/2008/texmf-dist/tex/latex/ltxmisc/url.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/ltxmisc/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 ) (./lingviz.aux)
 \openout1 = `lingviz.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
 
-(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 35.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 33.
 
-(/usr/local/texlive/2008/texmf-dist/tex/latex/base/ulasy.fd
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 35.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 33.
 
-(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 45.
-
-(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
-[]\OT1/ptm/m/n/10.95 Information about Mul-ti-tree(for Lan-
+Underfull \hbox (badness 1005) in paragraph at lines 35--36
+\OT1/ptm/m/n/10 guage Struc-tures(Dryer and Haspel-math,
  []
 
-[1{/usr/local/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+Underfull \hbox (badness 1043) in paragraph at lines 54--55
+\OT1/ptm/m/n/10.95 prob-lem, as any sta-tis-ti-cal in-for-ma-tion drawn
+ []
+
+
+Underfull \vbox (badness 2073) has occurred while \output is active []
+
+ [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
 
 ]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 73.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 75.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--112
+[]\OT1/ptm/m/n/10.95 Information about Mul-ti-tree(for Lan-
+ []
+
 (./lingviz.bbl
-Underfull \hbox (badness 2818) in paragraph at lines 10--14
+Underfull \hbox (badness 2818) in paragraph at lines 16--20
 []\OT1/ptm/m/n/10 Institute for Lan-guage In-for-ma-tion and Tech-nol-
  []
 
-) [2
-
-] (./lingviz.aux) ) 
+) [2] (./lingviz.aux) ) 
 Here is how much of TeX's memory you used:
- 1075 strings out of 493876
- 13018 string characters out of 1150567
- 67948 words of memory out of 3000000
- 4361 multiletter control sequences out of 10000+50000
- 20264 words of font info for 48 fonts, out of 3000000 for 5000
+ 1084 strings out of 493848
+ 13141 string characters out of 3149206
+ 67987 words of memory out of 3000000
+ 4370 multiletter control sequences out of 15000+200000
+ 23152 words of font info for 55 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,10n,20p,815b,265s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2008/texmf-dist/fonts/enc/dvips/base/8r.
-enc}</usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy10.pfb></usr
-/local/texlive/2008/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/t
-exlive/2008/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/200
-8/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2008/texmf-di
-st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (2 pages, 58506 bytes).
+ 27i,10n,20p,930b,265s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base
+/8r.enc}</usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><
+/usr/local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local
+/texlive/2009/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
+009/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on lingviz.pdf (2 pages, 72269 bytes).
 PDF statistics:
  30 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
+ 0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
