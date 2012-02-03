@@ -1,10 +1,11 @@
-This is BibTeX, Version 0.99c (TeX Live 2009)
+This is BibTeX, Version 0.99c (Web2C 7.5.7)
 The top-level auxiliary file: lingviz.aux
 The style file: acl.bst
 Database file #1: lingviz.bib
+Warning--I didn't find a database entry for "wals2011"
 You've used 5 entries,
             2490 wiz_defined-function locations,
-            583 strings with 5134 characters,
+            584 strings with 5142 characters,
 and the built_in function-call counts, 1748 in all, are:
 = -- 173
 > -- 54
@@ -43,3 +44,4 @@ warning$ -- 0
 while$ -- 13
 width$ -- 8
 write$ -- 77
+(There was 1 warning)
