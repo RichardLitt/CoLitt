@@ -37,15 +37,18 @@ remove.empty = function(data.subset) {
 
 make.heatmap = function(data,language,features) {
 	shifted.features = features+4
-	data.subset = t(clean.data[clean.data$V1==language,shifted.features])
-	colnames(data.subset) = get.language(clean.data$V4[clean.data$V1==language])
+	data.subset = t(data[clean.data$V1==language,shifted.features])
+	colnames(data.subset) = get.language(data$V4[data$V1==language])
 	rownames(data.subset) = get.feature(shifted.features)
 	data.subset = remove.empty((data.subset))
 # Rescale the data
 #	data.subset.m = melt(data.subset)
 #	data.subset.m = ddply(data.subset.m, .(variable), transform, #rescale = rescale(value))
-	par(oma=c(15,2,2,2))
-	heatmap(t(data.matrix(data.subset)),Rowv=NA,Colv=NA,main=get.language(language))
+	par(oma=c(2,2,2,10))
+	heatmap((data.matrix(data.subset)),Rowv=NA,Colv=NA,main=get.language(language),col=heat.colors(12),scale="none")
+#	heatmap((data.matrix(data.subset)),main=get.language(language),col=heat.colors(12),scale="none")
+
+#	image(t(data.matrix(data.subset)))
 }
 
 
