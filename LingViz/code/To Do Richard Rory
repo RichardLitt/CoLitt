@@ -1,0 +1,29 @@
+  - Write the methodology section
+  - refine which features to use
+  - reclean data based on those features.
+
+Results:
+  graph 1: languages in area vs. languages used
+    - Use file geo_yim
+        For this file, I decided not to print out the number of printed objects that would be inlcuded over a certain threshold. For one, that may change. For two, it's hard enough dealing with the language families and the amount of fill to plot.
+        For the file = code lang_name amount_of_things_filled amount_total percentage distance_from_yim long lat(or maybe lat long) family genus subfamily iso_code
+    - Should be sorted by longitude and latitude
+    - Should have the radius (500km) on it
+    - Should use different tokens for different families
+    - Should use scaling to show the difference in cleanliness
+    - Can use thresh-hold amounts used in heatmaps, if you want (top 15)
+
+  graph 2: geographic languages, centred, tagged for family
+    - Centroid language, distance above then below then above in ranking
+    - Tagged for families in the label (for instance, *, or superscript)
+    - Tagged possibly by column colour
+
+  graph 3: phylogenetic languages geographically ordered
+    - Non-planar organisation, but rather by coordinates
+    - Tagged for subfam, genus, fam differences in the labels
+    - Still centroid
+
+  graph 4: Geographically ordered by longitude or lattitude.
+    - Same as above, but not centered, going from left to right
+    - Perhaps use English as a starter or a center for this.
+

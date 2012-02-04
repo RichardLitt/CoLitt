@@ -26,14 +26,6 @@ Things to be improved upon:
 
       Neither can you hard code in trees, which might be a nice idea.
 
-    - There is no function currently to jointly graph phylogenetic and
-      geographical information in some sort of dependent variable way. There
-      should be one, as these are definitely linked together.
-
-      However, doing one without seeing how the graphics work completely would
-      be premature. It might be possible to feed the geo-sorted file into the
-      phylogenetic code, but that would also be premature at this stage.
-
     - Dictionaries would have been a better way to do this, if you want to
       speed it up. As for now, it works, so I don't much see the need.
 
@@ -41,15 +33,6 @@ Things to be improved upon:
       would be better to take some of this out of the arg if statements and
       into separate functions, but I haven't had the time to rework this entire
       code - and if it works, it works.
-
-    - This currently spits out distance lists sorted from least to first, not
-      using the centric pairing on either side we're going to need for the heat
-      graphs.
-
-      This is the plan, as R will be enough to suitably deal with the code
-      itself. It's most likely an easy function to do, but I haven't done it
-      here, as I assume it can be easier done after writing to the file and
-      feeding it into R, instead of here. This assumption may be wrong.
 
     - It would be nice to be able to select langauges and run a graph based on
       them, instead of doing all languages and then sorting through. It would
@@ -135,11 +118,13 @@ def sparse(input_file):
     print values_filled, values_total
     return float(values_filled) / (values_total) * 100
 
-def long_lat_graph(wals_code, radius, lower_threshhold, maximum_areal_languages):
+def long_lat_graph(wals_code, radius):
 
     # Open the files
     langList = split_lines(read_file(languages_file), '\t')
     distList = split_lines(read_file(distance_file), '\t')
+    dataList = split_lines(read_file(datapoints_file), ',')
+
 
     language_dict = {}
 
@@ -148,34 +133,61 @@ def long_lat_graph(wals_code, radius, lower_threshhold, maximum_areal_languages)
         lang_code = line[0].replace('\"', '')
         language_dict.setdefault(lang_code, line)
 
+    # If it is in the file
     if language_dict.has_key(wals_code) is True:
 
-        neighbors = []
-
+        # Find the index for this language
         index = distList[0].index(wals_code)
+
+        # Make a dictionary for the distance information
         dist_dict = {}
+
+        # Find the distances for all languages, put it in the dictionary
         for x in range(1,len(distList[index])):
             if distList[index][x] != 'NA':
                 dist_dict.setdefault(distList[0][x], distList[index][x].replace('\n',''))
             if distList[x][index] != 'NA':
                 if distList[x][index] != '0.0':
                     dist_dict.setdefault(distList[0][x], distList[x][index].replace('\n',''))
+
+        # For each distance language
         for key in dist_dict: 
-            if float(dist_dict[key]) <= float(500):
+
+            # If close enough, add in to the file
+            if float(dist_dict[key]) <= float(radius):
                 line = language_dict[key]
-                print line
-                print dist_dict[key]
-                line = line.insert(1, dist_dict[key])
-                print line
 
-                #output_file = 'geo-' + wals_code
-                #o  = open(output_file, 'a')
-                #line = ','.join(language_dict[key])
-                #o.write(line)
-                #o.close
-                
+                # Insert the distance to the languages file line
+                line.insert(2, dist_dict[key])
+                values_filled = 0
+                values_total = 0
 
-    #print dist_dict
+                # Add in the amount of filling there is
+                for x in range(1,len(dataList)):
+                    if dataList[x][0] == key:
+                        for x in dataList[x][1:]:
+                            if x != '': values_filled += 1
+
+                            # Add the total amount
+                            values_total += 1
+
+                # As a percentage
+                line.insert(2, str(float(values_filled)/float(values_total)))
+
+                # Amount total
+                line.insert(2, str(values_total))
+
+                # Amount used
+                line.insert(2, str(values_filled))
+
+                # Print
+                output_file = 'geo-' + wals_code
+                o  = open(output_file, 'a')
+                line = ','.join(line)
+                print line
+                o.write(line)
+                o.close
+
 
 
 
@@ -401,13 +413,15 @@ def phylogenetic(input_file, lower_threshhold):
                     family = languagesList[c][5]
                     genus = languagesList[c][4]
                     subfamily = languagesList[c][6]
+                    fgsf = family + ',' + genus + ',' + subfamily + ','
 
                     # If we're outputting a family grouping
                     if sys.argv[4] == "family":
 
                         # Makes a joined centre line
                         i = dataList[a]
-                        i.insert(0, family)
+                        i.insert(0, fgsf)
+                        #i.insert(0, family)
                         i = ','.join(i)
 
                         # Used in centreing the list
@@ -429,7 +443,7 @@ def phylogenetic(input_file, lower_threshhold):
                                                 printed_codes.append(fam_code)
 
                                                 # Write to print list
-                                                print_list.append(dataList[a][0] + ','\
+                                                print_list.append(fgsf + ','\
                                                         + ','.join(dataList[e]))
 
                                                 # Update print count
@@ -455,7 +469,8 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
-                        i.insert(0, genus)
+                        i.insert(0, fgsf)
+                        #i.insert(0, genus)
                         i = ','.join(i)
 
                         # Used in centreing the list
@@ -477,7 +492,9 @@ def phylogenetic(input_file, lower_threshhold):
                                                 printed_codes.append(gen_code)
 
                                                 # Write to print list
-                                                print_list.append(dataList[a][0] + ',' + ','.join(dataList[e]))
+                                                print_list.append(fgsf\
+                                                        # + dataList[a][0]
+                                                        + ',' + ','.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
@@ -502,7 +519,8 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
-                        i.insert(0, subfamily)
+                        i.insert(0, fgsf)
+                        #i.insert(0, subfamily)
                         i = ','.join(i)
 
                         # Used in centreing the list
@@ -526,7 +544,7 @@ def phylogenetic(input_file, lower_threshhold):
                                                     printed_codes.append(subfam_code)
 
                                                     # Write to print list
-                                                    print_list.append(dataList[a][0]\
+                                                    print_list.append(fgsf \
                                                             + ',' + ','.join(dataList[e]))
 
                                                     # Update print count
@@ -690,23 +708,44 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
                 languages_list = []
 
         # Used in centreing the list
-        line_index.insert(0, line[0])
-        line_index.insert(1, '0.0')
-        line_index.insert(2, str(total_searched))
+        langList = split_lines(read_file(languages_file), '\t')
+
+        for x in langList[1:]:
+            if x[0][1:4] == line_index[0]:
+                # Define family, Genus, and subfam per entry
+                family = x[5]
+                genus = x[4]
+                subfamily = x[6]
+                fgsf = family + ',' + genus + ',' + subfamily + ','
+
+        line_index.insert(0, fgsf)
+        line_index.insert(1, line[0])
+        line_index.insert(2, '0.0')
+        line_index.insert(3, str(total_searched))
         line_index = ','.join(line_index)
         print_list = [line_index]
 
         # For the languages chosen
         for language in languages_list:
 
-            # Find the WALS code
-            wals_code = language_row[language[0]]
+            for x in langList[1:]:
+                if x[0][1:4] == language_row[language[0]]:
+                    languages_line = x
 
-            # Find the index where its information lies
-            wals_index = language_f_low.index(wals_code)
+                    # Define family, Genus, and subfam per entry
+                    family = x[5]
+                    genus = x[4]
+                    subfamily = x[6]
+                    fgsf = family + ',' + genus + ',' + subfamily + ','
 
-            print_list.append(line[0] + ',' + str(language[1]) + ','  +\
-                    str(total_searched) + ',' + lineList[wals_index])
+                    # Find the WALS code
+                    wals_code = language_row[language[0]]
+
+                    # Find the index where its information lies
+                    wals_index = language_f_low.index(wals_code)
+
+                    print_list.append(fgsf + line[0] + ',' + str(language[1]) + ','  +\
+                            str(total_searched) + ',' + lineList[wals_index])
 
 
         # Make the output name. 
@@ -828,7 +867,7 @@ if __name__ == "__main__":
         print sparse(sys.argv[2])
 
     if sys.argv[1] == 'GIS':
-        long_lat_graph(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+        long_lat_graph(sys.argv[2], sys.argv[3])
 
 '''
 Commands to use ---
@@ -837,8 +876,8 @@ Cleaning
 python clean.py clean .5 datapoints.csv
 
 Ethnologue
-python clean.py phy clean-5-datapoints e root 15
-python clean.py phy clean-30-datapoints e parents 15 #Suspect not working.
+#python clean.py phy clean-5-datapoints e root 15
+#python clean.py phy clean-30-datapoints e parents 15 #Suspect not working.
 
 WALS
 python clean.py phy clean-30-datapoints w family 15
@@ -847,6 +886,7 @@ python clean.py phy clean-30-datapoints w genus 15
 
 Geography
 python clean.py geo clean-5-datapoints 15 radius 500
-python clean.py geo clean-5-datapoints 15 languages 25
+
+#python clean.py geo clean-5-datapoints 15 languages 25
 
 '''
