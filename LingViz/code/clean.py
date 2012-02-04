@@ -161,12 +161,18 @@ def long_lat_graph(wals_code, radius, lower_threshhold, maximum_areal_languages)
                 if distList[x][index] != '0.0':
                     dist_dict.setdefault(distList[0][x], distList[x][index].replace('\n',''))
         for key in dist_dict: 
-            if float(dist_dict[key]) <= float(500): 
-                output_file = 'geo-' + wals_code
-                o  = open(output_file, 'a')
-                line = ','.join(language_dict[key])
-                o.write(line)
-                o.close
+            if float(dist_dict[key]) <= float(500):
+                line = language_dict[key]
+                print line
+                print dist_dict[key]
+                line = line.insert(1, dist_dict[key])
+                print line
+
+                #output_file = 'geo-' + wals_code
+                #o  = open(output_file, 'a')
+                #line = ','.join(language_dict[key])
+                #o.write(line)
+                #o.close
                 
 
     #print dist_dict
