@@ -1,11 +1,11 @@
 '''
 The purpose of this code is to clean and sort WALS.
-Written by Richard Littauer. 
+Written by Richard Littauer.
 
 Released into the public domain like stocked trout into the sea.
 
 The commands needed to run this file can be seen at the bottom of the file next
-to the name_main function. 
+to the name_main function.
 
 
 Things to be improved upon:
@@ -43,6 +43,16 @@ Things to be improved upon:
       geographic distance, as large contact eras are, I assume, relatively
       recent (after the Age of Exploration.)
 
+    - It would be nice to have a function that would clean data based on only
+      certain features, in case some have them, and others don't.
+
+    - There needs to be an ordering function for cardinal points, to try and
+      illiminate the four-points errors.
+
+    - This shouldbe intregated with R directly.
+
+    - The data could be in an SQL file, as well, if you're keen.
+
 '''
 
 import sys
@@ -52,9 +62,6 @@ languages_file = "languages.csv" # WALS language details, inc. ISO codes
 ethnologue = "ethnologue.csv" # Ethnologue scraped data, 2005
 distance_file = "distances.csv" # Distances file
 
-w_genus_data = "w_genus_data.csv" # Data sorted by WALS hier. by genus
-w_family_data = "w_family_data.csv" # Data sorted by WALS hier. by family
-w_subfamily_data = "w_subfamily_data.csv" # WALS Data by subfamily hier
 
 # This function reads in the file
 def read_file(x):
@@ -125,6 +132,16 @@ def long_lat_graph(wals_code, radius):
     distList = split_lines(read_file(distance_file), '\t')
     dataList = split_lines(read_file(datapoints_file), ',')
 
+    # Open the output file
+    output_file = 'geo-' + wals_code
+    o  = open(output_file, 'a')
+
+    # And write the labels to it
+    labels = ['wals code,language name,amount of features filled,total amount\
+    of features,percentage filled,distance from center point,coordinate\
+    1,coordinate 2,family,genus,subfamily,iso code']
+    labels  = labels.replace('    ',' ')
+    o.write(labels + '\n\n')
 
     language_dict = {}
 
@@ -141,6 +158,8 @@ def long_lat_graph(wals_code, radius):
 
         # Make a dictionary for the distance information
         dist_dict = {}
+
+
 
         # Find the distances for all languages, put it in the dictionary
         for x in range(1,len(distList[index])):
@@ -398,6 +417,44 @@ def phylogenetic(input_file, lower_threshhold):
         printed_codes = []
         print_count = 0
 
+        # If we're measuring amounts of languages by radius
+        labels = 'source family,source genus,source subfamily,target family,\
+        target genus,target subfamily,target latitude,target longitude,target\
+        language,wals_code,1A,2A,3A,4A,5A,6A,7A,8A,9A,10A,\
+        10B,11A,12A,13A,14A,15A,16A,17A,18A,19A,20A,21A,21B,22A,23A,24A,\
+        25A,25B,26A,27A,28A,29A,30A,31A,32A,33A,34A,35A,36A,37A,38A,39A,\
+        39B,40A,41A,42A,43A,44A,45A,46A,47A,48A,49A,50A,51A,52A,53A,54A,\
+        55A,56A,57A,58A,58B,59A,60A,61A,62A,63A,64A,65A,66A,67A,68A,69A,\
+        70A,71A,72A,73A,74A,75A,76A,77A,78A,79A,79B,80A,81A,81B,82A,83A,\
+        84A,85A,86A,87A,88A,89A,90A,90B,90C,90D,90E,90F,90G,91A,92A,93A,\
+        94A,95A,96A,97A,98A,99A,100A,101A,102A,103A,104A,105A,106A,107A,\
+        108A,108B,109A,109B,110A,111A,112A,113A,114A,115A,116A,117A,118A,\
+        119A,120A,121A,122A,123A,124A,125A,126A,127A,128A,129A,130A,130B,\
+        131A,132A,133A,134A,135A,136A,136B,137A,137B,138A,139A,140A,141A,\
+        142A,143A,143B,143C,143D,143E,143F,143G,144A,144B,144C,144D,144E,\
+        144F,144G,144H,144I,144J,144K,144L,144M,144N,144O,144P,144Q,144R,\
+        144S,144T,144U,144V,144W,144X,144Y'
+        labels  = labels.replace('    ','')
+
+        w_genus_data = "w_genus_data.csv" # Data sorted by WALS hier. by genus
+        w_family_data = "w_family_data.csv" # Data sorted by WALS hier. by family
+        w_subfamily_data = "w_subfamily_data.csv" # WALS Data by subfamily hier
+
+        if sys.arg[4] == 'family':
+            # Write labels to the file
+            h = open(w_family_data, 'a')
+            h.write(labels + '\n\n')
+
+        if sys.arg[4] == 'genus':
+            # Write labels to the file
+            h = open(w_genus_data, 'a')
+            h.write(labels + '\n\n')
+
+        if sys.arg[4] == 'subfamily':
+            # Write labels to the file
+            h = open(w_subfamily_data, 'a')
+            h.write(labels + '\n\n')
+
         # For every WALS data line
         for a in range(1, len(dataList)):
 
@@ -628,6 +685,34 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
     # For printing in the terminal
     lines_sorted = 0
 
+    # Make the output name.
+    output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
+    sys.argv[5]
+
+    # Open the file.
+    h = open(output_file, 'a')
+
+    # Let's print out the labels.
+    labels = 'center language,center language family,center language \
+    genus,center language subfamily,family,genus,subfamily,distance \
+    from centre,total \
+    languages in the area,wals_code,1A,2A,3A,4A,5A,6A,7A,8A,9A,10A,\
+    10B,11A,12A,13A,14A,15A,16A,17A,18A,19A,20A,21A,21B,22A,23A,24A,\
+    25A,25B,26A,27A,28A,29A,30A,31A,32A,33A,34A,35A,36A,37A,38A,39A,\
+    39B,40A,41A,42A,43A,44A,45A,46A,47A,48A,49A,50A,51A,52A,53A,54A,\
+    55A,56A,57A,58A,58B,59A,60A,61A,62A,63A,64A,65A,66A,67A,68A,69A,\
+    70A,71A,72A,73A,74A,75A,76A,77A,78A,79A,79B,80A,81A,81B,82A,83A,\
+    84A,85A,86A,87A,88A,89A,90A,90B,90C,90D,90E,90F,90G,91A,92A,93A,\
+    94A,95A,96A,97A,98A,99A,100A,101A,102A,103A,104A,105A,106A,107A,\
+    108A,108B,109A,109B,110A,111A,112A,113A,114A,115A,116A,117A,118A,\
+    119A,120A,121A,122A,123A,124A,125A,126A,127A,128A,129A,130A,130B,\
+    131A,132A,133A,134A,135A,136A,136B,137A,137B,138A,139A,140A,141A,\
+    142A,143A,143B,143C,143D,143E,143F,143G,144A,144B,144C,144D,144E,\
+    144F,144G,144H,144I,144J,144K,144L,144M,144N,144O,144P,144Q,144R,\
+    144S,144T,144U,144V,144W,144X,144Y'
+    labels  = labels.replace('    ','')
+    h.write(labels + '\n\n')
+
     # Makes a list of all of the languages in the distance file, for sorting.
     language_row = []
     geoList = split_lines(read_file(distance_file), '\t')
@@ -759,12 +844,13 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
                 family = x[5]
                 genus = x[4]
                 subfamily = x[6]
-                fgsf = family + ',' + genus + ',' + subfamily + ','
+                source_fgsf = family + ',' + genus + ',' + subfamily
 
-        line_index.insert(0, fgsf)
+        line_index.insert(0, source_fgsf)
         line_index.insert(1, line[0])
         line_index.insert(2, '0.0')
         line_index.insert(3, str(total_searched))
+        line_index.insert(0, wals_code)
         line_index = ','.join(line_index)
         print_list = [line_index]
 
@@ -779,21 +865,21 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
                     family = x[5]
                     genus = x[4]
                     subfamily = x[6]
-                    fgsf = family + ',' + genus + ',' + subfamily + ','
+                    fgsf = family + ',' + genus + ',' + subfamily
 
                     # Find the WALS code
-                    wals_code = language_row[language[0]]
+                    target_wals_code = language_row[language[0]]
 
                     # Find the index where its information lies
-                    wals_index = language_f_low.index(wals_code)
+                    wals_index = language_f_low.index(target_wals_code)
 
-                    print_list.append(fgsf + line[0] + ',' + str(language[1]) + ','  +\
+                    print_list.append(wals_code + ',' + source_fgsf + ',' + fgsf + ',' + str(language[1]) + ','  +\
                             str(total_searched) + ',' + lineList[wals_index])
 
 
         # Make the output name. 
-        output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
-        sys.argv[5]
+        #output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
+        #sys.argv[5]
 
         h = open(output_file, 'a')
 
@@ -805,6 +891,7 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
 
                     #print
                     h.write(centred(print_list))
+                    h.write('\n')
 
 
         h.close()
@@ -837,6 +924,24 @@ def data_clean(lower_threshhold, input_file):
     f = open(input_file, 'r+')
     l = open(output_file, 'a')
     lineList = f.readlines()
+
+
+    labels = 'wals_code,1A,2A,3A,4A,5A,6A,7A,8A,9A,10A,\
+    10B,11A,12A,13A,14A,15A,16A,17A,18A,19A,20A,21A,21B,22A,23A,24A,\
+    25A,25B,26A,27A,28A,29A,30A,31A,32A,33A,34A,35A,36A,37A,38A,39A,\
+    39B,40A,41A,42A,43A,44A,45A,46A,47A,48A,49A,50A,51A,52A,53A,54A,\
+    55A,56A,57A,58A,58B,59A,60A,61A,62A,63A,64A,65A,66A,67A,68A,69A,\
+    70A,71A,72A,73A,74A,75A,76A,77A,78A,79A,79B,80A,81A,81B,82A,83A,\
+    84A,85A,86A,87A,88A,89A,90A,90B,90C,90D,90E,90F,90G,91A,92A,93A,\
+    94A,95A,96A,97A,98A,99A,100A,101A,102A,103A,104A,105A,106A,107A,\
+    108A,108B,109A,109B,110A,111A,112A,113A,114A,115A,116A,117A,118A,\
+    119A,120A,121A,122A,123A,124A,125A,126A,127A,128A,129A,130A,130B,\
+    131A,132A,133A,134A,135A,136A,136B,137A,137B,138A,139A,140A,141A,\
+    142A,143A,143B,143C,143D,143E,143F,143G,144A,144B,144C,144D,144E,\
+    144F,144G,144H,144I,144J,144K,144L,144M,144N,144O,144P,144Q,144R,\
+    144S,144T,144U,144V,144W,144X,144Y'
+    labels  = labels.replace('    ','')
+    l.write(labels + '\n\n')
 
     # For printing on the terminal
     lines_printed = 0
@@ -928,7 +1033,7 @@ python clean.py phy clean-30-datapoints w subfamily 15
 python clean.py phy clean-30-datapoints w genus 15
 
 Geography
-python clean.py geo clean-5-datapoints 15 radius 500
+python clean.py geo clean-30-datapoints 15 radius 500
 
 #python clean.py geo clean-5-datapoints 15 languages 25
 
