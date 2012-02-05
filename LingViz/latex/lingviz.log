@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 00:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 00:30
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -434,19 +434,19 @@ LaTeX Warning: Label `fig:sparse' multiply defined.
 )
 \openout1 = `lingviz.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 33.
  (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -465,32 +465,25 @@ ABD: EveryShipout initializing macros
 \everyMPtoPDFconversion=\toks30
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 34.
  (/usr/local/texlive/2009/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 67.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 1418) in paragraph at lines 67--70
-[]\OT1/ptm/m/n/10.95 The most com-pre-hen-sive com-pu-ta-tional re-
+
+Underfull \hbox (badness 1286) in paragraph at lines 46--47
+[]\OT1/ptm/m/n/10.95 Taking a dif-fer-ent per-spec-tive, Dunn \OT1/ptm/m/it/10.
+95 et al
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 67--70
-\OT1/ptm/m/n/10.95 source for lin-guis-tic ty-pol-ogy cur-rently avail-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7012) has occurred while \output is active []
 
  [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -498,45 +491,50 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 1043) in paragraph at lines 80--81
-\OT1/ptm/m/n/10.95 prob-lem, as any sta-tis-ti-cal in-for-ma-tion drawn
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 48.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 1418) in paragraph at lines 48--49
+[]\OT1/ptm/m/n/10.95 The most com-pre-hen-sive com-pu-ta-tional re-
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 48--49
+\OT1/ptm/m/n/10.95 source for lin-guis-tic ty-pol-ogy cur-rently avail-
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
 [2] <graph1.pdf, id=16, 505.89pt x 505.89pt>
 File: graph1.pdf Graphic file (type pdf)
  <use graph1.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 127--128
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 115--116
 [][] 
  []
 
 [3 <./graph1.pdf>] <graph2.pdf, id=33, 505.89pt x 505.89pt>
 File: graph2.pdf Graphic file (type pdf)
  <use graph2.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 153--154
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 141--142
 [][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 165.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 148.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 165.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 148.
  (./lingviz.bbl
-Underfull \hbox (badness 2818) in paragraph at lines 38--42
-[]\OT1/ptm/m/n/10 Institute for Lan-guage In-for-ma-tion and Tech-nol-
- []
-
-
-Underfull \hbox (badness 1546) in paragraph at lines 44--49
+Underfull \hbox (badness 1546) in paragraph at lines 46--51
 []\OT1/ptm/m/n/10 Ryan Georgi, Fei Xia, and Will Lewis.  2010.
  []
 
 
-Underfull \hbox (badness 1152) in paragraph at lines 59--64
+Underfull \hbox (badness 1152) in paragraph at lines 61--66
 []\OT1/ptm/m/n/10 William Lewis and Fei Xia.  2008.  Au-to-mat-i-
  []
 
@@ -546,13 +544,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10029 strings out of 493848
- 191971 string characters out of 3149206
- 228676 words of memory out of 3000000
- 13088 multiletter control sequences out of 15000+200000
+ 10030 strings out of 493848
+ 192006 string characters out of 3149206
+ 228666 words of memory out of 3000000
+ 13089 multiletter control sequences out of 15000+200000
  27890 words of font info for 65 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,10n,55p,926b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,10n,55p,1133b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -560,7 +558,7 @@ live/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/200
 9/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2009/texmf-di
 st/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (4 pages, 129243 bytes).
+Output written on lingviz.pdf (4 pages, 129753 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
