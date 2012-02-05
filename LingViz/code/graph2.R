@@ -29,14 +29,14 @@ sorted.features = sort(colMeans(is.na(geo_data[,11:ncol(geo_data)])))
 best.features = sorted.features[1:15]
 
 
-make.feature.subset = function(language) {
+make.feature.subset.heatmap = function(language,path) {
 # Get the subset of the features we want, relative to
 # the center language we want
 	data.subset = geo_data[which(geo_data$center.language==language),c(1:10,(as.numeric(names(best.features))))]
 
-## Re-order the rows in terms of distance from center
-## (This is being done simply for now)
-#	data.subset = data.subset[order(data.subset$X.distance.from.centre),]
+# Find the family information; this will allow us
+# to plot the right colors in the heatmap.
+	colcolors = sapply(data.subset$family,function(x) if(x=="Border") {"pink"} else if(x=="Lower Sepik-Ramu") {"brown"} else if(x == "Marind") {"yellow"} else if(x == "Sentani") {"orange"} else if (x == "Sepik") {"blue"} else if(x=="Skou") {"green"} else if(x =="Torricelli") {"purple"} else {"red"})
 
 # Remove the non-feature columns and transpose the data
 	data.subset = t(data.subset[,11:ncol(data.subset)])
@@ -46,45 +46,19 @@ make.feature.subset = function(language) {
 	rownames(data.subset) = get.feature(names(best.features),shift=10)
 
 # And voila!
-	return(data.subset)
+	pdf(path)
+	par(oma=c(2,2,2,16))
+	heatmap(data.subset,Rowv=NA,Colv=NA,ColSideColors=colcolors)
+	dev.off()
 }
 
-data.subset.ala = make.feature.subset("ala")
-data.subset.arp = make.feature.subset("arp")
-data.subset.awt = make.feature.subset("awt")
-data.subset.kew = make.feature.subset("kew")
-data.subset.kob = make.feature.subset("kob")
-data.subset.yim = make.feature.subset("yim")
+make.feature.subset.heatmap("ala","graphs/graph2ala.pdf")
+make.feature.subset.heatmap("arp","graphs/graph2arp.pdf")
+make.feature.subset.heatmap("awt","graphs/graph2awt.pdf")
+make.feature.subset.heatmap("kew","graphs/graph2kew.pdf")
+make.feature.subset.heatmap("kob","graphs/graph2kob.pdf")
+make.feature.subset.heatmap("yim","graphs/graph2yim.pdf")
 
-pdf("graphs/graph2ala.pdf")
-par(oma=c(2,2,2,16))
-heatmap(data.subset.ala,Rowv=NA,Colv=NA)
-dev.off()
-
-pdf("graphs/graph2arp.pdf")
-par(oma=c(2,2,2,16))
-heatmap(data.subset.arp,Rowv=NA,Colv=NA)
-dev.off()
-
-pdf("graphs/graph2awt.pdf")
-par(oma=c(2,2,2,16))
-heatmap(data.subset.awt,Rowv=NA,Colv=NA)
-dev.off()
-
-pdf("graphs/graph2kew.pdf")
-par(oma=c(2,2,2,16))
-heatmap(data.subset.kew,Rowv=NA,Colv=NA)
-dev.off()
-
-pdf("graphs/graph2kob.pdf")
-par(oma=c(2,2,2,16))
-heatmap(data.subset.kob,Rowv=NA,Colv=NA)
-dev.off()
-
-pdf("graphs/graph2yim.pdf")
-par(oma=c(2,2,2,16))
-heatmap(data.subset.yim,Rowv=NA,Colv=NA)
-dev.off()
 
 #rownames(data.subset) = paste("F",names(best.features),sep="")
 #pdf("graphs/graph2wnumbers.pdf")
