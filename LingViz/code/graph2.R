@@ -20,7 +20,7 @@ names(geo_data)[11:width] = as.character((11:width))
 # by how many NAs they have. The numbers in this
 # vector are the proportion of the column that is
 # NA.
-sorted.features = sort(colMeans(is.na(geo_data[,11:ncol(geo_data)])))
+sorted.features = sort(colMeans(is.na(geo_data[,11:width])))
 
 # Remove the V's from the colnames
 #names(sorted.features) = substr(names(sorted.features),2,4)
@@ -36,7 +36,7 @@ make.feature.subset.heatmap = function(language,path) {
 
 # Find the family information; this will allow us
 # to plot the right colors in the heatmap.
-	colcolors = sapply(data.subset$family,function(x) if(x=="Border") {"pink"} else if(x=="Lower Sepik-Ramu") {"brown"} else if(x == "Marind") {"yellow"} else if(x == "Sentani") {"orange"} else if (x == "Sepik") {"blue"} else if(x=="Skou") {"green"} else if(x =="Torricelli") {"purple"} else {"red"})
+	colcolors = sapply(data.subset$family,function(x) if(x=="Border") {"pink"} else if(x=="Lower Sepik-Ramu") {"brown"} else if(x == "Marind") {"yellow"} else if(x == "Sentani") {"orange"} else if (x == "Sepik") {"blue"} else if(x=="Skou") {"green"} else if(x =="Torricelli") {"purple"} else if(x == "Trans-New Guinea") {"red"} else {"white"})
 
 # Remove the non-feature columns and transpose the data
 	data.subset = t(data.subset[,11:ncol(data.subset)])
