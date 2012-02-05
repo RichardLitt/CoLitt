@@ -47,7 +47,7 @@ This paper presents a novel way of visualising relationships between languages. 
 
 \section{Introduction}
 
-This paper presents a novel way of visualising relationships between languages. Relationships between languages can be understood with respect to linguistic features of the languages, their geographical proximity, and their status with respect to historical development. The visualisations presented in this paper are the first to bring together these three perspectives into a single image. One line of recent work brings computational methods to bear on the formation and use of large typological databases, often using sophisticated statistical techniques to discover relations between languages \cite[among others]{cysouw2011,daume07implication,daume09areal}, and another line of work uses typological data in natural language processing \cite[for example]{xia:lewis, }but we are unaware of any previous approaches to visually presenting the resulting data.
+This paper presents a novel way of visualising relationships between languages. Relationships between languages can be understood with respect to linguistic features of the languages, their geographical proximity, and their status with respect to historical development. The visualisations presented in this paper are the first to bring together these three perspectives into a single image. One line of recent work brings computational methods to bear on the formation and use of large typological databases, often using sophisticated statistical techniques to discover relations between languages \cite[among others]{cysouw2011,daume07implication,daume09areal}, and another line of work uses typological data in natural language processing \cite[for example]{georgi:etal:10,lewis:xia:08}, but we are unaware of any previous approaches to visually presenting the resulting data.
 %However, few papers have provided new or newly applied ways of visually presenting the resulting data. 
 Here, we address this gap by using data from the World Atlas of Language Structures \cite{wals-2011} to develop heat maps that can visually show the interconnected relationships between languages and language families. 
 
@@ -55,19 +55,26 @@ Here, we address this gap by using data from the World Atlas of Language Structu
 The main envisioned application of our visualisations is in the area of linguistic typology. Typology has been used to derive implications about possible languages, and about the ordering of the human mind. Different theorists have taken different views on the relationship between typology and the universality of languages. For example, Greenberg \shortcite{greenberg}, a foundational work in the field, identifies a number of cross-linguistic typological properties and implications and aims to present them as truly universal -- relevant for \textit{all} languages. In a similar vein, typological universals have been employed as evidence in a generative story regarding language learning \cite{chomsky}.
 % and claiming that they represented universals of grammar, and that they would hold true for all languages. In %a similar vein, Chomsky \shortcite{chomsky}%Check citation, make sure it is a good one
 %has argued as a generativist that typological universals show that language is clearly an artefact of constraints involved with the learning process, and that some typological features are impossible due to this. 
-Dunn {\it et al} (2011) %Find citation
+Taking a different perspective, Dunn {\it et al} (2011) %Find citation
 % The citation style you're using here is confusing me. Why not just \cite{chomsky} etc?
 % Because that would be (chomsky, 2011). For inline ones, we need this.
 % AP: changing these to \shortcite{chomsky}, which is only slightly more efficient, but slightly so.
-argued that a language's typology relies upon the previous generations' language more than biological, environmental or cognitive constraints, and that there are pathways which are generally followed in language change based on the previous parent language. What these arguments have in common is a reliance on a view of linguistic typology that is potentially restricted in its scope, due to insufficient access to broad-scale empirical data, covering many features of many languages of the world. 
+argued that a language's typology relies upon the previous generations' language more than on any biological, environmental or cognitive constraints, and that there are pathways which are generally followed in language change based on the previous parent language. What these arguments have in common is a reliance on a view of linguistic typology that is potentially restricted in its scope, due to insufficient access to broad-scale empirical data, covering many features of many languages of the world. 
 
-Outside of the scope of theory, language typology is useful for other reasons. %Cite Xia and Lewis, MT, NLP, etc....
+%Outside of the scope of theory, language typology is useful for other reasons. %Cite Xia and Lewis, MT, NLP, etc....
 
 %\item WALS
-The World Atlas of Language Structures (WALS) is a large database of details of structural properties of several thousand languages \cite{wals-2011}. The properties were collected from descriptive sources by the project's 55 authors. As of 2008, WALS is browsable online (\url{http://www.wals.info}).
-
+The most comprehensive computational resource for linguistic typology currently available is the World Atlas of Language Structures (WALS).\footnote{As of 2008, WALS is browsable online (\url{http://www.wals.info}).}  WALS is a large database of details of structural properties of several thousand languages \cite{wals-2011}. The properties were collected from descriptive sources by the project's 55 authors. 
 %Cut out stuff from here, moved it to Material and Methods. May not have been advised. 
-However, for the several thousand languages in WALS, there is only about 16\% of the possible features filled---the data are \emph{sparse}.
+However, for the several thousand languages in WALS, there is only about 16\% of the possible features filled---the data are \emph{sparse}, and the sparsity of the data of course make it difficult to perform reliable statistical analysis. One way to work around this limitation is to seek meaningful visualisations of the data in WALS, instead of simply relying on raw numbers. This is our approach. 
+
+%In this paper:
+In this paper, we will first discuss more fully our starting data, before going on to discuss the problems with analysing this data and how our methodology dealt with them. We will then present several graphs that highlight the possibilities of graphing WALS data. 
+
+\section{Aspects of the Visualisations}
+
+The visualisations described here bring together three types of information: linguistic features, geographical distance, and phylogenetic distance. For the current study, all three types of information are extracted from the WALS database. In future work, we may explore the use of alternate sources such as Ethnologue \cite{ethnologue} or MultiTree \cite{multitree} for alternate phylogenetic hierarchies. 
+
 % The above sentence is vague. 16% of what? What does it mean for the features to be filled? Only 16% of the features are "full"? Only 16% of languages have full descriptions for each feature?
 
 Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
@@ -82,12 +89,6 @@ A solution to dealing with this issue is to visualise the data in WALS, instead 
 %\item what visualisation can do for us
 %\item Heat Maps  where they come from, what they are doing here
 
-%In this paper:
-In this paper, we will first discuss more fully our starting data, before going on to discuss the problems with analysing this data and how our methodology dealt with them. We will then present several graphs that highlight the possibilities of graphing WALS data. 
-
-\section{Aspects of the Visualisations}
-
-The visualisations described here bring together three types of information: linguistic features, geographical distance, and phylogenetic distance. For the current study, all three types of information are extracted from the WALS database. In future work, we may explore the use of alternate sources such as Ethnologue \cite{ethnologue} or MultiTree \cite{multitree} for alternate phylogenetic hierarchies. 
 
 \subsection{Linguistic features}
 \subsection{Geographic distance}
