@@ -109,6 +109,8 @@ Ignoring the fact that a language having certain features will cancel out the po
  The methodology discussed in this section is relevant only for languages with values for at least 30\% of all possible feature categories. 
 All data was downloaded freely from WALS, all coding was done in either Python or R. The code was not computationally expensive to run, and the programming languages and methods are quite accessible. All code is available in a public repository, links to which will be released once anonymisation is no longer required.
 
+In a two-dimensional heat map, each cell of a matrix is filled with a color representing that cell's value. In our case, the color of the cell represents the normalized value of a linguistic feature according to WALS. Languages with the same color in a given row have the same value for that typological feature.\footnote{Due to this reliance on color, we strongly suggest viewing the heatmaps presented here in color.}
+
 \subsection{Geographically-organized heat maps}
 For the geographic distance maps, for each language present in the cleaned data, we selected all possible languages that lay within 500km, and sorted these languages until only the 15 closest neighbors were selected. For phylogenetic distances, for each language we searched for other languages coming from the same family, subfamily, or genus. In either case, the subset that fit these requirements was a mere handful. We have chosen to graph these examples, as they most fully show the use of our visualisations. We picked features to graph from among the resulting languages based on how common they were across the selected languages. 
 
@@ -158,7 +160,7 @@ Drawing a heat map where only 16\%~ of the features are available would be of li
 
 
 \section{Conclusion}
-In this paper we present a new method for visualising relationships between languages, representing 
+In this paper we present a new method for visualising relationships between languages, one which allows for the simultaneous viewing of linguistic features and either phylogenetic relationships or geographical proximity. In some cases, all three are brought together in a single image. These visualisations allow us to view relationships in a new way, seeking to work around the sparseness of available data and facilitate new insights into linguistic typology.
 
 %\begin{itemize}
 %\item What these tell us (map by map)
