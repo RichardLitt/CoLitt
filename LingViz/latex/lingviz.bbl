@@ -40,6 +40,13 @@ Institute for Language~Information and Technology~(LINGUIST List), editors.
 \newblock {\em Multitree: A digital library of language relationships}.
 \newblock Eastern Michigan University, Ypsilanti, MI, 2009 edition.
 
+\bibitem[\protect\citename{Georgi \bgroup et al.\egroup }2010]{georgi:etal:10}
+Ryan Georgi, Fei Xia, and Will Lewis.
+\newblock 2010.
+\newblock Comparing language similarity across genetic and typologically-based
+  groupings.
+\newblock In {\em Proceedings of COLING 2010}.
+
 \bibitem[\protect\citename{Greenberg}1963]{greenberg}
 J.H. Greenberg.
 \newblock 1963.
@@ -47,6 +54,13 @@ J.H. Greenberg.
   meaningful elements.
 \newblock In J.H. Greenberg, editor, {\em Universals of Language}, pages
   58--90. MIT Press, Cambridge, MA.
+
+\bibitem[\protect\citename{Lewis and Xia}2008]{lewis:xia:08}
+William Lewis and Fei Xia.
+\newblock 2008.
+\newblock Automatically identifying computationally relevant typological
+  features.
+\newblock In {\em Proceedings of IJCNLP 2008}.
 
 \bibitem[\protect\citename{Lewis}2009]{ethnologue}
 M.~Paul Lewis, editor.
