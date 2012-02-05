@@ -37,5 +37,9 @@ data.subset = t(family_data[,as.numeric(names(best.features))])
 colnames(data.subset) = get.language(family_data$wals_code)
 rownames(data.subset) = get.feature(names(best.features),shift=0)
 
-par(oma=c(2,2,2,16))
+# Quick fix for names.
+rownames(data.subset)[1] = "Order of O & V and the Order of RC & N"
+rownames(data.subset)[11] = "Position of Neg Morphs in SOV Languages"
+
+par(oma=c(2,2,2,15))
 heatmap(data.subset,Rowv=NA,Colv=NA,scale="none")
