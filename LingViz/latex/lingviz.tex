@@ -66,33 +66,42 @@ argued that a language's typology relies upon the previous generations' language
 %\item WALS
 The most comprehensive computational resource for linguistic typology currently available is the World Atlas of Language Structures (WALS).\footnote{As of 2008, WALS is browsable online (\url{http://www.wals.info}).}  WALS is a large database of details of structural properties of several thousand languages \cite{wals-2011}. The properties were collected from descriptive sources by the project's 55 authors. 
 %Cut out stuff from here, moved it to Material and Methods. May not have been advised. 
-However, for the several thousand languages in WALS, there is only about 16\% of the possible features filled---the data are \emph{sparse}, and the sparsity of the data of course make it difficult to perform reliable statistical analysis. One way to work around this limitation is to seek meaningful visualisations of the data in WALS, instead of simply relying on raw numbers. This is our approach. 
+However, for the several thousand languages in WALS, there is only about 16\% of the possible features filled---the data are \emph{sparse}, and the sparsity of the data of course makes it difficult to perform reliable statistical analysis. One way to work around this limitation is to seek meaningful visualisations of the data in WALS, instead of simply relying on raw numbers. This is our approach. 
 
 %In this paper:
-In this paper, we will first discuss more fully our starting data, before going on to discuss the problems with analysing this data and how our methodology dealt with them. We will then present several graphs that highlight the possibilities of graphing WALS data. 
+In this paper, we first discuss in more detail the source data and the types of information to be extracted, followed by a discussion of some difficulties presented by the available data and our approaches for addressing those difficulties. Finally, we show the resulting visualisations.
 
 \section{Aspects of the Visualisations}
 
-The visualisations described here bring together three types of information: linguistic features, geographical distance, and phylogenetic distance. For the current study, all three types of information are extracted from the WALS database. In future work, we may explore the use of alternate sources such as Ethnologue \cite{ethnologue} or MultiTree \cite{multitree} for alternate phylogenetic hierarchies. 
+The visualisations described here bring together three types of information: linguistic features, geographical distance, and phylogenetic distance. For the current study, all three types of information are extracted from the WALS database. In future work, we may explore the use of alternate sources such as Ethnologue \cite{ethnologue} or MultiTree \shortcite{multitree} for alternate phylogenetic hierarchies. 
 
 % The above sentence is vague. 16% of what? What does it mean for the features to be filled? Only 16% of the features are "full"? Only 16% of languages have full descriptions for each feature?
 
-Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
+% Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
 
 % The above para is also unclear. The sparsity of data problem just sounds like a sampling problem, which is endemic to all of science. Also, can we state at some point *how many* lgs are in WALS? that's not clear.
-
-A solution to dealing with this issue is to visualise the data in WALS, instead of relying on raw numbers.
-
-%Alexis [filler][filler]
 
 %\item visualisation
 %\item what visualisation can do for us
 %\item Heat Maps  where they come from, what they are doing here
 
+%192 features in WALS
+% At the time of submission, there were 81,828 datapoints for 2,678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1,519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is \emph{sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
 
 \subsection{Linguistic features}
+At the time of submission, WALS contained information for 2678 languages. The linguistic features covered in WALS range from phonetic and phonological features, over some lexical and morphological features, to syntactic structures, word order tendencies, and other structural questions. A total of 192 features are represented, grouped in 144 different chapters, with each chapter addressing a set of related features. 
+
+The coverage of features/chapters varies dramatically across the languages, with an average of 28 feature values per language. The most populated feature has data for 1519 languages. 
+
+
 \subsection{Geographic distance}
-We measured geographic distance by choosing an arbitrary radius that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
+Geographic distance is an important aspect of typological study because neighbouring  languages often come to share linguistic features, even in the absence of genetic relationship between the languages. Each language in WALS is associated with a geographical coordinate representing a central point for the main population of speakers of that language. 
+
+
+
+For this study, we try two approaches to clustering languages according to geographic distance. by choosing an arbitrary radius in order to create a decision boundary for clustering neighbouring languages. We found that a radius of 500 kilometers proves to provide a sufficient number of examples even after cleaning the WALS data. 
+
+ that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
 %Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
 % (Vincenty formula would be more accurate (as earth is not a 
 % perfect sphere), but much more computationally intense for
