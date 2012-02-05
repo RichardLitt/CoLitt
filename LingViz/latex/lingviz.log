@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 00:10
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 00:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -514,17 +514,17 @@ Overfull \hbox (7.22743pt too wide) in paragraph at lines 127--128
 [3 <./graph1.pdf>] <graph2.pdf, id=33, 505.89pt x 505.89pt>
 File: graph2.pdf Graphic file (type pdf)
  <use graph2.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 154--155
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 153--154
 [][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 162.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 165.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 165.
  (./lingviz.bbl
 Underfull \hbox (badness 2818) in paragraph at lines 38--42
 []\OT1/ptm/m/n/10 Institute for Lan-guage In-for-ma-tion and Tech-nol-
@@ -560,7 +560,7 @@ live/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/200
 9/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2009/texmf-di
 st/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (4 pages, 129556 bytes).
+Output written on lingviz.pdf (4 pages, 129243 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
