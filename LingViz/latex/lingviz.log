@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 00:35
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 00:44
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -510,38 +510,36 @@ Underfull \hbox (badness 1067) in paragraph at lines 48--49
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
-[2] <graph1sparse.pdf, id=16, 505.89pt x 505.89pt>
-File: graph1sparse.pdf Graphic file (type pdf)
- <use graph1sparse.pdf>
+[2] <graph1sparse.png, id=16, 505.89pt x 505.89pt>
+File: graph1sparse.png Graphic file (type png)
+ <use graph1sparse.png>
 Overfull \hbox (7.22743pt too wide) in paragraph at lines 115--116
 [][] 
  []
 
-[3 <./graph1sparse.pdf>] <graph2yimas.pdf, id=33, 505.89pt x 505.89pt>
-File: graph2yimas.pdf Graphic file (type pdf)
+[3 <./graph1sparse.png (PNG copy)>]
+<graph2yimassmall.pdf, id=20, 481.40105pt x 391.17863pt>
+File: graph2yimassmall.pdf Graphic file (type pdf)
 
-<use graph2yimas.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 141--142
+<use graph2yimassmall.pdf>
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 143--144
 [][] 
  []
 
-<graph3nigercongo.pdf, id=34, 505.89pt x 505.89pt>
+<graph3nigercongo.pdf, id=21, 505.89pt x 505.89pt>
 File: graph3nigercongo.pdf Graphic file (type pdf)
  <use graph3nigercongo.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 148--149
+Overfull \hbox (36.135pt too wide) in paragraph at lines 150--151
 [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 156.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 158.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 156.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 158.
  (./lingviz.bbl
 Underfull \hbox (badness 1546) in paragraph at lines 46--51
 []\OT1/ptm/m/n/10 Ryan Georgi, Fei Xia, and Will Lewis.  2010.
@@ -552,7 +550,7 @@ Underfull \hbox (badness 1152) in paragraph at lines 61--66
 []\OT1/ptm/m/n/10 William Lewis and Fei Xia.  2008.  Au-to-mat-i-
  []
 
-[4 <./graph2yimas.pdf> <./graph3nigercongo.pdf>]) [5
+[4 <./graph2yimassmall.pdf> <./graph3nigercongo.pdf>]) [5
 
 ] (./lingviz.aux)
 
@@ -560,8 +558,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10035 strings out of 493848
- 192180 string characters out of 3149206
+ 10036 strings out of 493848
+ 192209 string characters out of 3149206
  228666 words of memory out of 3000000
  13093 multiletter control sequences out of 15000+200000
  27890 words of font info for 65 fonts, out of 3000000 for 9000
@@ -574,9 +572,9 @@ live/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/200
 9/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2009/texmf-di
 st/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (5 pages, 512374 bytes).
+Output written on lingviz.pdf (5 pages, 702308 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
+ 297 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
