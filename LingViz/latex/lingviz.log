@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  5 FEB 2012 22:58
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  5 FEB 2012 23:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -476,73 +476,88 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 
 LaTeX Warning: No \author given.
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
 
-Underfull \hbox (badness 1946) in paragraph at lines 52--53
-[]\OT1/ptm/m/n/10.95 Computational meth-ods have only re-cently
- []
+LaTeX Warning: Citation `cysouw2011' on page 1 undefined on input line 50.
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 66.
+
+LaTeX Warning: Citation `daume07implication' on page 1 undefined on input line 
+50.
+
+
+LaTeX Warning: Citation `daume09areal' on page 1 undefined on input line 50.
+
+
+LaTeX Warning: Citation `xia:lewis' on page 1 undefined on input line 50.
+
+
+LaTeX Warning: Citation ` ' on page 1 undefined on input line 50.
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 67.
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 4048) in paragraph at lines 66--67
+Underfull \hbox (badness 4048) in paragraph at lines 67--68
 []\OT1/ptm/m/n/10.95 The World At-las of Lan-guage Struc-tures
  []
 
 
-Underfull \hbox (badness 1043) in paragraph at lines 72--73
-\OT1/ptm/m/n/10.95 prob-lem, as any sta-tis-ti-cal in-for-ma-tion drawn
- []
+Underfull \vbox (badness 7012) has occurred while \output is active []
 
-[1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
 
 ]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
+Underfull \hbox (badness 1043) in paragraph at lines 73--74
+\OT1/ptm/m/n/10.95 prob-lem, as any sta-tis-ti-cal in-for-ma-tion drawn
+ []
 
-[2] <graph1.pdf, id=16, 505.89pt x 505.89pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+<graph1.pdf, id=16, 505.89pt x 505.89pt>
 File: graph1.pdf Graphic file (type pdf)
  <use graph1.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 163--164
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 166--167
 [][] 
  []
 
 <graph2.pdf, id=17, 505.89pt x 505.89pt>
 File: graph2.pdf Graphic file (type pdf)
  <use graph2.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 177--178
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 180--181
 [][] 
  []
 
-[3 <./graph1.pdf> <./graph2.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 185.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 188.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 185.
- (./lingviz.bbl
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
+ [3 <./graph1.pdf>] (./lingviz.bbl
 Underfull \hbox (badness 2818) in paragraph at lines 16--20
 []\OT1/ptm/m/n/10 Institute for Lan-guage In-for-ma-tion and Tech-nol-
  []
 
-) [4
-
-] (./lingviz.aux)
+) [4 <./graph2.pdf>] (./lingviz.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10004 strings out of 493848
- 191712 string characters out of 3149206
+ 10009 strings out of 493848
+ 191772 string characters out of 3149206
  228562 words of memory out of 3000000
- 13072 multiletter control sequences out of 15000+200000
+ 13077 multiletter control sequences out of 15000+200000
  21559 words of font info for 52 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  56i,10n,55p,952b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -553,7 +568,7 @@ live/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/200
 9/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2009/texmf-di
 st/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (4 pages, 125262 bytes).
+Output written on lingviz.pdf (4 pages, 126759 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
