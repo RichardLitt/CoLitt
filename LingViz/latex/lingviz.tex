@@ -120,47 +120,7 @@ The WALS phylogenetic hierarchies do not take into account language contact. For
 \subsection{WALS}
 
 %192 features in WALS
-At the time of submission, there were 81,828 datapoints for 2,678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1,519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is \emph{sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
-
-Drawing a heat map where only 16\% of the features are available would be of little use. There are two options for dealing with this: to collapse the feature values in some way, or to select for languages that have a higher percentage of data filled than the average language. We opted for the second choice, and \emph{cleaned}  the file until it contained only languages that had either 30\% as a lower bound, or 50\% as a higher bound, of all of their entries filled. This cleaned data was then used in the other functions.  
-
-%\item Description of typological data
-	%Insert example here. Probably. 
-	
-%    Relations are defined by features. A possibility is combining features, and
-%    creating a feature similarity metric - for instance, aligning various types
-%    of syntactic universals together. - THis has been done: Xia and Lewis, 2008
-
-
-%\item Measuring Phylogenetic distance
-%\item Measuring Geographical distance
-%\item Combined map - %Should be possible - give distance equal weightings, find the aggregate. 
-
-
-Each final list was then resorted, so that the source language was centered in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Mohawk, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Mohawk, and Mohawk again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. 
-
-
-%    We could sort them lattitudinally or longitudinally - consider the case of
-%    a Dravidian language at the south of India. This would work well, here. Or
-%    Patagonian. Japanese would work - but we don't have the dialect scales, so
-%    this may not show us anything, especially not with WALS. This helps us in
-%    forcing our hand to make smaller maps - say, 30 languages - instead of
-%    massive ones. 
-
-% 	Rory, can we do this?
-
-% I'm not sure what you're asking if we can do - sorting by lat or long?
-% Aren't we already sorted by distance to other lgs?
-
-% Instead of centering the line, use the line that is furthest to a cardinal point, and then have all languages in a certain direction (Ssw to nnw) for instance - lined up next to it. This might be able to stop one of the major problems of the heat map. 
-
-%\item Compiling python scripts, converting into R
-All of the code was done either in Python, or in R. %How to include this? In a link to the git hub?
-The code was not computationally intensive, and did not take more than a couple of minutes to run.
-
-%\item Sorting R output
-
-\section{Results} %Or visualisations?
+At the time of submission, there were 81,828 datapoints for 2,678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1,519 languages. There were 144 different chapters, each containing values for different, related features; in total, there are only 192 possible features to be compared. It can be seen easily from these numbers that the data on WALS is \emph{sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database. The data was represented as a range of numbers indicating the type of each feature.
 
 \begin{figure}[h]
 \includegraphics[width=3.1in]
@@ -173,16 +133,29 @@ In Fig. \ref{fig:sparse}, we have plotted out the neighbouring languages for the
 
 For each language within 500km, represented here by the dotted circle, the amount of features filled in WALS is shown. The majority have less than 50\% filled - there are only 171 such languages in WALS. This graph does not include languages not in WALS. It ought to be clear from this that the data in WALS is too sparse to draw immediate conclusions from, which furthers the need for visualizations. 
 
+Drawing a heat map where only 16\%~ of the features are available would be of little use. There are two options for dealing with this: to collapse the feature values in some way, or to select for languages that have a higher percentage of data filled than the average language. We opted for the second choice, and \emph{cleaned}  the file until it contained only languages that had at least 30\% as a lower bound of all of their entries filled. This cleaned data was then used in the other functions.  
+
+For the geographic distance maps, for each language present in the cleaned file, we selected all possible languages that lay within 500km, and sorted these languages until only the 15 closest neighbors were selected. For phylogenetic distances, for each language we searched for other languages coming from the same family, subfamily, or genus. In either case, the subset that fit these requirements was a mere handful. We have chosen to graph these examples, as they most fully show the use of our visualisations. We picked features to graph from among the resulting languages based on how common they were across the selected languages. 
+
+%\item Description of typological data %Insert example? here. Probably. 
+
+Each final list was then resorted. In the geographic case, the source language was centered in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Mohawk, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Mohawk, and Mohawk again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. Language families were put as a bar at the top of the image, in order to show relations that might otherwise not be obvious.
+
+The phylogenetic example was sorted by geographical position, as well. In this case, we first plotted the subset of languages on a world map, and examined which groups had the most linear structure. We then arranged that group according to cardinal directions; here, we mapped from North to South. This is a better proxy in this case than centering the data, as it more clearly shows languages that would be in contact with each other. 
+
+All data was downloaded freely from WALS. All of the coding required was done either in Python, or in R. %How to include this? In a link to the git hub?
+The code was not computationally intensive to run.
+
+\section{Results} %Or visualisations?
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris massa elit, facilisis quis elementum quis, tincidunt et massa. Suspendisse et lacus augue, sit amet molestie est. Aliquam luctus vestibulum tellus, nec consectetur elit porttitor ut. Aenean tellus velit, placerat ac placerat nec, ultricies quis nunc. Vivamus eget neque id diam posuere tincidunt ac vel nibh. Morbi vitae eros turpis. Vestibulum vitae nulla diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 \begin{figure}[h]
 \includegraphics[width=3.1in]
 {graph2.pdf} 
 \caption{Example 1} 
 \label{fig:sparse} 
 \end{figure}
-Vestibulum elit odio, luctus eget elementum a, interdum id sem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed scelerisque est eget lorem eleifend vestibulum. Ut dui dolor, tincidunt ac fringilla vitae, mollis tristique ligula. Quisque urna tortor, venenatis eu bibendum id, condimentum vel neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ligula nunc, et tincidunt mi. Donec pellentesque mauris rutrum odio vulputate a egestas neque mattis. Curabitur molestie adipiscing leo, sed posuere elit luctus id. Ut arcu diam, scelerisque at hendrerit eu, venenatis eget urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec feugiat, tellus quis viverra porttitor, dolor dolor vehicula tortor, ac porta nisi elit non ante. Proin ligula odio, condimentum nec pellentesque a, cursus ac nulla. Cras aliquet magna ut dolor suscipit congue.
+
 
 \subsection{Heat maps}
 \begin{itemize}

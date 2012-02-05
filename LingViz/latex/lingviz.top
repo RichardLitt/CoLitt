@@ -4,7 +4,7 @@
 \setupsystem[\c!n=1,\c!m=1]
 \setupsystem[\c!method=2]
 \setupsystem[\c!type=macosx]
-\setupsystem[\c!random=1254]
+\setupsystem[\c!random=636]
 \setupsystem[inputfile=lingviz.tex]
 \startsetups *runtime:options
 \setupoutput[pdftex]
