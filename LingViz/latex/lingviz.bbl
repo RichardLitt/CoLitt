@@ -6,6 +6,28 @@ N.~Chomsky.
 \newblock {\em New Horizons in the Study of Language and Mind}.
 \newblock Cambridge University Press, Cambridge, UK.
 
+\bibitem[\protect\citename{Cysouw}2011]{cysouw2011}
+M.~Cysouw.
+\newblock 2011.
+\newblock Quantitative explorations of the world-wide distribution of rare
+  characteristics, or: the exceptionality of northwestern european languages.
+\newblock In H.~Simon and Heike Wiese, editors, {\em Expecting the Unexpected},
+  pages 411--431. De Gruyter Mouton, Berlin, DE.
+
+\bibitem[\protect\citename{{Daum\'e III} and Campbell}2007]{daume07implication}
+Hal {Daum\'e III} and Lyle Campbell.
+\newblock 2007.
+\newblock A {B}ayesian model for discovering typological implications.
+\newblock In {\em Conference of the Association for Computational Linguistics
+  (ACL)}, Prague, Czech Republic.
+
+\bibitem[\protect\citename{{Daum\'e III}}2009]{daume09areal}
+Hal {Daum\'e III}.
+\newblock 2009.
+\newblock Non-parametric {B}ayesian model areal linguistics.
+\newblock In {\em North American Chapter of the Association for Computational
+  Linguistics (NAACL)}, Boulder, CO.
+
 \bibitem[\protect\citename{Dryer and Haspelmath}2011]{wals-2011}
 Matthew~S. Dryer and Martin Haspelmath, editors.
 \newblock 2011.
