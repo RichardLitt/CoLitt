@@ -91,17 +91,17 @@ The visualisations described here bring together three types of information: lin
 \subsection{Linguistic features}
 At the time of submission, WALS contained information for 2678 languages. The linguistic features covered in WALS range from phonetic and phonological features, over some lexical and morphological features, to syntactic structures, word order tendencies, and other structural questions. A total of 192 features are represented, grouped in 144 different chapters, with each chapter addressing a set of related features. 
 
-The coverage of features/chapters varies dramatically across the languages, with an average of 28 feature values per language. The most populated feature has data for 1519 languages. 
+The coverage of features/chapters varies dramatically across the languages, with an average of 28 feature values per language. The most populated feature has data for 1519 languages. Because of the extreme sparsity of the data, we restricted our treatment to only languages with values for 30\% or more of the available features. 
 
 
 \subsection{Geographic distance}
-Geographic distance is an important aspect of typological study because neighbouring  languages often come to share linguistic features, even in the absence of genetic relationship between the languages. Each language in WALS is associated with a geographical coordinate representing a central point for the main population of speakers of that language. 
+Geographic distance is an important aspect of typological study because neighbouring  languages often come to share linguistic features, even in the absence of genetic relationship between the languages. Each language in WALS is associated with a geographical coordinate representing a central point for the main population of speakers of that language. We use these figures for determining geographic distance between two languages. A crucial aspect of our visualisations is that we produce them only for sets of languages within a reasonable geographic proximity (and with sufficient featural coverage within WALS).
 
+For this study, we try two approaches to clustering languages according to geographic distance. First, we choose an arbitrary radius in order to create a decision boundary for clustering neighbouring languages. For each language, we fix that language's location as the centroid of the cluster and look at all other languages within the given radius. We found that a radius of 500 kilometers proves to provide a sufficient number of examples even after cleaning low-coverage languages from the WALS data. 
 
-
-For this study, we try two approaches to clustering languages according to geographic distance. by choosing an arbitrary radius in order to create a decision boundary for clustering neighbouring languages. We found that a radius of 500 kilometers proves to provide a sufficient number of examples even after cleaning the WALS data. 
-
- that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
+The second approach selects an arbitrary lower bound for the languages in the general area. If a sufficient percentage of the total number of languages in the area remained after cleaning the WALS data, we took this as a useful area and did mapping for that area. 
+% that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to %provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for %languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. 
+This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
 %Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
 % (Vincenty formula would be more accurate (as earth is not a 
 % perfect sphere), but much more computationally intense for
@@ -126,10 +126,11 @@ The WALS phylogenetic hierarchies do not take into account language contact. For
 
 \section{Material and Methods}
 %\item Information about WALS data
-\subsection{WALS}
+\subsection{Sparse data}
 
 %192 features in WALS
-At the time of submission, there were 81,828 datapoints for 2,678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1,519 languages. There were 144 different chapters, each containing values for different, related features; in total, there are only 192 possible features to be compared. It can be seen easily from these numbers that the data on WALS is \emph{sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database. The data was represented as a range of numbers indicating the type of each feature.
+As discussed above, the data in WALS is very sparse.
+Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database. The data was represented as a range of numbers indicating the type of each feature.
 
 \begin{figure}[h]
 \includegraphics[width=3.1in]
