@@ -40,20 +40,19 @@
 % \end{abstract}
 
 \begin{abstract}
-This paper presents a novel way of visualising relationships between languages. The key innovation of the visualisation is that it brings geographical, phylogenetic, and linguistic data together into a single image, allowing a new visual perspective on linguistic typology. The data presented here is extracted from the World Atlas of Language Structures (WALS)~\cite{wals-2011}. After pruning due to low coverage of WALS, we filter data about linguistic structures and attributes by geographical proximity in order to get at areal typological effects. The data are displayed in heat maps which reflect the strength of similarity between languages for different linguistic aspects. Finally, these are annotated for language family membership. The images so produced allow a new perspective on the data which we hope will facilitate
-% Data is extracted from the World Atlas of Language Structures (WALS)~\cite{wals-2011} and presented in the form of heat maps. In addition to the linguistic features which are the main focus of WALS, we also extract geographical location and phylogenetic relationships between languages. The data are then filtered by geographical proximity to capture areal relationships between languages and displayed with attention to traditional language family membership. The resulting visualisations thus capture all three types of information, presenting a unique perspective on linguistic typology.
+This paper presents a novel way of visualising relationships between languages. The key innovation of the visualisation is that it brings geographic, phylogenetic, and linguistic data together into a single image, allowing a new visual perspective on linguistic typology. The data presented here is extracted from the World Atlas of Language Structures (WALS)~\cite{wals-2011}. After pruning due to low coverage of WALS, we filter data about linguistic structures and attributes by geographical proximity in order to get at areal typological effects. The data are displayed in heat maps which reflect the strength of similarity between languages for different linguistic aspects. Finally, these are annotated for language family membership. The images so produced allow a new perspective on the data which we hope may facilitate interesting findings and perhaps even illuminate new areas of research.
 \end{abstract}
 
 %% This outline is just a suggestion. Feel free to mix it up as much as you want if you feel it would or should be better another way. 
 
 \section{Introduction}
 
-This paper presents a novel way of visualising relationships between languages. Relationships between languages can be understood with respect to linguistic features of the languages, their geographical proximity, and their status with respect to historical development. The visualisations presented in this paper are the first to bring together these three perspectives into a single image.
-
- Computational methods have only recently been applied in the formation and use of large typological databases. Many studies have since focused on discovering relations between languages using typology, often using sophisticated statistical techniques. However, few papers have provided new or newly applied ways of visually presenting the resulting data. Here, we show that one can use the data from the World Atlas of Language Structures \cite{wals-2011} to develop heat maps that can visually show the interconnected relationships between languages and language families. We hope that the images will bring a new perspective to the data, resulting in interesting findings and illuminating areas of research.
+This paper presents a novel way of visualising relationships between languages. Relationships between languages can be understood with respect to linguistic features of the languages, their geographical proximity, and their status with respect to historical development. The visualisations presented in this paper are the first to bring together these three perspectives into a single image. One line of recent work brings computational methods to bear on the formation and use of large typological databases, often using sophisticated statistical techniques to discover relations between languages \cite[e.g.]{daume07implication,daume09areal}, but we are unaware of any previous approaches to visually presenting the resulting data.
+%However, few papers have provided new or newly applied ways of visually presenting the resulting data. 
+Here, we address this gap by using data from the World Atlas of Language Structures \cite{wals-2011} to develop heat maps that can visually show the interconnected relationships between languages and language families. 
 
 %\item brief history of typology
-Typology has been used to derive implications about possible languages, and about the ordering of the human mind. Greenberg \shortcite{greenberg} is famous for finding many cross-linguistic typological implications, such as %example,
+The main envisioned application of our visualisations is in the area of linguistic typology. Typology has been used to derive implications about possible languages, and about the ordering of the human mind. Greenberg \shortcite{greenberg} is famous for finding many cross-linguistic typological implications, such as %example,
 , and claiming that they represented universals of grammar, and that they would hold true for all languages. In a similar vein, Chomsky \shortcite{chomsky}%Check citation, make sure it is a good one
 has argued as a generativist that typological universals show that language is clearly an artefact of constraints involved with the learning process, and that some typological features are impossible due to this. Dunn {\it et al} (2011) %Find citation
 % The citation style you're using here is confusing me. Why not just \cite{chomsky} etc?
@@ -87,14 +86,38 @@ In this paper, we will first discuss more fully our starting data, before going 
 
 \section{Aspects of the Visualisations}
 
+The visualisations described here bring together three types of information: linguistic features, geographical distance, and phylogenetic distance. For the current study, all three types of information are extracted from the WALS database. In future work, we may explore the use of alternate sources such as Ethnologue \cite{ethnologue} or MultiTree \cite{multitree} for alternate phylogenetic hierarchies. 
+
 \subsection{Linguistic features}
-\subsection{Geographical distance}
+\subsection{Geographic distance}
+We measured geographic distance by choosing an arbitrary radius that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
+%Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
+% (Vincenty formula would be more accurate (as earth is not a 
+% perfect sphere), but much more computationally intense for
+% 2678*2678 comparisons.
+%   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
+%Note - reprint the data with this formula worked in, as it makes more sense than what you're doing at the moment.
+
 \subsection{Phylogenetic distance}
+
+Languages are related phylogenetically either vertically, by lineage, or horizontally, by contact. In WALS, each language is placed in a tree hierarchy that specifies phylogenetic relations. In the WALS data files, this is specified by linking at three different levels: family, such as `Sino-Tibetan', sub-family, such as `Tibeto-Burman', and genus, such as `Northern Naga', . % Provisional tree hierarchies were also drawn from Ethnologue \cite{ethnologue} and MultiTree \cite{multitree}, but due to the low amount of overlap between non-sparse WALS entries and the possible alternative hierarchies drawn from Ethnologue or MultiTree, only the phylogenetic relations from WALS were used.
+% If we didn't use the ethnologue or multitree data, we don't need to mention it.
+% Well, we did run it - I don't know, I feel like it's important to mention that it is a neg result for new results mapping to Ethnologue. I wish I had known this before, by reading it in some other article. 
+
+%Information about Ethnologue scrape %provided by steven moran -need to get the details
+The WALS phylogenetic hierarchies do not take into account language contact. For that, we used geographic coordinates, which are present on WALS, as a proxy for contact. 
+%\item Longitude and latitude, and how it is measured
+%Distance:
+%    For each language, the distance has been calculated. Currently we have a
+%    2678x2678 matrix, which is a little large.
+
 
 
 \section{Material and Methods}
 %\item Information about WALS data
 \subsection{WALS}
+
+%192 features in WALS
 At the time of submission, there were 81,828 datapoints for 2,678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1,519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is \emph{sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
 
 Drawing a heat map where only 16\% of the features are available would be of little use. There are two options for dealing with this: to collapse the feature values in some way, or to select for languages that have a higher percentage of data filled than the average language. We opted for the second choice, and \emph{cleaned}  the file until it contained only languages that had either 30\% as a lower bound, or 50\% as a higher bound, of all of their entries filled. This cleaned data was then used in the other functions.  
@@ -105,28 +128,6 @@ Drawing a heat map where only 16\% of the features are available would be of lit
 %    Relations are defined by features. A possibility is combining features, and
 %    creating a feature similarity metric - for instance, aligning various types
 %    of syntactic universals together. - THis has been done: Xia and Lewis, 2008
-
-Languages are related phylogenetically either vertically, by lineage, or horizontally, by contact. On WALS, each language is placed in a tree hierarchy that specifies phylogenetic relations. In the data files, this is specified by linking to three groupings: genus, such as `Northern Naga', family, such as `Sino-Tibetan', and sub-family, such as `Tibeto-Burman'. Provisional tree hierarchies were also drawn from Ethnologue \cite{ethnologue} and MultiTree \cite{multitree}, but due to the low amount of overlap between non-sparse WALS entries and the possible alternative hierarchies drawn from Ethnologue or MultiTree, only the phylogenetic relations from WALS were used.
-% If we didn't use the ethnologue or multitree data, we don't need to mention it.
-% Well, we did run it - I don't know, I feel like it's important to mention that it is a neg result for new results mapping to Ethnologue. I wish I had known this before, by reading it in some other article. 
-
-%Information about Ethnologue scrape %provided by steven moran -need to get the details
-
-
-
-The WALS phylogenetic hierarchies do not take into account language contact. For that, we used geographic coordinates, which are present on WALS, as a proxy for contact. 
-%\item Longitude and latitude, and how it is measured
-%Distance:
-%    For each language, the distance has been calculated. Currently we have a
-%    2678x2678 matrix, which is a little large.
-
-We measured geographic distance by choosing an arbitrary radius that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
-%Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
-% (Vincenty formula would be more accurate (as earth is not a 
-% perfect sphere), but much more computationally intense for
-% 2678*2678 comparisons.
-%   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
-%Note - reprint the data with this formula worked in, as it makes more sense than what you're doing at the moment.
 
 
 %\item Measuring Phylogenetic distance
