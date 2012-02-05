@@ -93,9 +93,9 @@ id,name
 92A,Position of Polar Question Particles
 93A,Position of Interrogative Phrases in Content Qs
 94A,Order of Adverbial Subordinator and Clause
-95A,Relationship between the Order of Object and Verb and the Order of Adposition and Noun Phrase
-96A,Relationship between the Order of Object and Verb and the Order of Relative Clause and Noun
-97A,Relationship between the Order of Object and Verb and the Order of Adjective and Noun
+95A,Relationship between the Order of O & V and the Order of Adp & NP
+96A,Relationship between the Order of O & V and the Order of RC & N
+97A,Relationship between the Order of O & V and the Order of Adj & N
 98A,Alignment of Case Marking of Full Noun Phrases
 99A,Alignment of Case Marking of Pronouns
 100A,Alignment of Verbal Person Marking
