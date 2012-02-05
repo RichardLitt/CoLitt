@@ -410,17 +410,22 @@ def phylogenetic(input_file, lower_threshhold):
                 if wals_code == languagesList[c][0]:
 
                     # Define family, Genus, and subfam per entry
+                    latitude = languagesList[c][2]
+                    longitude = languagesList[c][3]
                     family = languagesList[c][5]
                     genus = languagesList[c][4]
                     subfamily = languagesList[c][6]
-                    fgsf = family + ',' + genus + ',' + subfamily + ','
+                    source_fgsf = family + ',' + genus + ',' + subfamily
 
                     # If we're outputting a family grouping
                     if sys.argv[4] == "family":
 
                         # Makes a joined centre line
                         i = dataList[a]
-                        i.insert(0, fgsf)
+                        i.insert(0, longitude)
+                        i.insert(0, latitude)
+                        i.insert(0, source_fgsf)
+                        i.insert(0, source_fgsf)
                         #i.insert(0, family)
                         i = ','.join(i)
 
@@ -439,11 +444,21 @@ def phylogenetic(input_file, lower_threshhold):
                                         if fam_code == dataList[e][0]:
                                             if fam_code not in printed_codes:
 
+                                                # Define family, Genus, and subfam per entry
+                                                latitude = languagesList[d][2]
+                                                longitude = languagesList[d][3]
+                                                family = languagesList[d][5]
+                                                genus = languagesList[d][4]
+                                                subfamily = languagesList[d][6]
+                                                fgsf = family + ',' + genus + ',' + subfamily
+
                                                 # Append to already printed codes
                                                 printed_codes.append(fam_code)
 
                                                 # Write to print list
-                                                print_list.append(fgsf + ','\
+                                                print_list.append(source_fgsf + \
+                                                        ',' + fgsf + ',' + latitude +\
+                                                        ',' + longitude + ','\
                                                         + ','.join(dataList[e]))
 
                                                 # Update print count
@@ -469,7 +484,10 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
-                        i.insert(0, fgsf)
+                        i.insert(0, longitude)
+                        i.insert(0, latitude)
+                        i.insert(0, source_fgsf)
+                        i.insert(0, source_fgsf)
                         #i.insert(0, genus)
                         i = ','.join(i)
 
@@ -488,13 +506,22 @@ def phylogenetic(input_file, lower_threshhold):
                                         if gen_code == dataList[e][0]:
                                             if gen_code not in printed_codes: 
 
+                                                # Define family, Genus, and subfam per entry
+                                                latitude = languagesList[d][2]
+                                                longitude = languagesList[d][3]
+                                                family = languagesList[d][5]
+                                                genus = languagesList[d][4]
+                                                subfamily = languagesList[d][6]
+                                                fgsf = family + ',' + genus + ',' + subfamily
+
                                                 # Append to already printed codes
                                                 printed_codes.append(gen_code)
 
                                                 # Write to print list
-                                                print_list.append(fgsf\
-                                                        # + dataList[a][0]
-                                                        + ',' + ','.join(dataList[e]))
+                                                print_list.append(source_fgsf + \
+                                                        ',' + fgsf + ',' + latitude +\
+                                                        ',' + longitude + ','\
+                                                        + ','.join(dataList[e]))
 
                                                 # Update print count
                                                 print_count += 1
@@ -519,7 +546,10 @@ def phylogenetic(input_file, lower_threshhold):
 
                         # Makes a joined centre line
                         i = dataList[a]
-                        i.insert(0, fgsf)
+                        i.insert(0, longitude)
+                        i.insert(0, latitude)
+                        i.insert(0, source_fgsf)
+                        i.insert(0, source_fgsf)
                         #i.insert(0, subfamily)
                         i = ','.join(i)
 
@@ -527,6 +557,8 @@ def phylogenetic(input_file, lower_threshhold):
                         print_list = [i]
 
                         if len(subfamily) != 0:
+
+                            printed_codes_sf = []
 
                             # For each entry in that subfamily
                             for d in range(1, len(languagesList)):
@@ -538,14 +570,26 @@ def phylogenetic(input_file, lower_threshhold):
                                             # Shim, find that entry
                                             subfam_code = languagesList[d][0].replace('\"', '')
                                             if subfam_code == dataList[e][0]:
-                                                if subfam_code not in printed_codes:
+                                                if subfam_code not in \
+                                                printed_codes_sf:
+
+                                                    # Define family, Genus, and subfam per entry
+                                                    latitude = languagesList[d][2]
+                                                    longitude = languagesList[d][3]
+                                                    family = languagesList[d][5]
+                                                    genus = languagesList[d][4]
+                                                    subfamily = languagesList[d][6]
+                                                    fgsf = family + ',' + genus + ',' + subfamily
 
                                                     # Append to already printed codes
-                                                    printed_codes.append(subfam_code)
+                                                    printed_codes_sf.append(subfam_code)
 
                                                     # Write to print list
-                                                    print_list.append(fgsf \
-                                                            + ',' + ','.join(dataList[e]))
+                                                    print_list.append(source_fgsf\
+                                                            + ',' + fgsf + ',' + \
+                                                            latitude + ',' + \
+                                                            longitude + ',' + \
+                                                            ','.join(dataList[e]))
 
                                                     # Update print count
                                                     print_count += 1
@@ -560,7 +604,6 @@ def phylogenetic(input_file, lower_threshhold):
                                     # And it there are enough languages
                                     if len(print_list) >= int(lower_threshhold):
 
-                                        #print
                                         h.write(centred(print_list))
 
                             h.close()
