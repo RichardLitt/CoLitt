@@ -15,7 +15,12 @@ get.feature = function(column,shift=0) {
 get.language = function(language) {
 	names = rep(NA,length(language))
 	for(i in 1:length(language)) {
-		names[i] = language.list[which(language.list[,1]==language[i]),2]
+		thisname = language.list[which(language.list[,1]==language[i]),2]
+		if(length(thisname)>0) {
+			names[i] = thisname
+		} else {
+			names[i] = NA
+		}
 	}
 	return(names)
 }

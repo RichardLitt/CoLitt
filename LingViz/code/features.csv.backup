@@ -91,7 +91,7 @@ id,name
 90A,Order of Relative Clause and Noun
 91A,Order of Degree Word and Adjective
 92A,Position of Polar Question Particles
-93A,Position of Interrogative Phrases in Content Qs
+93A,Position of Interrogative Phrases in Content Questions
 94A,Order of Adverbial Subordinator and Clause
 95A,Relationship between the Order of Object and Verb and the Order of Adposition and Noun Phrase
 96A,Relationship between the Order of Object and Verb and the Order of Relative Clause and Noun
@@ -166,7 +166,7 @@ id,name
 90D,Internally-headed relative clauses
 144E,Multiple Negative Constructions in SVO Languages
 144D,The Position of Negative Morphemes in SVO Languages
-81B,"Languages with 2 Dominant Orders of S, O, & V"
+81B,"Languages with two Dominant Orders of Subject, Object, and Verb"
 143E,Preverbal Negative Morphemes
 143C,Optional Double Negation
 90F,Adjoined relative clauses
