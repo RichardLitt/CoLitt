@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 02:17
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 02:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -529,9 +529,9 @@ Overfull \hbox (7.22743pt too wide) in paragraph at lines 107--108
 [][] 
  []
 
-<graph1sparse.pdf, id=39, 505.89pt x 505.89pt>
-File: graph1sparse.pdf Graphic file (type pdf)
- <use graph1sparse.pdf>
+<graph1sparsenew.pdf, id=39, 505.89pt x 505.89pt>
+File: graph1sparsenew.pdf Graphic file (type pdf)
+ <use graph1sparsenew.pdf>
 Overfull \hbox (7.22743pt too wide) in paragraph at lines 120--121
 [][] 
  []
@@ -539,7 +539,7 @@ Overfull \hbox (7.22743pt too wide) in paragraph at lines 120--121
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(./lingviz.bbl [4 <./graph3nigercongosmall.pdf> <./graph1sparse.pdf>]
+(./lingviz.bbl [4 <./graph3nigercongosmall.pdf> <./graph1sparsenew.pdf>]
 Underfull \hbox (badness 1546) in paragraph at lines 53--58
 []\OT1/ptm/m/n/10 Ryan Georgi, Fei Xia, and Will Lewis.  2010.
  []
@@ -554,7 +554,7 @@ Underfull \hbox (badness 1152) in paragraph at lines 68--73
 ] (./lingviz.aux) ) 
 Here is how much of TeX's memory you used:
  10021 strings out of 493848
- 191953 string characters out of 3149206
+ 191968 string characters out of 3149206
  229657 words of memory out of 3000000
  13082 multiletter control sequences out of 15000+200000
  27890 words of font info for 65 fonts, out of 3000000 for 9000
@@ -566,9 +566,9 @@ fb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/tex
 live/2009/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/
 texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (5 pages, 508912 bytes).
+Output written on lingviz.pdf (5 pages, 686411 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
+ 432 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
