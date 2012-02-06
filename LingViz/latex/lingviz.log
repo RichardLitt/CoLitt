@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 01:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 02:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -479,17 +479,7 @@ Underfull \hbox (badness 1286) in paragraph at lines 46--47
 95 et al
  []
 
-
-Underfull \vbox (badness 7012) has occurred while \output is active []
-
- [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-
-
-]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 48.
-
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
@@ -502,14 +492,29 @@ Underfull \hbox (badness 1067) in paragraph at lines 48--49
 \OT1/ptm/m/n/10.95 source for lin-guis-tic ty-pol-ogy cur-rently avail-
  []
 
+
+Underfull \vbox (badness 7012) has occurred while \output is active []
+
+ [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+
+]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
-[2] <graph2yimassmall.pdf, id=16, 481.40105pt x 391.17863pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
+ [2]
+<graph2yimassmall.pdf, id=16, 481.40105pt x 391.17863pt>
 File: graph2yimassmall.pdf Graphic file (type pdf)
 
 <use graph2yimassmall.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 126--127
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 92--93
 [][] 
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 97--98
+\OT1/ptm/m/n/10.95 For com-plex con-struc-tions, It shows par-tial
  []
 
 
@@ -520,30 +525,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: graph3nigercongosmall.pdf Graphic file (type pdf)
 
 <use graph3nigercongosmall.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 141--142
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 107--108
 [][] 
  []
 
 <graph1sparse.pdf, id=39, 505.89pt x 505.89pt>
 File: graph1sparse.pdf Graphic file (type pdf)
  <use graph1sparse.pdf>
-Overfull \hbox (7.22743pt too wide) in paragraph at lines 156--157
+Overfull \hbox (7.22743pt too wide) in paragraph at lines 120--121
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(./lingviz.bbl
-Underfull \vbox (badness 6978) has occurred while \output is active []
-
- [4 <./graph3nigercongosmall.pdf> <./graph1sparse.pdf>]
-Underfull \hbox (badness 1546) in paragraph at lines 46--51
+(./lingviz.bbl [4 <./graph3nigercongosmall.pdf> <./graph1sparse.pdf>]
+Underfull \hbox (badness 1546) in paragraph at lines 53--58
 []\OT1/ptm/m/n/10 Ryan Georgi, Fei Xia, and Will Lewis.  2010.
  []
 
 
-Underfull \hbox (badness 1152) in paragraph at lines 61--66
+Underfull \hbox (badness 1152) in paragraph at lines 68--73
 []\OT1/ptm/m/n/10 William Lewis and Fei Xia.  2008.  Au-to-mat-i-
  []
 
@@ -551,10 +553,10 @@ Underfull \hbox (badness 1152) in paragraph at lines 61--66
 
 ] (./lingviz.aux) ) 
 Here is how much of TeX's memory you used:
- 10020 strings out of 493848
- 191947 string characters out of 3149206
- 228644 words of memory out of 3000000
- 13081 multiletter control sequences out of 15000+200000
+ 10021 strings out of 493848
+ 191953 string characters out of 3149206
+ 229657 words of memory out of 3000000
+ 13082 multiletter control sequences out of 15000+200000
  27890 words of font info for 65 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  56i,10n,55p,1133b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -564,7 +566,7 @@ fb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/tex
 live/2009/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/
 texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (5 pages, 508670 bytes).
+Output written on lingviz.pdf (5 pages, 508912 bytes).
 PDF statistics:
  304 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -53,75 +53,38 @@ In this paper, we first discuss in more detail the source data and the types of 
 
 The visualisations described here bring together three types of information: linguistic features, geographical distance, and phylogenetic distance. For the current study, all three types of information are extracted from the WALS database. In future work, we would explore alternate sources such as Ethnologue \cite{ethnologue} or MultiTree \shortcite{multitree} for alternate phylogenetic hierarchies. 
 
-% The above sentence is vague. 16% of what? What does it mean for the features to be filled? Only 16% of the features are "full"? Only 16% of languages have full descriptions for each feature?
-
-% Dealing with sparse data is a computational problem, as any statistical information drawn from the database will, to a large extent, be an artefact of the database. For instance, if half of the languages were marked as having uvular stops (unlikely), and then in reality if all other languages not in the database had uvular stops, then the knowledge we would glean from the database would be significantly false and misleading. Given that there are around 6,000 languages in the world, the amount of languages on WALS means that this is a serious concern. Many researchers in recent years have been developing work-arounds for sparse databases; often because languages with low resources have a similar problem. %Cite cite cite
-
-% The above para is also unclear. The sparsity of data problem just sounds like a sampling problem, which is endemic to all of science. Also, can we state at some point *how many* lgs are in WALS? that's not clear.
-
-%\item visualisation
-%\item what visualisation can do for us
-%\item Heat Maps  where they come from, what they are doing here
-
-%192 features in WALS
-% At the time of submission, there were 81,828 datapoints for 2,678 languages (an average of 28 per language). At least one feature, the most populated, had data for 1,519 languages. There were 144 different chapters, each containing values for different, related features. It can be seen easily from these numbers that the data on WALS is \emph{sparse}. Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database.
-
 \subsection{Linguistic features}
-At the time of submission, WALS contained information for 2678 languages. The linguistic features covered in WALS range from phonetic and phonological features, over some lexical and morphological features, to syntactic structures, word order tendencies, and other structural questions. A total of 192 features are represented, grouped in 144 different chapters, with each chapter addressing a set of related features. 
+At the time of submission, WALS contained information for 2678 languages. The linguistic features covered in WALS range from phonetic and phonological features, over some lexical and morphological features, to syntactic structures, word order tendencies, and other structural questions. A total of 192 features are represented, grouped in 144 different chapters, with each chapter addressing a set of related features.  Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, only 15.8\% of of WALS is described fully.
 
 The coverage of features/chapters varies dramatically across the languages, with an average of 28 feature values per language. The most populated feature has data for 1519 languages. Because of the extreme sparsity of the data, we restricted our treatment to only languages with values for 30\% or more of the available features. 
 
 
 \subsection{Geographic distance}
-Geographic distance is an important aspect of typological study because neighbouring  languages often come to share linguistic features, even in the absence of genetic relationship between the languages. Each language in WALS is associated with a geographical coordinate representing a central point for the main population of speakers of that language. We use these figures for determining geographic distance between two languages. A crucial aspect of our visualisations is that we produce them only for sets of languages within a reasonable geographic proximity (and with sufficient featural coverage within WALS).
+Geographic distance is an important aspect of typological study because neighbouring  languages often come to share linguistic features, even in the absence of genetic relationship between the languages. Each language in WALS is associated with a geographical coordinate representing a central point for the main population of speakers of that language. We use these figures for determining geographic distance between two languages. A crucial aspect of our visualisations is that we produce them only for sets of languages within a reasonable geographic proximity (and with sufficient feature coverage within WALS).
 
-For this study, we try two approaches to clustering languages according to geographic distance. First, we choose an arbitrary radius in order to create a decision boundary for clustering neighbouring languages. For each language, we fix that language's location as the centroid of the cluster and look at all other languages within the given radius. We found that a radius of 500 kilometers proves to provide a sufficient number of examples even after cleaning low-coverage languages from the WALS data. 
+For this study, we try two approaches to clustering languages according to geographic distance. First, we choose an arbitrary radius in order to create a decision boundary for clustering neighbouring languages. For each language, we fix that language's location as the centroid of the cluster and look at all other languages within the given radius. We found that a radius of 500 kilometres proves to provide a sufficient number of examples even after cleaning low-coverage languages from the WALS data. 
 
-The second approach selects an arbitrary lower bound for the languages in the general area. If a sufficient percentage of the total number of languages in the area remained after cleaning the WALS data, we took this as a useful area and did mapping for that area. 
-% that would would create a decision boundary to cluster $n$-nearest neighbours. For our purposes, we went with 500km, as this proved to %provide sufficient examples to draw from from cleaned WALS data. We also measured distance by selecting an arbitrary lower threshold for %languages in the general area, and printed the results if the amount of cleaned languages in the area was a certain percentage over the amount of languages in the area total as specified by WALS. 
-This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest nieghbours, as the languages chosen were often too far away. 
-%Haversine Formula - distance on a sphere (earth) http://en.wikipedia.org/wiki/Haversine_formula
-% (Vincenty formula would be more accurate (as earth is not a 
-% perfect sphere), but much more computationally intense for
-% 2678*2678 comparisons.
-%   http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#Python
-%Note - reprint the data with this formula worked in, as it makes more sense than what you're doing at the moment.
+The second approach selects an arbitrary lower bound for the languages in the general area. If a sufficient percentage of the total number of languages in the area remained after cleaning the WALS data, we took this as a useful area and did mapping for that area. This number is clearly under-representative of the amount of contact languages, as only half of the world's languages are present in WALS. This proxy was not as good at choosing specific, useful examples, as the $n$-nearest neighbours, as the languages chosen were often too far away. 
 
 \subsection{Phylogenetic distance}
 
-Languages are related phylogenetically either vertically, by lineage, or horizontally, by contact. In WALS, each language is placed in a tree hierarchy that specifies phylogenetic relations. In the WALS data files, this is specified by linking at three different levels: family, such as `Sino-Tibetan', sub-family, such as `Tibeto-Burman', and genus, such as `Northern Naga' . % Provisional tree hierarchies were also drawn from Ethnologue \cite{ethnologue} and MultiTree \cite{multitree}, but due to the low amount of overlap between non-sparse WALS entries and the possible alternative hierarchies drawn from Ethnologue or MultiTree, only the phylogenetic relations from WALS were used.
-% If we didn't use the ethnologue or multitree data, we don't need to mention it.
-% Well, we did run it - I don't know, I feel like it's important to mention that it is a neg result for new results mapping to Ethnologue. I wish I had known this before, by reading it in some other article. 
-
-%Information about Ethnologue scrape %provided by steven moran -need to get the details
-The WALS phylogenetic hierarchies do not take into account language contact. For that, we used geographic coordinates, which are present on WALS, as a proxy for contact. 
-%\item Longitude and latitude, and how it is measured
-%Distance:
-%    For each language, the distance has been calculated. Currently we have a
-%    2678x2678 matrix, which is a little large.
+Languages are related phylogenetically either vertically, by lineage, or horizontally, by contact. In WALS, each language is placed in a tree hierarchy that specifies phylogenetic relations. In the WALS data files, this is specified by linking at three different levels: family, such as `Sino-Tibetan', sub-family, such as `Tibeto-Burman', and genus, such as `Northern Naga' . The WALS phylogenetic hierarchies do not take into account language contact. For that, we used geographic coordinates, which are present on WALS, as a proxy for contact. 
 
 
+\section{Heat Map Visualisations}
 
-\section{Producing the heat maps}
+We focus our visualisations on languages with a reasonable number of filled features, as drawing a heat map where only 16\%~ of the features are available would be of little use. There are two options for dealing with this: to collapse the feature values in some way, or to select for languages that have a higher percentage of data filled than the average language. We opted for the second choice, and \emph{cleaned}  the file until it contained only languages that had at least 30\% as a lower bound of all of their entries filled. This cleaned data was then used in the other functions. We further focused on producing visualisations only for features that are salient for the maximal number of selected languages. We choose two heat maps for display here, but all visualisations (and all code) are available from a public repository, links to which are withheld only to retain anonymity. 
 
-%Because of the sparse coverage of the WALS data, 
-We focus our visualisations on languages with a reasonable number of filled features, as 
-%Ignoring the fact that a language having certain features will cancel out the possibility or probability of others, that means that the WALS possible data is only 15.8\% represented in the database. %The data was represented as a range of numbers indicating the type of each feature.
-drawing a heat map where only 16\%~ of the features are available would be of little use. 
-There are two options for dealing with this: to collapse the feature values in some way, or to select for languages that have a higher percentage of data filled than the average language. We opted for the second choice, and \emph{cleaned}  the file until it contained only languages that had at least 30\% as a lower bound of all of their entries filled. This cleaned data was then used in the other functions. We further focused on producing visualisations only for features that are salient for the maximal number of selected languages. We choose two heat maps for display here, but all visualisations (and all code) are available from a public repository, links to which are withheld only for anonymisation.
 
-% The methodology discussed in this section is relevant only for languages with values for at least 30\% of all possible feature categories. 
 All data was downloaded freely from WALS, all coding was done in either Python or R. The code was not computationally expensive to run, and the programming languages and methods are quite accessible. 
 %All code is available in a public repository, links to which will be released once anonymisation is no longer required.
 
-In a two-dimensional heat map, each cell of a matrix is filled with a color representing that cell's value. In our case, the color of the cell represents the normalized value of a linguistic feature according to WALS. Languages with the same color in a given row have the same value for that typological feature.\footnote{Due to this reliance on color, we strongly suggest viewing the heatmaps presented here in color.} Below we discuss two types of heat maps, focusing on either geographic or phylogenetic features.
+In a two-dimensional heat map, each cell of a matrix is filled with a colour representing that cell's value. In our case, the colour of the cell represents the normalised value of a linguistic feature according to WALS. Languages with the same colour in a given row have the same value for that typological feature.\footnote{Due to this reliance on colour, we strongly suggest viewing the heat maps presented here in colour.} Below we discuss two types of heat maps, focusing on either geographic or phylogenetic features.
 
 \subsection{Geographically-focused heat maps}
-For the geographic distance maps, for each language present in the cleaned data, we selected all possible languages that lay within 500km, and sorted these languages until only the 15 closest neighbors were selected. 
-%In either case, the subset that fit these requirements was a mere handful. We have chosen to graph these examples, as they most fully show the use of our visualisations. We picked features to graph from among the resulting languages based on how common they were across the selected languages. 
-%\item Description of typological data %Insert example? here. Probably. 
+For the geographic distance maps, for each language present in the cleaned data, we selected all possible languages that lay within 500km, and sorted these languages until only the 15 closest neighbours were selected. We picked features to graph from among the resulting languages based on how common they were across the selected languages. 
 
-Each final list was then resorted. In the geographic case, the source language was centered in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Lakota, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Lakota, and Lakota again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. The bar at the top of the image represents language families, with each color corresponding to a different family.
+Each final list was then resorted. In the geographic case, the source language was centred in the map. This was due to one of the primary issues with using distance on a two dimensional graph. On the one hand, we would want close languages to be close together on the heat map. However, given the source language Egyptian Arabic, this would mean that Zulu, Saami, Lakota, and Japanese might all roughly be placed next to each other on the map. This also means that Japanese might be placed next to Lakota, and Lakota again next to Korean. This is not ideal, and was the main justification for limiting the sphere of possible geographical languages to a reasonable distance, given the data. The bar at the top of the image represents language families, with each colour corresponding to a different family.
 
 
 \begin{figure}[h]
@@ -131,12 +94,12 @@ Each final list was then resorted. In the geographic case, the source language w
 \label{fig:heat1} 
 \end{figure}
 
-Figure \ref{fig:heat1} shows a geographically-focused heat map centered on Yimas, spoken in New Guinea. For complex constructions, It shows partial grouping of languages closer to Yimas, and less similarity at a greater distance. The checkerboard pattern for dominant word orders may suggest groups that have been split by the data-centering function. In general, however, this graph shows that, for these features, the languages are for the most part homogenous. This is unlikely to be a chance effect, given the similarity in language families, as can be seen in the very top bar of the graph.
+Figure \ref{fig:heat1} shows a geographically-focused heat map centred on Yimas, spoken in New Guinea. For complex constructions, It shows partial grouping of languages closer to Yimas, and less similarity at a greater distance. The checkerboard pattern for dominant word orders may suggest groups that have been split by the data-centring function. In general, however, this graph shows that, for these features, the languages are for the most part homogenous. This is unlikely to be a chance effect, given the similarity in language families, as can be seen in the very top bar of the graph.
 
 \subsection{Phylogenetically-focused heat maps}
 
 For phylogenetic distances, for each language we searched for other languages coming from the same family, subfamily, or genus.
-The phylogenetic example was sorted by geographical position, as well. In this case, we first plotted the subset of languages on a world map, and examined which groups had the most linear structure. We then arranged that group according to cardinal directions; here, we mapped from North to South. This is a better proxy in this case than centering the data, as it more clearly shows languages that would be in contact with each other. 
+The phylogenetic example was sorted by geographical position, as well. In this case, we first plotted the subset of languages on a world map, and examined which groups had the most linear structure. We then arranged that group according to cardinal directions; here, we mapped from North to South. This is a better proxy in this case than centring the data, as it more clearly shows languages that would be in contact with each other. 
 
 
 \begin{figure}[ht!]
@@ -147,14 +110,10 @@ The phylogenetic example was sorted by geographical position, as well. In this c
 \end{figure}
 
 
-Figure \ref{fig:heat2} shows a phylogenetically-focused heat map for Niger-Congo languages, drawn from East to West. It shows clear clusterings in the eastern languages, especially for negation orders. It also shows pronominal subject expression and agreement marking agreement for the western languages clearly. We also see some groupings of feature values in adjacent languages, for example: Bambara and Supyire. 
-%In some cases, a few languages are almost certainly more closely related based on this. 
-Especially given the importance of Bambara for syntactic argumentation, this graph is an excellent example of visualisation pointing out an intriguing area for closer analysis.
+Figure \ref{fig:heat2} shows a phylogenetically-focused heat map for Niger-Congo languages, drawn from East to West. It shows clear clusterings in the eastern languages, especially for negation orders. It also shows pronominal subject expression and agreement marking agreement for the western languages clearly. We also see some groupings of feature values in adjacent languages, for example: Bambara and Supyire. Especially given the importance of Bambara for syntactic argumentation\cite{culy}, this graph is an excellent example of visualisation pointing out an intriguing area for closer analysis.
 
-%\item Information about WALS data
+
 \subsection{Sparse data}
-
-%192 features in WALS
 
 \begin{figure}[h]
 \includegraphics[width=3.1in]
@@ -163,30 +122,15 @@ Especially given the importance of Bambara for syntactic argumentation, this gra
 \label{fig:sparse} 
 \end{figure}
 
-In Fig. \ref{fig:sparse}, we have plotted out the neighbouring languages for the most populous language area represented on WALS by longitude and latitude. The center language, Yimas, is a Trans New Guinean language, and is the center for the graph. The odd clustering is due to the Pacific Ocean - such geographical features limit the usefulness of distance as a measure. Another limit is the range of each language, which is not represented here, as each language is given only a single geographical coordinate that does not indicate the area over which the language resides, nor how many other languages coexist with it.
+In Fig. \ref{fig:sparse}, we have plotted out the neighbouring languages for the most populous language area represented on WALS by longitude and latitude. The centre language, Yimas, is a Trans New Guinean language, and is the centre for the graph. The odd clustering is due to the Pacific Ocean - such geographical features limit the usefulness of distance as a measure. Another limit is the range of each language, which is not represented here, as each language is given only a single geographical coordinate that does not indicate the area over which the language resides, nor how many other languages coexist with it.
 
 For each language within 500km, represented here by the dotted circle, the amount of features filled in WALS is shown. The majority have less than 50\% filled - there are only 171 such languages in WALS. This graph does not include languages not in WALS. 
-%It ought to be clear from this that the data in WALS is too sparse to draw immediate conclusions from, which furthers the need for visualizations. 
 
 
 \section{Conclusion}
-In this paper we present a new method for visualising relationships between languages, one which allows for the simultaneous viewing of linguistic features together with phylogenetic relationships and geographical location and proximity.
-% In some cases, all three are brought together in a single image. 
-These visualisations allow us to view relationships in a new way, seeking to work around the sparseness of available data and facilitate new insights into linguistic typology.
+In this paper we present a new method for visualising relationships between languages, one which allows for the simultaneous viewing of linguistic features together with phylogenetic relationships and geographical location and proximity. These visualisations allow us to view relationships in a new way, seeking to work around the sparseness of available data and facilitate new insights into linguistic typology.
 
 In this work we placed strong restrictions on both feature coverage and selection of salient features for representation, reducing the number of graphs produced to 6 with geographic focus and 8 with phylogenetic focus. One topic for future work is to explore other ways of working with and expanding the available data in order to access even more useful visualisations.
-%\begin{itemize}
-%\item What these tell us (map by map)
-%\item What these tell us, overall - implications
-%\item Warnings: sparse data, data not there, etc. 
-%\item Future work 
-%    We could also plot on a world map, but that would not be a heat map. An
-%    option for this would be to color gradiantly based on certain featurs - for
-%    instance, color could indicate phoneme size. 
-%
-%    Another option would be a matrix map of some sort - Again, not a heat map,
-%    and beyond the scale of this current study.
-
 
 \bibliographystyle{acl}
 \bibliography{lingviz}
