@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 01:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  6 FEB 2012 01:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -564,7 +564,7 @@ fb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/tex
 live/2009/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2009/
 texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lingviz.pdf (5 pages, 508682 bytes).
+Output written on lingviz.pdf (5 pages, 508670 bytes).
 PDF statistics:
  304 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
