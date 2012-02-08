@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  8 FEB 2012 13:12
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  8 FEB 2012 13:37
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -551,7 +551,7 @@ Package: fullpage 1999/02/23 1.1 (PWD)
 Package: ulem 2000/05/26
 \ULdepth=\dimen147
 )
-No file "FLST Exam prep".aux.
+(./FLST Exam prep.aux)
 \openout1 = `"FLST Exam prep.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -568,6 +568,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 15.
 LaTeX Font Info:    Try loading font information for T3+cmr on input line 15.
+
 (/usr/local/texlive/2009/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
@@ -648,6 +649,8 @@ HO)
 )
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
+
+(./FLST Exam prep.out) (./FLST Exam prep.out)
 \@outlinefile=\write3
 \openout3 = `"FLST Exam prep.out"'.
 
@@ -667,10 +670,10 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
  [1
 
 {/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 214.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
 
 (./FLST Exam prep.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 214.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
 
 
 Package rerunfilecheck Warning: File `"FLST Exam prep".out' has changed.
@@ -678,13 +681,13 @@ Package rerunfilecheck Warning: File `"FLST Exam prep".out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `"FLST Exam prep".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  C2C4885E11117DBB1A92B9EC2CEFA818;322.
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  05E97B4DC590FAE179F7A514C41AE291;684.
  ) 
 Here is how much of TeX's memory you used:
- 7546 strings out of 493848
- 106203 string characters out of 3149206
- 176405 words of memory out of 3000000
+ 7556 strings out of 493848
+ 106353 string characters out of 3149206
+ 177405 words of memory out of 3000000
  10649 multiletter control sequences out of 15000+200000
  14725 words of font info for 47 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -692,9 +695,9 @@ Here is how much of TeX's memory you used:
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2009/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
 2009/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on "FLST Exam prep.pdf" (1 page, 36449 bytes).
+Output written on "FLST Exam prep.pdf" (1 page, 40007 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
- 6 named destinations out of 1000 (max. 500000)
+ 30 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
