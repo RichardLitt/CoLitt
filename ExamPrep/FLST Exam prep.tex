@@ -7,7 +7,7 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 %\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
 
-\newenvironment{pit}{
+\newenvironment{itemise}{
 \begin{itemize}
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
@@ -21,8 +21,21 @@
 \singlespace
 \begin{document}
 \maketitle
-
+\section*{Overview}
 %The point is to have a latex analysis of the slides or relevant facts to know for each section, and subsequently, each slide. We can work on this collaboratively - remember to push and pull the sections you're working on, and try to make sure that you aren't clashing with other's doing the same work. 
+Format of the exam:
+\begin{itemise}
+\item 9 short questions for each section. These are obligatory. 
+\item 5 long questions from 6 sections. You can pick up 3 from them. 
+\begin{itemise}
+\item linguistic foundations
+\item finite-state automata
+\item parsing
+\item seminar
+\item statistical NLP
+\item speech
+\end{itemise}
+\end{itemise}
 
 \section{Map of the Field (Uzkoreit) 24.10-26.10}
 % Richard is currently working on this section. 
