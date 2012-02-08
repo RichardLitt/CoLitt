@@ -6,7 +6,18 @@
 \clubpenalty=300 \widowpenalty=300
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 %\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
+<<<<<<< HEAD
 \doublespacing
+=======
+
+\newenvironment{itemise}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+>>>>>>> d603707ad21a01c5bd781bea73d69b7f79a5e84b
 
 \title{FSLT Examination Preparation}
 \author{Richard Littauer}		% Add your name here
@@ -14,15 +25,31 @@
 \singlespace
 \begin{document}
 \maketitle
-
+\section*{Overview}
 %The point is to have a latex analysis of the slides or relevant facts to know for each section, and subsequently, each slide. We can work on this collaboratively - remember to push and pull the sections you're working on, and try to make sure that you aren't clashing with other's doing the same work. 
+Format of the exam:
+\begin{itemise}
+\item 9 short questions for each section. These are obligatory. 
+\item 5 long questions from 6 sections. You can pick up 3 from them. 
+\begin{itemise}
+\item linguistic foundations
+\item finite-state automata
+\item parsing
+\item seminar
+\item statistical NLP
+\item speech
+\end{itemise}
+\end{itemise}
 
 \section{Map of the Field (Uzkoreit) 24.10-26.10}
 
 \section{Linguistics Foundation (Delogu) 28.10-09.11}
 %lamar is working on this section
+<<<<<<< HEAD
 \textbf{Linguistic Foundations I}
 \\\\
+=======
+>>>>>>> d603707ad21a01c5bd781bea73d69b7f79a5e84b
 - The difference between linguistic competence and linguistic performance
 \begin{itemize}
  \item \textbf{Linguistic competence} -The implicit knowledge a language user has of his language, which enables him to produce and understand any possible sentence of that language
@@ -69,6 +96,7 @@ note: a sentence can be gramatical but unnacceptale (e.g. hard to process)
 \item Linguistic competence is an internalized (mentally- represented) grammar capable of generating an infinite number of grammatical sentences and none of the ungrammatical ones
 \item The goal of linguistics is to provide an adequate grammar as a model of linguistic competence
 \end{itemize}
+<<<<<<< HEAD
 
 \textbf{Linguistic Foundations II}
 \\
@@ -77,6 +105,13 @@ note: a sentence can be gramatical but unnacceptale (e.g. hard to process)
 \end{itemize}
 
 \section{ Cognitive Foundations (Crocker) 14.11-18.11}
+=======
+\section{ Cognitive Foundations (Crocker) 14.11-18.11}
+
+\begin{enumerate}
+ \item
+\end{enumerate}
+>>>>>>> d603707ad21a01c5bd781bea73d69b7f79a5e84b
 
 \section{Technological Foundations (Busemann) 21.11-25.11}
 
