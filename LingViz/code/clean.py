@@ -1,5 +1,5 @@
 '''
-The purpose of this code is to clean and sort WALS.
+The purpose of this code is to clean and sort WALS data.
 Written by Richard Littauer.
 
 Released into the public domain like stocked trout into the sea.
@@ -17,7 +17,7 @@ Things to be improved upon:
       only 28 languages are left after going back to WALS when the data has
       been cleaned to 15%. That's almost nothing.
 
-      On the other hand, there's not much to be done about this. They .xml
+      On the other hand, there's not much to be done about this. The .xml
       isn't in the ethnologue file we have, and involving this would involve
       adding in another document and crosschecking again. This can be done, but
       not neccessarily at the moment without that .xml file for the trees. If
@@ -44,32 +44,34 @@ Things to be improved upon:
       recent (after the Age of Exploration.)
 
     - It would be nice to have a function that would clean data based on only
-      certain features, in case some have them, and others don't.
+      certain features, in case some have them, and others don't. (Currently
+      done in the R code.)
 
-    - There needs to be an ordering function for cardinal points, to try and
-      illiminate the four-points errors.
-
-    - This shouldbe intregated with R directly.
-
-    - The data could be in an SQL file, as well, if you're keen.
+    - This shouldbe integrated with R directly.
 
 '''
 
 import sys
 
+# Define some common files
 datapoints_file = "datapoints.csv" # WALS data
 languages_file = "languages.csv" # WALS language details, inc. ISO codes
 ethnologue = "ethnologue.csv" # Ethnologue scraped data, 2005
 distance_file = "distances.csv" # Distances file
 
 
-# This function reads in the file
+'''
+This function reads in the file
+'''
 def read_file(x):
     f = open(x, 'r+')
     lineList = f.readlines()
     return lineList
 
-# Splits the lines, if you wish. Probably a good thing.
+'''
+Splits the lines, if you wish. Probably a good thing.
+'''
+
 def split_lines(x, y):
     lineList = []
     for line in x:
@@ -77,9 +79,11 @@ def split_lines(x, y):
         lineList.append(line)
     return lineList
 
-# This is to make a centred language list. 
+'''
+This is to make a centred language list.
+'''
 def centred(unsorted_list):
-    
+
     # Make a new list, populate with centred thing
     centred_list = [unsorted_list[0]]
 
@@ -95,7 +99,9 @@ def centred(unsorted_list):
     centred_list = ''.join(centred_list)
     return centred_list
 
-# This figures out how sparse the data is. 
+'''
+This figures out how sparse the data is.
+'''
 def sparse(input_file):
 
     # Open the file
@@ -125,6 +131,10 @@ def sparse(input_file):
     print values_filled, values_total
     return float(values_filled) / (values_total) * 100
 
+'''
+This makes an output file full of all of the languages in the radius area,
+from the center language defined by the WALS input code.
+'''
 def long_lat_graph(wals_code, radius):
 
     # Open the files
@@ -159,8 +169,6 @@ def long_lat_graph(wals_code, radius):
         # Make a dictionary for the distance information
         dist_dict = {}
 
-
-
         # Find the distances for all languages, put it in the dictionary
         for x in range(1,len(distList[index])):
             if distList[index][x] != 'NA':
@@ -170,7 +178,7 @@ def long_lat_graph(wals_code, radius):
                     dist_dict.setdefault(distList[0][x], distList[x][index].replace('\n',''))
 
         # For each distance language
-        for key in dist_dict: 
+        for key in dist_dict:
 
             # If close enough, add in to the file
             if float(dist_dict[key]) <= float(radius):
@@ -209,9 +217,13 @@ def long_lat_graph(wals_code, radius):
 
 
 
+'''
+This option scrapes the WALS data, based on phylogenetic relations. The first
+half works when comparing with information on Ethnologue, which at this stage
+is not helpful. The second bit works for WALS family, subfamily, and genus
+relations.
+'''
 
-
-# Defines how you want to sort these things
 def phylogenetic(input_file, lower_threshhold):
 
     # load languages, datapoints
@@ -267,7 +279,7 @@ def phylogenetic(input_file, lower_threshhold):
                             # Choose out the roots and parents from Ethnologue
                             root = ethnoList[lines][1]
                             parents = ethnoList[lines][2]
-                    
+
                             # This makes a non-split line example
                             i = dataList[line]
                             #i.insert(0, root)
@@ -283,7 +295,7 @@ def phylogenetic(input_file, lower_threshhold):
                                 # Find all roots in E.
                                 for lines in range(1, len(ethnoList)):
 
-
+                                    # If it matches the root we have.
                                     if root == ethnoList[lines][1]:
 
                                         # For each root, find the ISO code
@@ -407,8 +419,6 @@ def phylogenetic(input_file, lower_threshhold):
                                             h.close()
 
 
- 
-
     # If we're dragging from WALS
     if sys.argv[3] == 'w':
         print 'Using WALS for family relations.'
@@ -417,7 +427,7 @@ def phylogenetic(input_file, lower_threshhold):
         printed_codes = []
         print_count = 0
 
-        # If we're measuring amounts of languages by radius
+        # Print out the labels first.
         labels = 'source family,source genus,source subfamily,target family,\
         target genus,target subfamily,target latitude,target longitude,target\
         language,wals_code,1A,2A,3A,4A,5A,6A,7A,8A,9A,10A,\
@@ -436,20 +446,20 @@ def phylogenetic(input_file, lower_threshhold):
         144S,144T,144U,144V,144W,144X,144Y'
         labels  = labels.replace('    ','')
 
+        # Name the output files.
         w_genus_data = "w_genus_data.csv" # Data sorted by WALS hier. by genus
         w_family_data = "w_family_data.csv" # Data sorted by WALS hier. by family
         w_subfamily_data = "w_subfamily_data.csv" # WALS Data by subfamily hier
 
+        # For each function.
         if sys.arg[4] == 'family':
             # Write labels to the file
             h = open(w_family_data, 'a')
             h.write(labels + '\n\n')
-
         if sys.arg[4] == 'genus':
             # Write labels to the file
             h = open(w_genus_data, 'a')
             h.write(labels + '\n\n')
-
         if sys.arg[4] == 'subfamily':
             # Write labels to the file
             h = open(w_subfamily_data, 'a')
@@ -613,8 +623,10 @@ def phylogenetic(input_file, lower_threshhold):
                         # Used in centreing the list
                         print_list = [i]
 
+                        # If it isn't empty
                         if len(subfamily) != 0:
 
+                            # Used in cross-checking already printed.
                             printed_codes_sf = []
 
                             # For each entry in that subfamily
@@ -838,6 +850,7 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
         # Used in centreing the list
         langList = split_lines(read_file(languages_file), '\t')
 
+        # Adds the relations to the print out
         for x in langList[1:]:
             if x[0][1:4] == line_index[0]:
                 # Define family, Genus, and subfam per entry
@@ -846,6 +859,7 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
                 subfamily = x[6]
                 source_fgsf = family + ',' + genus + ',' + subfamily
 
+        # Adds lines to the centred file that are in the other print outs.
         line_index.insert(0, source_fgsf)
         line_index.insert(1, line[0])
         line_index.insert(2, '0.0')
@@ -873,11 +887,13 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
                     # Find the index where its information lies
                     wals_index = language_f_low.index(target_wals_code)
 
+                    # print code, relations of source, relations, distance,
+                    # amount of languages actually searched, wals data
                     print_list.append(wals_code + ',' + source_fgsf + ',' + fgsf + ',' + str(language[1]) + ','  +\
                             str(total_searched) + ',' + lineList[wals_index])
 
 
-        # Make the output name. 
+        # Make the output name.
         #output_file = 'geo-' + sys.argv[2] + '-' + sys.argv[4][0] + '-' +\
         #sys.argv[5]
 
@@ -895,14 +911,6 @@ def geographic(input_file, lower_threshhold, top_bound, top_bound_value):
 
 
         h.close()
-
-
-# This will be fully added an integrated when we've run a few more of the other
-# ones and know more fully how the graphics look, and what we can do with them.
-
-def phylogeo(input_file, lower_threshhold):
-     f = open(input_file, 'r+')
-     g = open(distance_file, 'r+')
 
 
 
@@ -925,7 +933,7 @@ def data_clean(lower_threshhold, input_file):
     l = open(output_file, 'a')
     lineList = f.readlines()
 
-
+    # Print the labels
     labels = 'wals_code,1A,2A,3A,4A,5A,6A,7A,8A,9A,10A,\
     10B,11A,12A,13A,14A,15A,16A,17A,18A,19A,20A,21A,21B,22A,23A,24A,\
     25A,25B,26A,27A,28A,29A,30A,31A,32A,33A,34A,35A,36A,37A,38A,39A,\
@@ -975,45 +983,24 @@ def data_clean(lower_threshhold, input_file):
 if __name__ == "__main__":
 
     # If we're cleaning the data
-    # Examples:
-
-    # python clean.py clean .3 datapoints.csv
-
     if sys.argv[1] == 'clean':
         data_clean(sys.argv[2], sys.argv[3])
 
-    # If we're just going with the hierarchies
-    # Examples:
-
-    # python clean.py phy clean-25-datapoints e root
-    # python clean.py phy clean-25-datapoints e parents
-    # python clean.py phy clean-25-datapoints w family
-    # python clean.py phy clean-25-datapoints w subfamily
-    # python clean.py phy clean-25-datapoints w genus
-
-
+    # Or sorting by phylogeny
     if sys.argv[1] == 'phy':
         print "Now sorting languages phylogenetically."
         phylogenetic(sys.argv[2], sys.argv[5])
 
-    # If we're sorting by distance (must be cleaned first)
-    # Examples:
-
-    # python clean.py geo clean-25-datapoints 15 radius 500
-    # python clean.py geo clean-25-datapoints 15 languages 25
-
+    # By geography
     if sys.argv[1] == 'geo':
         print "Now sorting languages geographically."
         geographic(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 
-    # Not yet coded, and may not be. 
-    if sys.argv[1] == 'pg':
-        print "Now sorting with a mixture of phylogenetic and geographically."
-        phylogeo(sys.argv[2], sys.argv[3])
-
+    # Or testing the sparseness of the data
     if sys.argv[1] == 'sparse':
         print sparse(sys.argv[2])
 
+    # Or sorting all of the languages in the area at once
     if sys.argv[1] == 'GIS':
         long_lat_graph(sys.argv[2], sys.argv[3])
 
