@@ -6,7 +6,14 @@
 \clubpenalty=300 \widowpenalty=300
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 %\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
-\doublespacing
+
+\newenvironment{pit}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
 
 \title{FSLT Examination Preparation}
 \author{Richard Littauer}		% Add your name here
@@ -18,13 +25,20 @@
 %The point is to have a latex analysis of the slides or relevant facts to know for each section, and subsequently, each slide. We can work on this collaboratively - remember to push and pull the sections you're working on, and try to make sure that you aren't clashing with other's doing the same work. 
 
 \section{Map of the Field (Uzkoreit) 24.10-26.10}
+% Richard is currently working on this section. 
 
 \section{Linguistics Foundation (Delogu) 28.10-09.11}
 %lamar is working on this section
+<<<<<<< HEAD
 - The difference between linguistic competence and linguistic performance
 \begin{itemize}
  \item \textbf{Linguistic competence} -The implicit knowledge a language user has of his language, which enables him to produce and understand any possible sentence of that language
  \item \textbf{Linguistic performance} - The actual use of language in real situations, which is conditioned by physiological and psychological constraints (memory limitations, shifts of attention, etc.)
+=======
+\begin{itemize}
+ \item Linguistic competence -The implicit knowledge a language user has of his language, which enables him to produce and understand any possible sentence of that language
+ \item Linguistic performance - The actual use of language in real situations, which is conditioned by physiological and psychological constraints (memory limitations, shifts of attention, etc.)
+>>>>>>> 52927e938ff14c00d07858893e21893e1c9e171a
 \end{itemize}
 - The difference between sentence gramaticality and acceptability
 \begin{itemize}
@@ -69,7 +83,14 @@ note: a sentence can be gramatical but unnacceptale (e.g. hard to process)
 \end{itemize}
 
 
+<<<<<<< HEAD
 \section{ Cognitive Foundations (Crocker) 14.11-18.11}
+=======
+\begin{enumerate}
+ \item
+\end{enumerate}
+\section{Cognitive Foundations (Crocker) 14.11-18.11}
+>>>>>>> 52927e938ff14c00d07858893e21893e1c9e171a
 
 \section{Technological Foundations (Busemann) 21.11-25.11}
 
@@ -81,108 +102,15 @@ note: a sentence can be gramatical but unnacceptale (e.g. hard to process)
 
 \section{Prosodic Models for Speech Technology (Moebius) 09.01}
 
-%\section
-%Mon 26.12.11 - Fr.06.01.12
-%NO class
-%Mon 09.01.12
-%Prosodic models for speech technology
-%Moebius
-%+
-%
-%slides
-%supplementary reading 1
-%supplementary reading 2
-%Wed 11.01.12
-%Speech Synthesis
-%Moebius
-%+
-%
-%slides pdf
-%slides pptx
-%
-%Fri 13.01.12
-%Speech Synthesis
-%Moebius
-%+
-%
-%exercises
-%supplementary reading
-%Mon 16.01.12
-%Speech Synthesis
-%Lasarcyk
-%
-%+
-%
-%
-%Wed 18.01.12
-%Automatic speech recognition
-%Moebius
-%+
-%
-%slides pdf
-%slides pptx
-%
-%Fri 20.01.12
-%Corpora for speech technology
-%Lasarcyk
-%
-%+
-%
-%
-%Mon 23.01.12
-%Semantics
-%Pinkal
-%+
-%
-%slides
-%
-%Wed 25.01.12
-%Semantics
-%Pinkal
-%+
-%
-%
-%Fri 27.01.12
-%Semantics
-%Pinkal
-%
-%+
-%exercises
-%solutions
-%
-%Mon 30.01.12
-%Semantics
-%Pinkal
-%+
-%
-%slides
-%
-%Wed 01.02.12
-%Semantics
-%Pinkal
-%+
-%
-%slides
-%
-%Fri 03.02.12
-%Semantics
-%Pinkal
-%
-%+
-%exercises
-%
-%Mon 06.02.12
-%Discourse & Dialogue
-%Sporleder
-%+
-%
-%slides
-%
-%Wed 08.02.12
-%Discourse & Dialogue
+\section{Speech Synthesis (Moebius, Lasarcyk) 11.01-16.01}
 
+\section{Automatic Speech Recognition (Moebius) 18.01}
 
+\section{Corpora for speech technology (Lasarcyk) 20.01}
 
+\section{Semantics (Pinkal) 23.01-3.02}
+
+\section{Discourse \& Dialogue (Sporleder) 06.02-08.02}
 
 
 \end{document}
