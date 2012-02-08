@@ -6,7 +6,14 @@
 \clubpenalty=300 \widowpenalty=300
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 %\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
-\doublespacing
+
+\newenvironment{pit}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
 
 \title{FSLT Examination Preparation}
 \author{Richard Littauer}		% Add your name here
@@ -18,10 +25,11 @@
 %The point is to have a latex analysis of the slides or relevant facts to know for each section, and subsequently, each slide. We can work on this collaboratively - remember to push and pull the sections you're working on, and try to make sure that you aren't clashing with other's doing the same work. 
 
 \section{Map of the Field (Uzkoreit) 24.10-26.10}
+% Richard is currently working on this section. 
 
 \section{Linguistics Foundation (Delogu) 28.10-09.11}
 %lamar is working on this section
-\begin{itemize}{\labelitemi}{$\bullet$}
+\begin{itemize}
  \item Linguistic competence -The implicit knowledge a language user has of his language, which enables him to produce and understand any possible sentence of that language
  \item Linguistic performance - The actual use of language in real situations, which is conditioned by physiological and psychological constraints (memory limitations, shifts of attention, etc.)
 \end{itemize}
@@ -29,7 +37,7 @@
 \begin{enumerate}
  \item
 \end{enumerate}
-\section{ Cognitive Foundations (Crocker) 14.11-18.11}
+\section{Cognitive Foundations (Crocker) 14.11-18.11}
 
 \section{Technological Foundations (Busemann) 21.11-25.11}
 

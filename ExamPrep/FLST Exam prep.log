@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  8 FEB 2012 13:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.12.15)  8 FEB 2012 13:56
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -554,28 +554,28 @@ Package: ulem 2000/05/26
 (./FLST Exam prep.aux)
 \openout1 = `"FLST Exam prep.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 15.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 22.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 22.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 15.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 22.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -634,7 +634,7 @@ driver: pdftex
 \MPnumerator=\count130
 \everyMPtoPDFconversion=\toks35
 )
-Package hyperref Info: Link coloring OFF on input line 15.
+Package hyperref Info: Link coloring OFF on input line 22.
  (/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2009/12/08 v2.34 Cross-referencing by name of section
 
@@ -647,57 +647,58 @@ HO)
 )
 \c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \ref on input line 22.
+LaTeX Info: Redefining \pageref on input line 22.
 
 (./FLST Exam prep.out) (./FLST Exam prep.out)
 \@outlinefile=\write3
 \openout3 = `"FLST Exam prep.out"'.
 
 \AtBeginShipoutBox=\box83
-LaTeX Font Info:    Try loading font information for U+msa on input line 17.
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 17.
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 33.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsppl.fd
+File: omsppl.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
  [1
 
 {/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 47.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
 
 (./FLST Exam prep.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 47.
-
-
-Package rerunfilecheck Warning: File `"FLST Exam prep".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"FLST Exam prep".out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  0AF248CD2A852463EB0A3D80FF29AA2D;1091.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
+Package rerunfilecheck Info: File `"FLST Exam prep".out' has not changed.
+(rerunfilecheck)             Checksum: 0D68069B42670A934A8E4A24F38844B7;1090.
  ) 
 Here is how much of TeX's memory you used:
- 7561 strings out of 493848
- 106402 string characters out of 3149206
- 178405 words of memory out of 3000000
- 10649 multiletter control sequences out of 15000+200000
- 14725 words of font info for 47 fonts, out of 3000000 for 9000
+ 7596 strings out of 493848
+ 106889 string characters out of 3149206
+ 180461 words of memory out of 3000000
+ 10680 multiletter control sequences out of 15000+200000
+ 14982 words of font info for 48 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  41i,6n,28p,326b,300s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2009/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
-2009/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on "FLST Exam prep.pdf" (1 page, 41250 bytes).
+exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2009/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2
+009/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on "FLST Exam prep.pdf" (1 page, 54387 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 105 words of extra memory for PDF output out of 10000 (max. 10000000)
 
