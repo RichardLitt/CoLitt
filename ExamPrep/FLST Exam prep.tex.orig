@@ -1,0 +1,116 @@
+%\requirepackage{lineno}
+\documentclass[11pt]{article}
+\usepackage[left=4cm,top=3cm,right=3cm,left=3cm,nofoot]{geometry}  \geometry{a4paper}                   
+\usepackage{tipa, apalike, graphicx, amssymb, delarray, epstopdf, amsmath, amsthm, setspace, supertabular, qtree, hyperref, footnote, palatino, url, multicol, hanging, fullpage, supertabular, ulem} %, lineno, gb4e} 
+%gb4e messes up math mode. 
+\clubpenalty=300 \widowpenalty=300
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
+
+\newenvironment{pit}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+\title{FSLT Examination Preparation}
+\author{Richard Littauer}		% Add your name here
+\date{\today}                          		% Activate to display a given date or no date
+\singlespace
+\begin{document}
+\maketitle
+
+%The point is to have a latex analysis of the slides or relevant facts to know for each section, and subsequently, each slide. We can work on this collaboratively - remember to push and pull the sections you're working on, and try to make sure that you aren't clashing with other's doing the same work. 
+
+\section{Map of the Field (Uzkoreit) 24.10-26.10}
+% Richard is currently working on this section. 
+
+\section{Linguistics Foundation (Delogu) 28.10-09.11}
+%lamar is working on this section
+<<<<<<< HEAD
+- The difference between linguistic competence and linguistic performance
+\begin{itemize}
+ \item \textbf{Linguistic competence} -The implicit knowledge a language user has of his language, which enables him to produce and understand any possible sentence of that language
+ \item \textbf{Linguistic performance} - The actual use of language in real situations, which is conditioned by physiological and psychological constraints (memory limitations, shifts of attention, etc.)
+=======
+\begin{itemize}
+ \item Linguistic competence -The implicit knowledge a language user has of his language, which enables him to produce and understand any possible sentence of that language
+ \item Linguistic performance - The actual use of language in real situations, which is conditioned by physiological and psychological constraints (memory limitations, shifts of attention, etc.)
+>>>>>>> 52927e938ff14c00d07858893e21893e1c9e171a
+\end{itemize}
+- The difference between sentence gramaticality and acceptability
+\begin{itemize}
+ \item \textbf{Gramaticality} - A sentence is gramatical if it is formed according to the gramar of the language
+\item \textbf{Acceptability} - A sentence is acceptable if it 'sounds good' to a native speaker
+\end{itemize}
+note: a sentence can be gramatical but unnacceptale (e.g. hard to process)
+\\\\
+- Four definititions of \textbf{grammar}
+\begin{itemize}
+ \item The linguistic rules of a language that every native speaker intuitevly knows - Linguistic competence
+\item A model of the linguistic rules that every speaker of a language intuitively knows - A theory of linguistic competence 
+\item The rules and principles that describe the linguistic behavior of native speakers - Descriptive grammar
+\item - The rules and principles that prescribe the linguistic behavior of native speakers, according to some authority - Prescreptive grammar
+\end{itemize}
+- Linguistic structuralism and the \textbf{inductive method} 
+\begin{itemize}
+ \item Structural linguistics thus involves collecting a corpus of utterances and then attempting to classify all of the elements of the corpus at their different linguistic levels
+\item linguistic constituents were identified by the set of all contexts in which they can occur
+\end{itemize}
+- Chomsky and the \textbf{Generative Program}
+\begin{itemize}
+\item A rejection of structuralism and a redefinition of the object of investigation
+\item Developed from two key observations:
+  \begin{enumerate}
+  \item Linguistic competence: people are able to understand and produce an infinite number of grammatical sentences
+    \begin{itemize}
+    \item The inductive method used by the Structuralists was inadequate (and unable to account for key linguistic phenomena like structural ambiguity)
+    \end{itemize}
+  \item Language acquisition: children are able to ‘learn’ their language perfectly, even though they are exposed to defective inputs
+    \begin{itemize}
+    \item The idea that language is learnt through stimulus-response processes, as argued by the Behaviorists (e.g., Skinner 1957) was no longer tenable
+    \end{itemize}
+  \end{enumerate}
+\item The task of a linguist is comparable to a child’s acquisition of linguistic competence.
+  \begin{itemize}
+  \item Since children do not acquire language inductively, the new methodology must be deductive
+  \end{itemize}
+\item The object of investigation is no longer the product language as represented by corpora but the linguistic competence of native speakers
+\item Linguistic competence is an internalized (mentally- represented) grammar capable of generating an infinite number of grammatical sentences and none of the ungrammatical ones
+\item The goal of linguistics is to provide an adequate grammar as a model of linguistic competence
+\end{itemize}
+
+
+<<<<<<< HEAD
+\section{ Cognitive Foundations (Crocker) 14.11-18.11}
+=======
+\begin{enumerate}
+ \item
+\end{enumerate}
+\section{Cognitive Foundations (Crocker) 14.11-18.11}
+>>>>>>> 52927e938ff14c00d07858893e21893e1c9e171a
+
+\section{Technological Foundations (Busemann) 21.11-25.11}
+
+\section{Finite State Methods for Lexicon \& Morphology (Kiefer) 28.11-02.12}
+
+\section{Parsing (Zhang) 05.12-09.12}
+
+\section{Statistical NLP (Language Models) (Klakow, Wiegand) 12.12-23.12}
+
+\section{Prosodic Models for Speech Technology (Moebius) 09.01}
+
+\section{Speech Synthesis (Moebius, Lasarcyk) 11.01-16.01}
+
+\section{Automatic Speech Recognition (Moebius) 18.01}
+
+\section{Corpora for speech technology (Lasarcyk) 20.01}
+
+\section{Semantics (Pinkal) 23.01-3.02}
+
+\section{Discourse \& Dialogue (Sporleder) 06.02-08.02}
+
+
+\end{document}
