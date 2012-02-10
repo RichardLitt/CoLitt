@@ -196,8 +196,32 @@ EXERCISE QUESTION:
 %
 %\section{Finite State Methods for Lexicon \& Morphology (Kiefer) 28.11-02.12}
 %
-%\section{Parsing (Zhang) 05.12-09.12}
-%
+\section{Parsing (Zhang) 05.12-09.12}
+
+- Bottom-up vs. Top-Down parsing
+\begin{itemize}
+ \item Bottom-up - Start from input sequence and apply grammar rules to build tree upwards
+ \item Top-down - Start from the start symbol and expand the tree with grammar rules
+\end{itemize}
+- CKY Algorithm
+\begin{itemize}
+ \item A bottom-up chart parsing algorithm using dynamic programming
+ \item Complexity $O(n^3)$ 
+ \item Grammar must be in CNF
+ \item Online javascript example: http://www.diotavelli.net/people/void/demos/cky.html
+\end{itemize}
+- Earley Algorithm
+\begin{itemize}
+ \item Top-Down chart parsing algorithm using dynamic programming
+ \item Complexity $O(n^3)$
+ \item Example (pdf, slides 18-36): http://www.coli.uni-saarland.de/~yzhang/rapt-ws1112/slides/schmidt.pdf
+\end{itemize}
+- Inside Outside Algorithm
+\begin{itemize}
+ \item 
+\end{itemize}
+
+
 %\section{Statistical NLP (Language Models) (Klakow, Wiegand) 12.12-23.12}
 %
 %\section{Prosodic Models for Speech Technology (Moebius) 09.01}
