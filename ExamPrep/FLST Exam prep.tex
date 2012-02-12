@@ -468,7 +468,96 @@ NOTE: I didn't have time to draw a bunch of FSA transition grpahs by hand, so if
 \end{itemize}
 
 \subsection{2nd Lecture}
-
+- A (small) Regular Expression cheat sheet
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+RE & Description\\\hline
+a* & 0 or more a's\\\hline
+a+ & 1 or more a's\\\hline
+a? & 0 or 1 a's\\\hline
+cat|dog & 'cat' or 'dog'\\\hline
+\^a & an 'a' at the start of a line\\\hline
+a\$ & an 'a' at the end of a line\\\hline
+[a-zA-Z] & 1 of any UC or LC letter\\\hline
+[0-9] & 1 of any digit\\\hline
+\textbackslash ba & an 'a' at the start of a word\\\hline
+a\textbackslash B & an 'a' followed by the rest of a word\\\hline
+\end{tabular}
+\end{center}
+- Formal languages
+\begin{itemize}
+ \item Some notation:
+  \begin{itemize}
+    \item Alphabet ${\bf\Sigma}$ : nonempty finite set of terminal symbols
+    \item Alphabet ${\bf N}$ : of non-terminal symbols
+    \item ${\bf\epsilon}$ : the empty string
+    \item ${\bf\Sigma^*}$ : the set of all strings over $\Sigma$ (including $\epsilon$
+    \item ${\bf L}$ a language st. $L \subseteq \Sigma^*$
+    \item $w$ a sentence
+  \end{itemize}
+ \item Chomskyan hierarchy (of language complexity)
+  \begin{itemize}
+   \item Type 3: Regular languages (NOTE: the focus of this lecture)
+    \begin{itemize}
+     \item Rule type: $A \rightarrow \alpha, A \rightarrow \alpha B; A,B \in N; \alpha \in \Sigma^*$
+     \item Rule system is {\bf right linear}, i.e. nonterminals always on the right end of the production
+     \item A linear (in the size of the string) number of steps can determine $w \in L$s
+     \item Can't handle $a^n b^n , n \in N$
+     \item equivalent to {\bf finite automata}
+    \end{itemize}
+   \item Type 2: Context free languages
+    \begin{itemize}
+     \item Rule type: $A \rightarrow \psi; \psi \in (\Sigma \cup N)^*$
+    \end{itemize}   
+   \item Type 1: Context sensitive languages
+    \begin{itemize}
+     \item Rule type: $\alpha A \beta \rightarrow \alpha \psi \beta; \alpha, \beta \in \Sigma^*$
+    \end{itemize}
+   \item Type 0: Unrestricted
+    \begin{itemize}
+     \item Rule type: $\alpha A \beta \rightarrow \psi$
+    \end{itemize}
+   \item NOTE: Type 3 $\subset$ Type 2 $\subset$ Type 1 $\subset$ Type 0
+  \end{itemize}
+\end{itemize}
+- Closure properties
+\begin{itemize}
+ \item Language $A$ is closed under operation $x$ iff applying $x$ to members of $A$ results in elements of the same type.
+ \item in plain language e.g.: `If for any two regular languages $A$ and $B$, I combine the two using some operation $x$ (e.g. concatenation) into a new language $C$, will $C$ also be a regular language. If so, then regular languages are closed under operation $x$ 
+ \item Regular languages are closed under:
+  \begin{itemize}
+   \item Concatenation, Union
+   \item Complementation (by switching all final and non-final states of an automaton)
+   \item Intersection: $L_1 \cap L_2 =  \neg(\neg L_1 \cup \neg L_2)$
+   \item NOTE: This allows us to modularize our FSA's for different purposes (e.g. we could have a FSA for recognizing prefixes and concatenate it with one for for recognizing root words [i.e. a {\bf Lexicon Automaton} and thus recognize a word like 'un + happy')
+  \end{itemize}
+\end{itemize}
+- Some NLP applications of FSA's
+\begin{itemize}
+ \item Spell-checking
+ \item POS tagging
+ \item Stemming;
+\end{itemize}
+- Finite State Transducers
+\begin{itemize}
+ \item Goal: represent a word as a correspondence between two morphological levels:
+  \begin{itemize}
+   \item Lexical level: Abstract morphemes and features (e.g. cat +N +PL)
+   \item Surface level: Actual spelling of the word (e.g. cats)
+  \end{itemize}
+ \item Accomplished by rewritting the input onto a second tape
+ \item e.g.: 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+× & c & a & t & +N & +PL & ×\\\hline
+× & c & a & t & s & × & ×\\\hline
+\end{tabular}
+\end{center}
+ \item Arcs are labeled with symbol pairs like $a:b, b:a, b:\epsilon, \epsilon:a,$ etc.
+ \item Accepts a {\bf pair} of strings (e.g. $aaab:aabb$, or in the above example, $cat+N+PL:cats$)
+ \item Defines a regular relation (e.g. $\{ a:b, aa:bb, aaa:bbb, ...\}$)
+\end{itemize}
+NOTE: Theres a fairly detailed group of slides at the end of the second slide set with example graphs  of using a transducer for doing derivational morphology like e-insertion
 
 
 
