@@ -422,8 +422,56 @@ EXERCISE QUESTION:
 
 %\section{Technological Foundations (Busemann) 21.11-25.11}
 %
-%\section{Finite State Methods for Lexicon \& Morphology (Kiefer) 28.11-02.12}
-%
+\section{Finite State Methods for Lexicon \& Morphology (Kiefer) 28.11-02.12}
+NOTE: I didn't have time to draw a bunch of FSA transition grpahs by hand, so if you're unfimilar with how creating or interpreting transition graphs, you'll have to take a look at the slides.
+
+\subsection{ 1st Lecture }
+
+- Finite Automata: Formal Definition
+\begin{itemize}
+ \item An FA is a tuple $A=<Q, \Sigma , \delta , q_0 , F>$ where:
+  \begin{itemize}
+   \item ${\bf Q}$ is a finite non empty {\bf set of states}
+   \item ${\bf \Sigma}$ is a finite {\bf alphabet of input letters}
+   \item ${\bf \delta}$ is a {\bf transition function} $Q \times \Sigma \rightarrow Q $
+   \item ${\bf q_0 \in Q}$ is the {\bf initial state}
+   \item ${\bf F \subseteq Q}$ is a set of {\bf final states}
+  \end{itemize}
+\end{itemize}
+- String Acceptance
+\begin{itemize}
+ \item An FA {\bf accepts} an input string $s$ if there is a sequence of states $p_1 , p_2 , \dotsi , p_{|s|} \in Q$ such that
+  \begin{enumerate}
+   \item $p_1 = q_0$, the start state
+   \item $\delta(p_i , s_i ) = p_{i+1}$, where $s_i$ is the $i$-th character is $s$
+   \item $p_{|s|} \in F$, i.e. is a final state
+  \end{enumerate}
+ \item The set of strings accebted by an automaton is the accepted {\bf language}
+\end{itemize}
+- Nondetermenistic Automata
+\begin{itemize}
+ \item $\delta$ is a {\bf transition relation} (i.e. not necessarily a {\bf total function})
+ \item $\delta : Q \times \Sigma \cup \{ \epsilon \} \rightarrow \mathcal{P}(Q)$, where $\mathcal{P}(Q)$ is the powerset of $Q$
+ \item allows transitions from one state into several possible states with the same inut symbol
+ \item can have transitions labeled $\epsilon$ which represent the empty string
+ \item for every NFA, an equivalent DFA can be constructed
+\end{itemize}
+- Converting NFA to DFA via the subset construction algorithm
+\begin{itemize}
+ \item Main Idea: Simulate `in parallel' all possible moves the automaton can make
+ \item Uses 2 operations on states/state-sets of the NFA
+ \begin{enumerate}
+  \item $\epsilon$-$closure(T)$ : Set of states reachable from any $s$ in $T$ on $\epsilon$-transitions
+  \item $move(T, a)$ : Set of states to which there is a transition from state in $T$ on an input symbol $a$
+ \end{enumerate}
+ \item NOTE: I don't like reading algorithms, and there is a nice example in the slides, that makes it clear without having to read through the pseudocode. I would recommend reading the example. finiteautomat1.pdf slides 16 - 24
+\end{itemize}
+
+\subsection{2nd Lecture}
+
+
+
+
 \section{Parsing (Zhang) 05.12-09.12}
 
 - Bottom-up vs. Top-Down parsing
