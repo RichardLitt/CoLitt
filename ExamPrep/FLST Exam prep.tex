@@ -419,11 +419,17 @@ NOTE: I didn't have time to draw a bunch of FSA transition grpahs by hand, so if
 \end{itemize}
 - Converting NFA to DFA via the subset construction algorithm
 \begin{itemize}
+ \item Main Idea: Simulate `in parallel' all possible moves the automaton can make
+ \item Uses 2 operations on states/state-sets of the NFA
+ \begin{enumerate}
+  \item $\epsilon$-$closure(T)$ : Set of states reachable from any $s$ in $T$ on $\epsilon$-transitions
+  \item $move(T, a)$ : Set of states to which there is a transition from state in $T$ on an input symbol $a$
+ \end{enumerate}
  \item NOTE: I don't like reading algorithms, and there is a nice example in the slides, that makes it clear without having to read through the pseudocode. I would recommend reading the example. finiteautomat1.pdf slides 16 - 24
 \end{itemize}
 
 \subsection{2nd Lecture}
-s
+
 
 
 
