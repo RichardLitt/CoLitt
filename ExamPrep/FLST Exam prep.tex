@@ -6,7 +6,7 @@
 \clubpenalty=300 \widowpenalty=300
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 %\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
-
+\usepackage{ stmaryrd }
 \newenvironment{itemise}{
 \begin{itemize}
   \setlength{\itemsep}{1pt}
@@ -597,8 +597,69 @@ NOTE: Theres a fairly detailed group of slides at the end of the second slide se
 %
 %\section{Corpora for speech technology (Lasarcyk) 20.01}
 %
-%\section{Semantics (Pinkal) 23.01-3.02}
-%
+\section{Semantics (Pinkal) 23.01-3.02}
+
+- Main tasks of semantic processing
+\begin{itemize}
+ \item How to represent word meanings, sentence meanings, compute sentence meanings from word meanings? $\rightarrow$ {\bf Semantic Construction}
+ \item How to compute utterance meaning from ing. content and context information? $\rightarrow$ {\bf Disamibiguation or Ambiguity Resolution}
+ \item How to obtain relevant utterance info from the intended utterance meaning? $\rightarrow$ {\bf Inference}
+\end{itemize}
+
+\subsection{The Predicate Logic}
+- PL vocabulary
+\begin{itemize}
+ \item Logical symbols:
+\begin{itemize}
+ \item Connectives: $\neg, \vee, \wedge, \rightarrow, \leftrightarrow$
+ \item Quantifiers: $\forall, \exists$
+ \item Equality: $=$
+\end{itemize}
+ \item Infinite set of {\bf individual variable}: $VAR = \{x, y, z, ...\}$
+ \item Arbitrary set of {\bf individual constants}: $CON = \{a, b, c,...\}$
+ \item For every $n \geq 0$, an arbitrary, possibly empty set of n-ary {\bf predicate symbols}: $PRED^n = \{P, Q, ...\}$ 
+ \item ${\bf TERM} = CON \cup VAR$
+\end{itemize}
+- Well-formed Formulae
+\begin{enumerate}
+ \item if $R$ is an n-ary predicate symbol, and $t_1 , ..., t_n$ are terms, then $R(t_1 , ..., t_n )$ is a wff
+ \item if $t_1 , t_2$ are terms then $t_1 = t_2$ is a wff
+ \item if $\phi, \psi$ are wff then $\neg\phi, (\phi\wedge\psi), (\phi\vee\psi), (\phi\rightarrow\psi), (\phi\leftrightarrow\psi)$ are wff
+ \item if $\phi$ is a wff and $x$ an individual variable, then $\forall x\phi$ and $\exists x\phi$ are wff
+\end{enumerate}
+- Examples of atomic formulae
+\begin{center}
+\begin{tabular}{ll}
+Bill works & work(bill)\\
+Mary likes John & like(john, mary)\\
+John introduces Bill to Mary & introduce(john, bill, mary)\\
+Angela Merkel is the chancellor & angela\_merkel = the\_chancellor
+\end{tabular}
+\end{center}
+- Models 
+NOTE: This next part is is about as clear an explanation of models as I have ever seen, so I will just quote the whole slide directly 
+\begin{itemize}
+ \item FOL expressions are {\bf interpreted} wrt certain situations and states of the world
+ \item These are schematically represented by relational structures which we call {\bf model structures} (more preciself: Model structures represent those properties of situations or states of the world, which are relevant to the terms and relation symbols occuring in an FOL fragment)
+ \item Different types of FOL expressions (terms, relation symbols, formulae) are assigned appropriate constructs from the model structure, their {\bf denotations} by an {\bf interpretation function}
+ \item In particular, formulae denote {\bf truth values}
+ \item The {\bf truth conditions} of a formula are considered its meaning.
+ \item A model structure is a pair $M = (U_M , V_M)$ where:
+\begin{itemize}
+ \item $U_M$ is the {\bf model universe}, a non empty set
+ \item $V_M$ is a {\bf value assignment function} for basic expressions, which assigns...
+\begin{itemize}
+ \item $V_M (P) \subseteq U{_M}^n$, if $P$ is an n-ary predicate symbol
+ \item $V_M (c) \in U_M$ if $c$ is a constant
+\end{itemize} 
+\end{itemize}
+\end{itemize}
+-Interpretation functions
+\begin{itemize}
+ \item An interpretation function $\llbracket\rrbracket ^{M,g}$
+\end{itemize}
+
+
 %\section{Discourse \& Dialogue (Sporleder) 06.02-08.02}
 
 
