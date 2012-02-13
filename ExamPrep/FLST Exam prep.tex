@@ -442,8 +442,10 @@ EXERCISE QUESTION:
  \item Two strategies: minimal attachment, or late closure.
  \item Garden Path Theory (Frazier):
  \begin{itemise}
-\item What architecture is assumed? -  Modular syntactic processor, with restricted lexical (category)and semantic knowledge 
-\item What mechanisms is used to construct interpretations? - Incremental, serial parsing, with reanalysis\item What information is used to determine preferred structure? - General syntactic principles based on the current phrase structure
+\item What architecture is assumed? -  Modular syntactic processor, with restricted lexical (category)
+and semantic knowledge 
+\item What mechanisms is used to construct interpretations? - Incremental, serial parsing, with reanalysis
+\item What information is used to determine preferred structure? - General syntactic principles based on the current phrase structure
 \item Linking Hypothesis:  - Parse complexity and reanalysis cause increased RTs
  \end{itemise}
  \item Arguments against it: immediate effects (animacy, frequency, plausability, context), appropriate computational frameworks, integrative theories (HPSG) with multiple representaitons in a unified formalism.
@@ -639,8 +641,20 @@ NOTE: Theres a fairly detailed group of slides at the end of the second slide se
 
 
 
-%\section{Statistical NLP (Language Models) (Klakow, Wiegand) 12.12-23.12}
-%
+\section{Statistical NLP (Language Models) (Klakow, Wiegand) 12.12-23.12}
+\subsection{Statistical Language Models}
+\begin{itemise}
+\item Speech Recognition: Speech signal $\rightarrow$ Feature extraction $\rightarrow$ Search: $W = argmax_w[P(a|w)P(w)]$ $\rightarrow$ Recognised word sequence W
+\item $P(a|w)$ = acoustic model
+\item $P(w)$ = language model
+\item Information retrieval: Ponte, Croft, 1998: Query modelled by $P(Q|Data_i)$ (Simply - query given the data, the best fit wins.)
+\item Perplexity and Error rate are correlated. 
+\item Definition of Perplexity given, no information: \begin{equation} PP = P(w_1...w_N)^{-1/N}\end{equation}
+\begin{equation} = exp(-\frac{1}{N}\sum_{w,h}N(w,h)log(P(w|h)))\end{equation}
+Where $P(w|h)$ = language model, $N(w,h)$ = frequency of sequence in corpus, $N$  = size of corpus.
+\end{itemise}
+
+
 %\section{Prosodic Models for Speech Technology (Moebius) 09.01}
 %
 %\section{Speech Synthesis (Moebius, Lasarcyk) 11.01-16.01}
