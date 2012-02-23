@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Map of the Field (Uzkoreit) 24.10-26.10}{2}{section.1}
+\contentsline {section}{\numberline {2}Linguistics Foundation (Delogu) 28.10-09.11}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Linguistic Foundations I}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Linguistic Foundations II - Learn you a morphology}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Linguistics Foundations III - Syntax}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Linguistic Foundations IV - Semantics}{7}{subsection.2.4}
+\contentsline {section}{\numberline {3} Cognitive Foundations (Crocker) 14.11-18.11}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Cognitive Foundations I}{10}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Cognitive Foundations II}{11}{subsection.3.2}
+\contentsline {section}{\numberline {4}Technological Foundations}{13}{section.4}
+\contentsline {section}{\numberline {5}Finite State Methods for Lexicon \& Morphology (Kiefer) 28.11-02.12}{16}{section.5}
+\contentsline {subsection}{\numberline {5.1} 1st Lecture }{16}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}2nd Lecture}{16}{subsection.5.2}
+\contentsline {section}{\numberline {6}Parsing (Zhang) 05.12-09.12}{19}{section.6}
+\contentsline {subsection}{\numberline {6.1} CKY Algorithm }{19}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2} Earley Algorithm }{19}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3} Inside Outside Algorithm }{19}{subsection.6.3}
+\contentsline {section}{\numberline {7}Statistical NLP (Language Models) (Klakow, Wiegand) 12.12-23.12}{20}{section.7}
+\contentsline {subsection}{\numberline {7.1}Statistical Language Models}{20}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Language Processing as Classification}{20}{subsection.7.2}
+\contentsline {section}{\numberline {8}Prosodic Models for Speech Technology (Moebius) 09.01}{21}{section.8}
+\contentsline {section}{\numberline {9}Speech Synthesis (Moebius, Lasarcyk) 11.01-16.01}{22}{section.9}
+\contentsline {section}{\numberline {10}Automatic Speech Recognition (Moebius) 18.01}{23}{section.10}
+\contentsline {section}{\numberline {11}Corpora for speech technology (Lasarcyk) 20.01}{24}{section.11}
+\contentsline {section}{\numberline {12}Semantics (Pinkal) 23.01-3.02}{25}{section.12}
+\contentsline {subsection}{\numberline {12.1}The Predicate Logic}{25}{subsection.12.1}
+\contentsline {section}{\numberline {13}Discourse \& Dialogue (Sporleder) 06.02-08.02}{27}{section.13}
