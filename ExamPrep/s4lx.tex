@@ -138,19 +138,47 @@ Used when the population can be isolated and divided into similar groups.
 \item Two-sample tt assumptions: sampling methods are the same, samples are independent, each population larger than sample, each sample is from a normal population.
 \item Two-sample Wilcoxon: nonparametric alternative for above.
 \item paired t-test: two measurements of the same experimental unit. Matched pairs Wilxocon non-para alt.
-\item 
 \end{itemise}
 \section*{Class 6}
 \begin{itemise}
-\item 
+\item Shapiro-Wilk W Test: H0 - sample from normal. If p value has sig w value, sample not from normal distribution, reject H0. Robust for small, middle-size samples. 
+\item regression models: prediction of one DV from one or more IVs.
+\item F distribution = continuous probability distribution (used in Anova)
+\item intercept: the value of y when x is 0. 
+\item Slope: the change un y for a one-unit change in X
+\item Regression coefficients: name for both intercept and slope (regression parameters)
+\item One way Anova: parametric, Numerical DV and a factor
+\item Linear regression: regression in which the relationship between variables is linear
+\item Assumptions: normality, homogeneity of variance, independence of observations.
+\item Adjusted R Squared = squared correlation coefficient proportion of variance = goodness of fit
+\item Kruskal-Wallis test: non-parametric alt for a one way anova. between-group sum of squares from the average ranking. 
+\item multiple regression = more than one predictor (IV)
+\item main effects +, interactions *
+\item Interaction between two factors: all possible combinations of levels of the two factors
+\item Between a factor and a continuous variable: describes linear effects of the continuous variable but with different slopes within each group defined by the factor
+\item Interaction between two cont var: new regression var that is the product of two
+\item Collinearity: when two or more IVs are highly correlated
+\item If both/all correlated IVs are used, coefficient estimates fluctuate erratically
+\item Overall result of IVs to DVs works, but not individual IVs; may overfit
 \end{itemise}
 \section*{Class 7}
 \begin{itemise}
-\item 
-\end{itemise}
-\section*{Class 8}
-\begin{itemise}
-\item 
+\item Bonferroni correction: alpha / $n$, where $n$ = number of comparisons: used for mult comparisons for variables in one dataset. 
+\item Tukey's HSD (Honest(ly) significant difference) test: assumption; all levels have an equal number of observations (aov, not lm).
+\item Chi$^2$ dist for categorical data
+\item Cumulative probability: asymmetric distribution with minimum of 0 and no max value
+\item the mean of a chi$^2$ distribution is equal to the number of degrees of freedom; variance = to times the number of $df$; as $df$ increases, the chi$^2$ curve approahces a normal dist.
+\item Chi$^2$ is non-parametric. If the value is equal or greater than the p value, the null is rejected.
+\item If less than 50, use Fisher's test, which is a hypergeometic dist to calc the prob of the obs outcome. 
+\item Logistic regression = class of generalized linear models (including liner models and logistic models); extension to least square regression models, but parameter estimation differs.
+\item least square = minimises the sum of the squared error
+\item log reg = MLE
+\item likelihood fx = the prob of the obs data, expressed as a fx of the para. 
+\item lrm() = log reg with binary DV
+\item glm() = same, but requires number of success/failures
+\item Correlation = relationship between two random variables in range 1/-1 (0 = no cor.)
+\item Correlation coefficient = a measure of the relationship
+\item Parametric = Pearson. Non-para = Spearman, kendall
 \end{itemise}
 
 
