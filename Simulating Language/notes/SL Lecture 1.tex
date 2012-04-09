@@ -1,0 +1,80 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{multicol, hanging}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Simulating Language Lecture I}
+\author{Simon Kirby \& Andrew Smith}
+\date{January 11$^{th}$, 200}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Simulatin' Language}
+\begin{itemize}
+\item simon@ling.ed.ac.uk, andrew@ling.ed.ac.uk
+\item 7 year old course: completely rewritten, hopefully this course will be the textbook for future courses
+\item For several decades, a lot of money has been put into building better interfaces to computers that use natural language.
+\item significant investment into: \begin{itemize}
+\item speech synthesis
+\item speech recognition
+\item dialogue generation
+\item natural language understanding
+\item etc.
+\end{itemize}
+\item this is not what the course is about: those are engineering questions
+\item computers as research tools: \begin{itemize}
+\item corpus linguistics (vast volume of data)
+\item spectrograms: phonetic details
+\item psycholinguistics - speech response
+\end{itemize}
+\item this course will be about computer modelling. Leads to a fundamental change in our perspectives towards language
+\item Key questions: \begin{itemize}
+\item why would we want to build models in linguistics
+\item why would computers help?
+\item what is a model, anyway? - very tricky question to answer \end{itemize}
+\item " :  simplified, constructed, reduced
+\item model is used for: descriptive, control, predicting, safety testing, etc.
+\item Simon Kirby: What is a model: \begin{itemize}
+\item model $\rightarrow$ prediction $\rightarrow$ observation $\rightarrow$ \underline{theory} $\rightarrow$ model
+\item We use models when we can't be sure what our theories predict
+\item especially useful when dealing with complex systems \end{itemize}
+\item Often happens that the model can make the output seem obvious, to the extent that the model can be seen as being superfluous. 
+\item How close to reality should a model be (note vowel trapezium, for instance). 
+\item {\it build your model to have as little extra in it that isn't part of your theory}
+\item Why use computers for modelling: \begin{itemize}
+\item your thoery is too difficult to understand simply through verbal argument, or introspection?
+\item or a physical moden cannot be sonstrcuted simple
+\item mathematical model is too difficult (or impossible) to construct \end{itemize}
+\item particularly difficult problems involve dynamic iterations. For example: child's knowledge, people groups over millenia, organisms evolving...
+\item In a way this course is an attempt to summarise the last fifteen years of research in this area.
+\item Practical course: \begin{itemize}
+\item We will be spending a lot of our time in the lab, working with simulations
+\item You do not need to know how to program, but you do need not to be scared of computers
+\item will be working with {\bf Python}
+\item Lecturers will supply the code for the practicals. You will need to modify it to carry out the tasks on the worksheets, and you'll need to work wit Excel or similar programs to plot your results.
+\item will not learn to program, but will learn to hack around inside code ourselves. \end{itemize}
+\item most weeks: two lectures, one lab session
+\item Rough order of topics: 
+\begin{multicols}{2}{\begin{hangparas}{.5cm}{1}\noindent
+\par innate vocabularies
+\par modelling populations
+\par evolution
+\par learning
+\par cultural transmission
+\par cross-situational learning
+\par meaning creation
+\par innateness and generalisation
+\par co-evolution of genes and culture
+\par connectionism
+\par robotics
+\end{hangparas} }\end{multicols}
+
+\end{itemize}
+
+\end{document}  

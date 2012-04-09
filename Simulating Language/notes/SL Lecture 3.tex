@@ -1,0 +1,100 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{multicol, hanging}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{supertabular}
+\usepackage{hanging}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Simulating Language Lecture 5}
+\author{Simon Kirby \& Andrew Smith}
+\date{January 20$^{th}$, 2000}               
+
+\begin{document}
+\maketitle
+\section{Lecture III: Python}
+\begin{itemize}
+\item Computational models allow us to bridge between theory and prediction for understanding complex dynamic systems with many interacting components
+\item first example: communication in animals wit innate signalling systems
+\item tread signalling system as a mapping between a fixed set of meanings and a fixed set of signals %controversial
+\item modelled as an innately- determined matrix of weighted associations
+\item different matricies give different production and reception behaviours. 
+\item communicative accuracy for a pair of speaker and hearer can be defined as the proportion of utterances where hearer converges on same meaning as speaker. %succesful means the at the same meaning is arrived at. 
+%On monday we looked at populations of agents, and how good they are. Tslolam. 
+\end{itemize}
+Diggression to Worksheet 1 and worksheet solutions
+Where do these signalling matrices come from?
+\begin{itemize}
+\item Innately specified for vervets, therefore result of genes
+\item How would an organism end up with a set of genes that gives them a good communicative accuracy score?\\
+	- must have been natural selection and all that
+\item {\bf Theory:} natural selection will give us organisms with genes that specify signalling systems which have high communicative accuracy
+\item How can we sure that this is right? Modelling. 
+\end{itemize}
+Modelling Evolution
+\begin{itemize}
+\item Many ways of doing this in computational simulation. One approach: {\it genetic algorithms} (see reading for this week - Mitchell, 1998)
+\item Key ingredients: genotype (genes) and phenotype (organism)
+\item Also need these key ingredients:
+\begin{itemize}
+\item a population of organisms
+\item a task they are trying to succeed at
+\item  a measure of how fir theey are it this task
+\item a way of selecting the fittest
+\item  a way of allowing the genes to survive
+\item and something else
+\end{itemize}
+\end{itemize}
+\newpage
+Our Model:
+\begin{itemize}
+\item simplify things a bit: trat genes and phenotype as equivalent and get rid of dimorphism %would be interesting to track what would happen if you went back in
+\item The simulation:
+\begin{itemize}
+\item create a population of random signal matrices [what makes a random signal matrix?]
+\item assess each member of population for fitness [how do we measure fitness?]
+\item pick a parent based on fitness [How do we pick a parent?]
+\item copy parent, with a chance of mutation, to create new offspring [how does mutation work?]
+\item do 3 \& 4 enough times to come up with a new population that's the same size as the old one
+\item replace old pop. with a new one [How is this done? 
+\item repeat steps 2 to 6 many times
+\end{itemize}
+\end{itemize}
+Main Research Question: \begin{itemize}
+\item Under what conditions will we see the emergence of "optimal" communication systems? (ie. when will we see a stable population of agents in which any pair of agents would have a communicative accuracy of 1.0)
+\item Main parameter: how do we assess fitness?
+\item {\bf What is the {\it fitness function?}}
+\item Key considertions: 
+\begin{itemize} \item How do we pick communicative partners
+\item who gets rewarded for successful communication?
+\end{itemize}
+\end{itemize}
+
+Readings:
+\begin{itemize}
+\item Oliphant, M. (1996) THe dilemma of Saussurean Communication. {\it Biosystems}, 37:31-38.
+\item Mitchell, M. (1998) An introduction to genetic algorithms. pp. 1-16
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}  

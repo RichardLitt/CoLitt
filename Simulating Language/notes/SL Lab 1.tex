@@ -1,0 +1,265 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{multicol, hanging}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{supertabular}
+\usepackage{hanging}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Simulating Language Lecture III-IV}
+\author{Simon Kirby \& Andrew Smith}
+\date{January 15$^{th}$, 200}               
+
+\begin{document}
+\maketitle
+\section{Lecture III: Python}
+To open Python Idle: type this: 
+user:~ richardlittauer\$ python -m idlelib.idle
+    
+IDLE 2.6.1      
+>>> 1 + 3
+4
+>>> 2 * 3 - 5
+1
+>>> 2 * ( 3 - 5 )
+-4
+>>> 
+%in paras, the minus is done first, while mult is normally done first. PEMDAS.  
+>>> 7 / 3
+2
+>>> 9.0 / 2.0
+4.5
+>>> 
+%rounds. Use decimal to get more accurate. 
+>>> 7.0 / 3.0
+2.3333333333333335
+%Will round up eventually. 
+>>> toruk = 0
+%set it as a variable. 
+%Capital and small letters are different in Python.
+>>> toruk = 0
+>>> toruk = toruk + 1
+%adding from variable
+>>> eveng =
+%SyntaxError: invalid syntax
+>>> toruk
+1
+>>> list = [1, 2, 3, 4, 5]
+>>> list[0]
+%NOTE. SHOULD BE SQUARE BRACKETS. RUN OVER CODE AGAIN.
+
+Traceback (most recent call last):
+  File "<pyshell#11>", line 1, in <module>
+    list(0)
+TypeError: 'tuple' object is not callable
+>>> list[0]
+1
+>>> list[2]
+3
+>>> list[1] = 6
+
+Traceback (most recent call last):
+  File "<pyshell#14>", line 1, in <module>
+    list[1] = 6
+TypeError: 'tuple' object does not support item assignment
+>>> len(list)
+5
+
+>>> list
+(1, 2, 3, 4, 5)
+>>> lista = (1, 3, 4, 5)
+>>> listb = (1,4,5,6,7,)
+>>> listc = (lista, listb)
+>>> listc
+((1, 3, 4, 5), (1, 4, 5, 6, 7))
+>>> list[1]
+2
+>>> listc[2]
+
+Traceback (most recent call last):
+  File "<pyshell#23>", line 1, in <module>
+    listc[2]
+IndexError: tuple index out of range
+%Lists start at zero
+>>> listc[1]
+(1, 4, 5, 6, 7)
+>>> 
+
+%You don't really understand list.append, I think.
+<<<list.append(7)
+<<<list
+[1, 6, 3, 4, 5, 7, 3]
+<<<list.remove(6)
+<<<list
+[1, 4, 5, 7, 3]
+<<<x = 0
+<<< if x = 0:
+	y = 1
+<<<y
+1
+>>> if x == 0:
+	ikran = 5
+
+	
+>>> ikran
+5
+>>> 
+%loop:
+>>> for n in [1,2,5,7]:
+	print n
+
+	
+1
+2
+5
+7
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> for n in range(10):
+	print n, n * n
+
+	
+0 0
+1 1
+2 4
+3 9
+4 16
+5 25
+6 36
+7 49
+8 64
+9 81
+>>> 
+
+>>> random.randrange(10)
+3
+>>> random.randrange(10)
+8
+>>> random.random()
+0.11754095420551958
+>>> 
+>>> len(list)
+4
+>>> def square(x):
+	return x * x
+
+>>> square(4)
+16
+>>> 
+
+¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤ January 18th, Lecture IV ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+signalling1.py: 
+""" %triple quotes make comments. Hence. 
+Simple innate signalling simulation
+
+ca_monte returns communicative accuracy between two signal systems using
+monte carlo simulation. Systems are expressed as a list of lists of
+association weights. Matrix rows are meanings, columns are signals. Production
+and reception are winner-take-all. %ca_monte = communicated accuracy multicolour simulation. Takes two signalling systems, and gets one of them to communicate with the other. 
+
+%Matrices are represented by nested lists. [[1,0,0][0,1,0][0,0,1]] etc. 
+
+Usage example:
+
+system = [[1, 0, 0], [0, 1, 0], [0, 1, 1]]
+ca_monte(system, system, 10000)
+
+Returns expected communicative success of a homogenous population with
+three meanings and three signals, but with some homonymy and synonymy.
+"""
+
+import random
+
+def m_weights(system, signal):
+    weights = []
+    for m in system:
+        weights.append(m[signal])
+    return weights
+
+def s_weights(system, meaning):
+    return system[meaning]
+
+def wta(items):
+    maxweight = max(items)
+    candidates = []
+    for i in range(len(items)):
+        if items[i] == maxweight:
+            candidates.append(i)
+    return random.choice(candidates)
+
+def communicate(system1, system2, meaning):
+    signal = wta(s_weights(system1, meaning))
+    if wta(m_weights(system2, signal)) == meaning: 
+        return 1
+    else: 
+        return 0
+
+def ca_monte(system1, system2, trials):
+    total = 0.
+    for n in range(trials):
+        total += communicate(system1, system2, random.randrange(len(system1)))
+    return total / trials
+
+±±±±±±±±
+
+s = [[1,0,0],[0,1,0][0,0,1]]
+ca_monte(s,s,1000)
+
+>>> ================================ RESTART =======================%somtimes this is good, it seems=========
+>>> 
+>>> s = [[1, 0, 0],[0,1,0],[0,0,1]]
+>>> ca_monte(s,s,1000)
+1.0
+>>> ca_monte(s,s,1000)
+1.0
+>>> ca_monte(s,s2,1000)
+1.0
+>>> ca_monte(s2,s,1000)
+1.0
+>>> s2 = [[0,1,0],[0,1,0],[0,0,1]]
+>>> ca_monte(s,s2,1000)
+0.614
+>>> ca_monte(s,s,100000)
+1.0
+>>> ca_monte(s,s2,10000)
+0.6112
+>>> ca_monte(s,s2,100000)
+0.60912
+>>> ca_monte(s,s2,100000)
+0.61056
+>>> ca_monte(s2,s,1000)
+0.635
+>>> s3 = [[2.,2.,0],[1,0,1],[0,0,1]]
+>>> ca_monte(s,s3,1000)
+0.492
+>>> ca_monte(s3,s,1000)
+0.49
+>>> ca_monte(s3,s2,1000)
+0.53
+>>> 
+
+% Ctrl + P = previous line!
+
+>>> s3 = [[2.,2.,0],[1,0,1],[0,0,1]]
+>>> s = [[1, 0, 0],[0,1,0],[0,0,1]]
+>>> s2 = [[0,1,0],[0,1,0],[0,0,1]]
+>>> ca_monte(s3,s3,1000)
+0.596
+>>> ca_monte(s,s2,1000)
+0.63
+>>> ca_monte(s2,s2,1000)
+0.645
+>>> ca_monte(s,s,1000000)
+1.0
+>>> ca_monte(s,s,100000)
+
+%ca_monte will not work without nested lists: [000] doesn't work, wihile [[00][99]] works, as it's a matrics. 
+>>> lista=[1,0]>>> listb=[0,1]>>> ca_monte(lista,listb,100)Traceback (most recent call last):  File "<pyshell#2>", line 1, in <module>    ca_monte(lista,listb,100)  File "/Users/richardlittauer/Documents/University/Second Semester/Simulating Language/Code/signalling1.py", line 47, in ca_monte    total += communicate(system1, system2, random.randrange(len(system1)))  File "/Users/richardlittauer/Documents/University/Second Semester/Simulating Language/Code/signalling1.py", line 38, in communicate    signal = wta(s_weights(system1, meaning))  File "/Users/richardlittauer/Documents/University/Second Semester/Simulating Language/Code/signalling1.py", line 30, in wta    maxweight = max(items)TypeError: 'int' object is not iterable>>> listc=[lista,listb]>>> listd=[listb,lista]>>> ca_monte(listc,listd,100)0.0>>> 
+
+\end{document}  

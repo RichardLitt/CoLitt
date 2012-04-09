@@ -1,0 +1,67 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{multicol, hanging}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{supertabular}
+\usepackage{hanging}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Simulating Language Lecture II}
+\author{Simon Kirby \& Andrew Smith}
+\date{January 14$^{th}$, 200}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Lecture II: Modelling innate signalling systems}
+\begin{itemize}
+\item Starting with communication, not {it homo sapiens} language. 
+\item Bacteria: quorum sensing - chemical swarm behavioural change. Communication. 
+\item Interspecial communication: innate signalling.
+\item Simple model: mapping between {\it meaning} and {\it signals}
+\item \underline{Agent}: the computational equivalent of an individual being studied. 
+\item Mapping of signals: how does it evolve, what happens when two agents have similar maps
+\item \underline{Function}: x $\rightarrow$ y
+\item Another way of storing maps is to store the communication system within a matrix
+\begin{center}
+\begin{supertabular}{|c|c|c|c|} 
+\hline
+\multicolumn{4}{|c|}{Vervet Matrix} \\ \hline
+ 	& s1 & s2 & s3 \\ \hline
+m1 & 1 & 0 & 0 \\
+m2 & 0 & 1 & 0 \\
+m3 & 0 & 0 & 1 \\ 
+\hline 
+\end{supertabular} \end{center}
+\item could also have larger numbers, could be done differently. for instance, all 1 in the s1 column.
+\item either always pick the highest, or pick proportionately. designer needs to choose.
+\item biggest number always: winner-take-all scenario.
+\begin{center}
+\begin{supertabular}{|c|c|c|c|} 
+\hline
+\multicolumn{4}{|c|}{Vervet Matrix} \\ \hline
+ 	& s1 & s2 & s3 \\ \hline
+m1 & 1 & 2 & 0 \\
+m2 & 0 & 1 & 1 \\
+m3 & 0 & 3 & 4 \\ 
+\hline 
+\end{supertabular} \end{center}
+\item The above has a communicative accuracy level of .33 (run 10k times) (two agents, same matrix)
+\item in meaning one, always choose s2. for meaning 2, choose s2 or s3...and so on. 
+\item \underline{production}: look along rows and pick highest
+\item \underline{reception}: look along rows and pick highest
+\item mx $\rightarrow$ Sy $\rightarrow$ Mz : if this happens, it is a good system
+\item To find out, get two agents, same system, and run proportional stats on the amount of times meanings are the same. That's how you rate a system.
+\item \underline{Monte Carlo approach}: doing things repeatedly to find proportional rate of good. (not proper syntax). What you're looking for is measure of \underline{communicative accuracy}.
+
+
+%\begin{multicols}{2}{\begin{hangparas}{.5cm}{1}\noindent
+%\end{hangparas} }\end{multicols}
+
+\end{itemize}
+
+\end{document}  
