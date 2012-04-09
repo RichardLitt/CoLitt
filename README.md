@@ -1,4 +1,4 @@
-Co(mputational) Li(inguistics)tt(auer)
+Co(mputational) Li(nguistics)tt(auer)
 ======================================
 
 This is my computational linguistics repository. The code here was written either while attending the University of Edinburgh, or Saarland University.
