@@ -23,5 +23,9 @@
 \contentsline {section}{\numberline {10}Automatic Speech Recognition (Moebius) 18.01}{23}{section.10}
 \contentsline {section}{\numberline {11}Corpora for speech technology (Lasarcyk) 20.01}{24}{section.11}
 \contentsline {section}{\numberline {12}Semantics (Pinkal) 23.01-3.02}{25}{section.12}
-\contentsline {subsection}{\numberline {12.1}The Predicate Logic}{25}{subsection.12.1}
-\contentsline {section}{\numberline {13}Discourse \& Dialogue (Sporleder) 06.02-08.02}{27}{section.13}
+\contentsline {subsection}{\numberline {12.1} Semantics I }{25}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}The Predicate Logic}{25}{subsection.12.2}
+\contentsline {subsection}{\numberline {12.3} Semantics II }{26}{subsection.12.3}
+\contentsline {subsection}{\numberline {12.4} Semantics III }{26}{subsection.12.4}
+\contentsline {section}{\numberline {13}Discourse \& Dialogue (Sporleder) 06.02-08.02}{26}{section.13}
+\contentsline {section}{\numberline {14}Discourse \& Dialogue (Sporleder) 06.02-08.02}{27}{section.14}
