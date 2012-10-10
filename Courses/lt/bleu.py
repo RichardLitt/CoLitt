@@ -21,9 +21,10 @@ def count():
                 first_ref = 0
                 sec_ref = 0
                 for ref in refs:
-                    for match in range(len(ref)):
+                    for match in range(len(ref)-w):
                         # Let's hitch!
                         if output[ngram:ngram+w] == ref[match:match+w]:
+                            #print output[ngram:ngram+w], ref[match:match+w]
                             if refs.index(ref) == 0: first_ref += 1
                             if refs.index(ref) == 1: sec_ref += 1
                 if (first_ref > 0) or (sec_ref > 0): matches += 1
