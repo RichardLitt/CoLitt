@@ -1,0 +1,14 @@
+#November 16, 2012 - Computational Morphology class
+#Using XFST
+#To run: `xfst` in terminal
+#`system pwd` will show the path - adjust to the intended file that you're using
+#`source Code/xfst_test` is the current file.
+
+# I'm guessing this clears the previous file contents
+clear;
+define ADJ [b l a c k | g r  e e n | b l u e | h o t] %+ADJ:0;
+define COMP [ 0 | [%+COMP .x. e r] | [%+SUP .x. e s t]];
+define R1 e -> 0 || _ e [r | s t];
+regex [ADJ COMP] .o. R1;
+
+#To see some output: use `lower` or `upper`.

@@ -1,0 +1,98 @@
+
+> m1<-lm(wpmdata$wpm~wpmdata$num_drinks)
+> anova(m1)
+Analysis of Variance Table
+Response: wpmdata$wpm
+                    Df  Sum Sq Mean Sq F value    Pr(>F)    
+wpmdata$num_drinks   1 5750435 5750435   77568 < 2.2e-16 ***
+Residuals          398   29505      74                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+> summary(m1)
+Call:
+lm(formula = wpmdata$wpm ~ wpmdata$num_drinks)
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-21.1539  -5.8513  -0.4354   6.2479  20.3510 
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        159.07763    0.82969   191.7   <2e-16 ***
+wpmdata$num_drinks  20.79335    0.07466   278.5   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Residual standard error: 8.61 on 398 degrees of freedom
+Multiple R-squared: 0.9949,    Adjusted R-squared: 0.9949 
+F-statistic: 7.757e+04 on 1 and 398 DF,  p-value: < 2.2e-16 
+
+#--------------------------------------------------------------------
+
+> m1<-lm(weightRatings$Rating~weightRatings$Sex+weightRatings$Class)
+> anova(m1)
+Analysis of Variance Table
+
+Response: weightRatings$Rating
+                      Df Sum Sq Mean Sq  F value  Pr(>F)    
+weightRatings$Sex      1    8.6    8.64   4.3355 0.03748 *  
+weightRatings$Class    1 1419.7 1419.74 712.8230 < 2e-16 ***
+Residuals           1617 3220.6    1.99                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+> summary(m1)
+
+Call:
+lm(formula = weightRatings$Rating ~ weightRatings$Sex + weightRatings$Class)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.4348 -0.5449 -0.3856  0.5652  3.7246 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               3.43475    0.05188  66.202   <2e-16 ***
+weightRatings$SexM       -0.15932    0.07651  -2.082   0.0375 *  
+weightRatings$Classplant -1.88981    0.07078 -26.699   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 1.411 on 1617 degrees of freedom
+Multiple R-squared: 0.3072,	Adjusted R-squared: 0.3064 
+F-statistic: 358.6 on 2 and 1617 DF,  p-value: < 2.2e-16 
+
+> m1<-lm(weightRatings$Rating~weightRatings$Sex*weightRatings$Class)
+> anova(m1)
+Analysis of Variance Table
+
+Response: weightRatings$Rating
+                                        Df Sum Sq Mean Sq  F value  Pr(>F)    
+weightRatings$Sex                        1    8.6    8.64   4.3332 0.03753 *  
+weightRatings$Class                      1 1419.7 1419.74 712.4489 < 2e-16 ***
+weightRatings$Sex:weightRatings$Class    1    0.3    0.30   0.1515 0.69719    
+Residuals                             1616 3220.3    1.99                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+> summary(m1)
+
+Call:
+lm(formula = weightRatings$Rating ~ weightRatings$Sex * weightRatings$Class)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.4425 -0.5347 -0.4095  0.5575  3.7428 
+
+Coefficients:
+                                            Estimate Std. Error t value
+(Intercept)                                  3.44255    0.05563  61.886
+weightRatings$SexM                          -0.18530    0.10156  -1.825
+weightRatings$Classplant                    -1.90785    0.08462 -22.545
+weightRatings$SexM:weightRatings$Classplant  0.06013    0.15450   0.389
+                                            Pr(>|t|)    
+(Intercept)                                   <2e-16 ***
+weightRatings$SexM                            0.0683 .  
+weightRatings$Classplant                      <2e-16 ***
+weightRatings$SexM:weightRatings$Classplant   0.6972    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 1.412 on 1616 degrees of freedom
+Multiple R-squared: 0.3073,	Adjusted R-squared: 0.306 
+F-statistic:   239 on 3 and 1616 DF,  p-value: < 2.2e-16 

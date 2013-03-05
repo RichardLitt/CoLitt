@@ -1,0 +1,56 @@
+%\requirepackage{lineno}
+\documentclass[11pt]{article}
+\usepackage[left=4cm,top=3cm,right=3cm,left=3cm,nofoot]{geometry}  \geometry{a4paper}                   
+\usepackage{tipa, apalike, graphicx, amssymb, delarray, epstopdf, amsmath, amsthm, setspace, supertabular, qtree, hyperref, footnote, palatino, url, multicol, hanging, fullpage, supertabular, ulem} 
+%, lineno, gb4e} % gb4e messes up math mode. 
+\clubpenalty=300 \widowpenalty=300
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
+\newenvironment{itemise}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\title{Homework 6}
+\author{Richard Littauer \& Lamar Payson}
+\date{\today}                          		% Activate to display a given date or no date
+\singlespace
+\begin{document}
+\maketitle
+\begin{itemise}
+\item A simple one variable linear regression model. We would include our one independent variable, as it's all we've got. See {\it hw6\_addendum} for results. When you look at the anova value, it is clear here that the p value is highly significant. For the summary data, we can see a base intercept of 159wpm, which changes by around 20wpm per drink. The variables are clearly correlated here. 
+\item We used the dataset {\it weightRatings} from {\it languageR}. We used the IVs Sex and Class on the DV rating. 
+
+For the main effects model, we can see that sex is marginally significant, while class is highly significant as a modulator of rating. In the summary, we can see that `male' sex cases a decrease of .16, wile class `plant' causes a decrease of 1.89.
+
+For the interactions model, we see that the p value is statistically insignificant at .70. 
+
+See the addendum for the details. 
+\end{itemise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\bibliographystyle{apasoft}
+%\bibliography{/Users/richardlittauer/Desktop..}
+\end{document}

@@ -1,0 +1,62 @@
+%\requirepackage{lineno}
+\documentclass[11pt]{article}
+\usepackage[left=4cm,top=3cm,right=3cm,left=3cm,nofoot]{geometry}  \geometry{a4paper}                   
+\usepackage{tipa, apalike, graphicx, amssymb, delarray, epstopdf, amsmath, amsthm, setspace, supertabular, qtree, hyperref, footnote, palatino, url, multicol, hanging, fullpage, supertabular, ulem} %, lineno, gb4e} 
+%gb4e messes up math mode. 
+\clubpenalty=300 \widowpenalty=300
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
+\doublespacing
+
+\title{Homework 1}
+\author{Richard Littauer, Grady Lamar Payson, Stefan Fischer}
+\date{\today}                          		% Activate to display a given date or no date
+\singlespace
+\begin{document}
+\maketitle
+
+\section{Corpora}
+The Corpus we've chosen is the Wall Street Journal Corpus.
+\subsection{X}
+\begin{enumerate}
+\item Are passive constructions correlated with {\it longer} sentence length {\it in English, in newspapers}?
+\item Look for auxiliary verbs ({\it was, got}) for passive construction sampling (as this is not the only possible way to construct a passive in English) and sentence length.
+\item Measure the distribution of auxiliary verbs, and the sentence length differences between sentences with them, and without. 
+\item N/A.
+\item Just do the whole corpus - the corpus is small enough with modern computational power to run the entire thing. If it is too big, it has been pre-segmented into equal sizes, so quota sample from one of the segments. 
+\item {\it Was} can be a copula, which here would affect the overall count - in this case, it may have been smarter to look for the passive participle construction on the main verbs, or use a parser. Sentence length is also influenced by the register used in newspaper writers, which means this corpus may affect the outcome. Parsers have trouble with longer sentences, so if this had been used, it might have been deficient for this study. This is a non-trivial research question. 
+\end{enumerate}
+\subsection{Y}
+\begin{enumerate}
+\item Is there a significant difference with pronoun referral between male and female Named Entities?
+\item Pronoun instances, and $n=i$ cases of pronoun/named entity collocations, where i is the distance between the pronoun and the named entity. Also use the Stanford Parser dependency representation along with the distance metric for anaphoric resolution. 
+\item We would need to measure the optimal distance of $i$ (possibly compared to the parser) as a possibly proxy for anaphoric resolution on a surface level. That distance must be measured, in any event. We would need to measure the male or female occurrences of Named Entities in the text, against some NE dictionary to specify sex, and to make sure that we only select those NE that are persons (not, for instance, {\it Johns Hopkins University}. We also need to measure cases where the parser or distance proxy fails. 
+\item N/A
+\item Again, this corpus can probably be sampled in its entirety. 
+\item Parsers are not so great at anaphora resolution; distance may not be a suitable proxy. The dictionary may not have perfect female/male definitions, and in some cases, may fail due to lexical ambiguity (such as the American name {\it Kelly}, or German {\it Maria}).
+\end{enumerate}
+
+
+
+\section{Experimental Research}
+\subsection{X}
+\begin{enumerate}
+\item Is Red Bull (caffeinated, high-energy drinks) consumption correlated with a higher spoken word per minute count? {\it should be causal, actually.}
+\item N/A
+\item The base word per minute, and then incrementally the $\delta wpm$ per Red Bull of participants. 
+\item Hopefully, you would want to test both stereotypically slow- and fast-talkers, at various times of day. It would be best to test literature, as the best experimental strategy would be to have them read an interesting book (of any sort). Ideally, they should all be native speakers of the experimental language. Undergrads would be suitable for this experiment. 
+\item Cluster sampling, based on sex and their base $wpm$ (as a slow speaker would be more affected, possibly, than a fast one) would be best. 
+\item Time of day; personality; reading choice; amount of coffee drunk prior to experiment; amount of sleep the previous night; et cetera. 
+\end{enumerate}
+\subsection{Y}
+\begin{enumerate}
+\item Do tonal language speakers stay on pitch while singing more than non-tonal language speakers (given a pentatonic scale)?
+\item N/A
+\item Measure the standard harmonic pitch, the average base f0 levels for each lexical pitch in song by speaker, the deviation from this during song by a speaker, and the speaker's standard f0 levels for each of the lexical tones in their language when spoken. As there is no standard pitch, with f0 being a dynamic feature, the base tone for each targeted word should be measured in relation to the surrounding lexical, syntactic, and intonational environment.  
+\item A good distribution of male and female singers; gender; age; and professional versus amateur singers. For several languages, both tonal and non-tonal. 
+\item This should be stratified, as you're comparing different groups, where the measurements are different. 
+\item Genetic singing ability, feedback mechanism ability (for autocorrection of pitch derivation), environmental differences during recording, smoking and other voice-affecting possibilities, amount of music listened to over lifetime, etc. 
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,72 @@
+%\requirepackage{lineno}
+\documentclass[11pt]{article}
+\usepackage[left=4cm,top=3cm,right=3cm,left=3cm,nofoot]{geometry}  \geometry{a4paper}                   
+\usepackage{tipa, apalike, graphicx, amssymb, delarray, epstopdf, amsmath, amsthm, setspace, supertabular, qtree, hyperref, footnote, palatino, url, multicol, hanging, fullpage, supertabular, ulem} 
+%, lineno, gb4e} % gb4e messes up math mode. 
+\clubpenalty=300 \widowpenalty=300
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\usepackage[parfill]{parskip} 			%Activate for line, not indent, paragraphs.
+\newenvironment{itemise}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\title{Stats in Ling Homework}
+\author{Richard Littauer}
+\date{\today}                          		% Activate to display a given date or no date
+\singlespace
+\begin{document}
+\maketitle
+
+\begin{itemise}
+\item Given our current data, a tree ending in linear regression would be the best fit for a statistical test. As this is the case, it probably wouldn't be advantageous to run other tests on the whole data. For comparing the $wpm$ differences between two levels of drinking, a $t$-test should suffice. 
+\item See above.
+\item This data has been collated with the end goal of seeing what the average RT is for sentence completion in ditransitive cases using nonsense and sensical words. An example would be grammaticality judgements for the input: {\it I gave the girl} a ball / running. We want the mean of RT for grammatical and non-grammatical readings.
+\item Independent samples {\it t}-test:
+\begin{itemise}
+\item Calculate the sample mean: 670ms.
+\item Get the hypothesized true mean: 670ms {\it From slides.}
+\item Calculate the standard deviation of the sampling distribution using this formula: $\sqrt{\frac{(value -mean\ value)^2}{N-1}}$ \\
+ = 5.47726
+\item Calculate by subtracting the true mean from the sample mean, and dividing by the SD of the sampling distribution. {\it Due to the highly fabricated nature of the data, the true mean (670ms) minus the hypothesised mean (also 670ms) causes this to cancel out to zero. Which is highly significant, given the $t$-distribution table.}
+\item Compare this number to the t-distribution table. P = essentially 0. 
+\end{itemise}
+\item Wilcoxon test: {\it Refer to hw5\_data\_wilcox for the appropriate table.}
+\begin{itemise}
+\item Load in the dependant variable values
+\item Mu is the expected median
+\item Figure out the charge of x-mu
+\item The x-mu value 
+\item Take the absolute value of x-mu
+\item Figure out the rank
+\item Figure out the rank with the charge of x-mu.
+\end{itemise}
+See the hw5\_data.csv file for details. The final $w$ measure is 85.5, which is not statistically significant. 
+\item Done. See R code for appropriate way to calculate t and Wilcoxon tests.  
+\end{itemise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\bibliographystyle{apasoft}
+%\bibliography{/Users/richardlittauer/Desktop..}
+\end{document}
